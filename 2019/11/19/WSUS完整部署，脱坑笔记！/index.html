@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="update,wsus," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="思想就是武器" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="现在各种利用系统漏洞的黑客层出不穷，为了系统安全。都要为服务器打上最新的系统补丁，老板不出钱，不肯买专业软件。只能自己想办法了。下面是我折腾WSUS的完全笔记，网上找得到的那些根本不全，只有简单的搭建方法。还是自己动手丰衣丰食。把所有坑都填完了，做个总结。 WSUS服务端搭建这个就跳过了，太简单。在服务器里选择server 更新服务。一路下一步就好。 WSUS服务端配置第一次打开WSUS就出现配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[原创]WSUS完整部署，脱坑笔记！">
+<meta property="og:url" content="http://zealot.top/2019/11/19/WSUS%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%EF%BC%8C%E8%84%B1%E5%9D%91%E7%AC%94%E8%AE%B0%EF%BC%81/index.html">
+<meta property="og:site_name" content="思想就是武器">
+<meta property="og:description" content="现在各种利用系统漏洞的黑客层出不穷，为了系统安全。都要为服务器打上最新的系统补丁，老板不出钱，不肯买专业软件。只能自己想办法了。下面是我折腾WSUS的完全笔记，网上找得到的那些根本不全，只有简单的搭建方法。还是自己动手丰衣丰食。把所有坑都填完了，做个总结。 WSUS服务端搭建这个就跳过了，太简单。在服务器里选择server 更新服务。一路下一步就好。 WSUS服务端配置第一次打开WSUS就出现配置">
+<meta property="og:locale">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus6.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus7.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus8.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus9.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus11.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus12.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus13.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus14.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus15.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus16.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus17.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus18.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus19.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus20.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus21.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus22.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus23.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus2.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus1.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus3.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus4.jpg">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus_1.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus_2.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/wsus_3.png">
+<meta property="article:published_time" content="2019-11-19T13:33:41.000Z">
+<meta property="article:modified_time" content="2020-07-04T09:09:42.000Z">
+<meta property="article:author" content="Hank ZHU">
+<meta property="article:tag" content="update">
+<meta property="article:tag" content="wsus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://host.zealot.top:5680/images/wsus6.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"bounceRightIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"bounceLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zealot.top/2019/11/19/WSUS完整部署，脱坑笔记！/"/>
+
+
+
+
+
+  <title>[原创]WSUS完整部署，脱坑笔记！ | 思想就是武器</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?076026d6d2dac8ed1fb9ea3629feea59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">思想就是武器</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">在记录中不断成长</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zealot.top/2019/11/19/WSUS%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%EF%BC%8C%E8%84%B1%E5%9D%91%E7%AC%94%E8%AE%B0%EF%BC%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="思想就是武器">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[原创]WSUS完整部署，脱坑笔记！</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-19T21:33:41+08:00">
+                2019-11-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-07-04T17:09:42+08:00">
+                2020-07-04
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8E%9F%E5%88%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">原创</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/19/WSUS%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%EF%BC%8C%E8%84%B1%E5%9D%91%E7%AC%94%E8%AE%B0%EF%BC%81/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/19/WSUS%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%EF%BC%8C%E8%84%B1%E5%9D%91%E7%AC%94%E8%AE%B0%EF%BC%81/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/11/19/WSUS%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%EF%BC%8C%E8%84%B1%E5%9D%91%E7%AC%94%E8%AE%B0%EF%BC%81/" class="leancloud_visitors" data-flag-title="[原创]WSUS完整部署，脱坑笔记！">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>现在各种利用系统漏洞的黑客层出不穷，为了系统安全。都要为服务器打上最新的系统补丁，老板不出钱，不肯买专业软件。只能自己想办法了。下面是我折腾WSUS的完全笔记，网上找得到的那些根本不全，只有简单的搭建方法。还是自己动手丰衣丰食。把所有坑都填完了，做个总结。</p>
+<h4 id="WSUS服务端搭建"><a href="#WSUS服务端搭建" class="headerlink" title="WSUS服务端搭建"></a>WSUS服务端搭建</h4><p>这个就跳过了，太简单。在服务器里选择server 更新服务。一路下一步就好。<br><img src="http://host.zealot.top:5680/images/wsus6.jpg"><br><img src="http://host.zealot.top:5680/images/wsus7.jpg"><br><img src="http://host.zealot.top:5680/images/wsus8.jpg"><br><img src="http://host.zealot.top:5680/images/wsus9.jpg"></p>
+<h4 id="WSUS服务端配置"><a href="#WSUS服务端配置" class="headerlink" title="WSUS服务端配置"></a>WSUS服务端配置</h4><h5 id="第一次打开WSUS就出现配置向导，直接下一步。"><a href="#第一次打开WSUS就出现配置向导，直接下一步。" class="headerlink" title="第一次打开WSUS就出现配置向导，直接下一步。"></a>第一次打开WSUS就出现配置向导，直接下一步。</h5><p><img src="http://host.zealot.top:5680/images/wsus11.jpg"></p>
+<h5 id="进入“加入Mircrosoft-Update改善计划”对话框，这里我我没有选择“是的，我希望加入Mircosoft-Update改善计划”，可以取不选择改善计划。“下一步”。"><a href="#进入“加入Mircrosoft-Update改善计划”对话框，这里我我没有选择“是的，我希望加入Mircosoft-Update改善计划”，可以取不选择改善计划。“下一步”。" class="headerlink" title="进入“加入Mircrosoft Update改善计划”对话框，这里我我没有选择“是的，我希望加入Mircosoft Update改善计划”，可以取不选择改善计划。“下一步”。"></a>进入“加入Mircrosoft Update改善计划”对话框，这里我我没有选择“是的，我希望加入Mircosoft Update改善计划”，可以取不选择改善计划。“下一步”。</h5><p><img src="http://host.zealot.top:5680/images/wsus12.jpg"></p>
+<h5 id="进入“选择-lt-上游服务器-gt-”的对话框，这里选择默认即可，如果你的局域网中已经有另一台Wsus服务器存在，那么也可以选择第二项，从向一个Wsus服务器同步更新。不过需要设置好另一个Wsus服务器的服务器名和端口号。设置好后点击“下一步”。"><a href="#进入“选择-lt-上游服务器-gt-”的对话框，这里选择默认即可，如果你的局域网中已经有另一台Wsus服务器存在，那么也可以选择第二项，从向一个Wsus服务器同步更新。不过需要设置好另一个Wsus服务器的服务器名和端口号。设置好后点击“下一步”。" class="headerlink" title="进入“选择&lt;上游服务器&gt;”的对话框，这里选择默认即可，如果你的局域网中已经有另一台Wsus服务器存在，那么也可以选择第二项，从向一个Wsus服务器同步更新。不过需要设置好另一个Wsus服务器的服务器名和端口号。设置好后点击“下一步”。"></a>进入“选择&lt;上游服务器&gt;”的对话框，这里选择默认即可，如果你的局域网中已经有另一台Wsus服务器存在，那么也可以选择第二项，从向一个Wsus服务器同步更新。不过需要设置好另一个Wsus服务器的服务器名和端口号。设置好后点击“下一步”。</h5><p><img src="http://host.zealot.top:5680/images/wsus13.jpg"></p>
+<h5 id="进入“指定代理服务器”对话框，如果你的这台服务器是通过代理上网的，这里就需要设置代理参数了。如果服务器直接可以上网，就无需任何设置，直接“下一步”。"><a href="#进入“指定代理服务器”对话框，如果你的这台服务器是通过代理上网的，这里就需要设置代理参数了。如果服务器直接可以上网，就无需任何设置，直接“下一步”。" class="headerlink" title="进入“指定代理服务器”对话框，如果你的这台服务器是通过代理上网的，这里就需要设置代理参数了。如果服务器直接可以上网，就无需任何设置，直接“下一步”。"></a>进入“指定代理服务器”对话框，如果你的这台服务器是通过代理上网的，这里就需要设置代理参数了。如果服务器直接可以上网，就无需任何设置，直接“下一步”。</h5><p><img src="http://host.zealot.top:5680/images/wsus14.jpg"></p>
+<h5 id="进入“连接到上游服务器”的对话框，这里可以点击“开始连接”测试跟上游服务器是否连通，并下载一些信息，连接的时间会比较长。等了几分钟终于下载成功，“下一步”。"><a href="#进入“连接到上游服务器”的对话框，这里可以点击“开始连接”测试跟上游服务器是否连通，并下载一些信息，连接的时间会比较长。等了几分钟终于下载成功，“下一步”。" class="headerlink" title="进入“连接到上游服务器”的对话框，这里可以点击“开始连接”测试跟上游服务器是否连通，并下载一些信息，连接的时间会比较长。等了几分钟终于下载成功，“下一步”。"></a>进入“连接到上游服务器”的对话框，这里可以点击“开始连接”测试跟上游服务器是否连通，并下载一些信息，连接的时间会比较长。等了几分钟终于下载成功，“下一步”。</h5><p><img src="http://host.zealot.top:5680/images/wsus15.jpg"></p>
+<h5 id="进入“选择语言”对话框，选择更新下载的语言，这里可以根据你服务器和客户机操作系统的语言种类，选择是“简体中文”或者“繁体中文”。并点击下一步。"><a href="#进入“选择语言”对话框，选择更新下载的语言，这里可以根据你服务器和客户机操作系统的语言种类，选择是“简体中文”或者“繁体中文”。并点击下一步。" class="headerlink" title="进入“选择语言”对话框，选择更新下载的语言，这里可以根据你服务器和客户机操作系统的语言种类，选择是“简体中文”或者“繁体中文”。并点击下一步。"></a>进入“选择语言”对话框，选择更新下载的语言，这里可以根据你服务器和客户机操作系统的语言种类，选择是“简体中文”或者“繁体中文”。并点击下一步。</h5><p><img src="http://host.zealot.top:5680/images/wsus16.png"></p>
+<h5 id="进入“选择产品”对话框，选择要更新系统。"><a href="#进入“选择产品”对话框，选择要更新系统。" class="headerlink" title="进入“选择产品”对话框，选择要更新系统。"></a>进入“选择产品”对话框，选择要更新系统。</h5><p><img src="http://host.zealot.top:5680/images/wsus17.png"></p>
+<h5 id="进入“选择分类”对话框，选择要更新的内容。"><a href="#进入“选择分类”对话框，选择要更新的内容。" class="headerlink" title="进入“选择分类”对话框，选择要更新的内容。"></a>进入“选择分类”对话框，选择要更新的内容。</h5><p><img src="http://host.zealot.top:5680/images/wsus18.png"></p>
+<h5 id="手同动步，点击左边树形菜单的同步，出现同步界面如下，正中间上面显示的是历史同步记录，下面显示的是同步详细信息。点击右边操作栏的“立即同步”就可以马上与上游更新服务器同步下载更新了"><a href="#手同动步，点击左边树形菜单的同步，出现同步界面如下，正中间上面显示的是历史同步记录，下面显示的是同步详细信息。点击右边操作栏的“立即同步”就可以马上与上游更新服务器同步下载更新了" class="headerlink" title="手同动步，点击左边树形菜单的同步，出现同步界面如下，正中间上面显示的是历史同步记录，下面显示的是同步详细信息。点击右边操作栏的“立即同步”就可以马上与上游更新服务器同步下载更新了."></a>手同动步，点击左边树形菜单的同步，出现同步界面如下，正中间上面显示的是历史同步记录，下面显示的是同步详细信息。点击右边操作栏的“立即同步”就可以马上与上游更新服务器同步下载更新了.</h5><p><img src="http://host.zealot.top:5680/images/wsus19.jpg"></p>
+<h5 id="开始初始同步，选择下一步。"><a href="#开始初始同步，选择下一步。" class="headerlink" title="开始初始同步，选择下一步。"></a>开始初始同步，选择下一步。</h5><p><img src="http://host.zealot.top:5680/images/wsus20.jpg"></p>
+<h5 id="自此服务端配置完成。"><a href="#自此服务端配置完成。" class="headerlink" title="自此服务端配置完成。"></a>自此服务端配置完成。</h5><p><img src="http://host.zealot.top:5680/images/wsus21.jpg"></p>
+<h4 id="WSUS客户端配置"><a href="#WSUS客户端配置" class="headerlink" title="WSUS客户端配置"></a>WSUS客户端配置</h4><h5 id="运行组策略"><a href="#运行组策略" class="headerlink" title="运行组策略"></a>运行组策略</h5><p><img src="http://host.zealot.top:5680/images/wsus22.jpg"></p>
+<h5 id="在计算机配置-gt-管理模板-gt-windows组件-gt-windows-update里，配置4个画红框的项目。"><a href="#在计算机配置-gt-管理模板-gt-windows组件-gt-windows-update里，配置4个画红框的项目。" class="headerlink" title="在计算机配置-&gt;管理模板-&gt;windows组件-&gt;windows update里，配置4个画红框的项目。"></a>在计算机配置-&gt;管理模板-&gt;windows组件-&gt;windows update里，配置4个画红框的项目。</h5><p><img src="http://host.zealot.top:5680/images/wsus23.jpg"></p>
+<h5 id="配置自动更新"><a href="#配置自动更新" class="headerlink" title="配置自动更新"></a>配置自动更新</h5><p><img src="http://host.zealot.top:5680/images/wsus2.jpg"></p>
+<h5 id="允许自动更新立即安装"><a href="#允许自动更新立即安装" class="headerlink" title="允许自动更新立即安装"></a>允许自动更新立即安装</h5><p><img src="http://host.zealot.top:5680/images/wsus1.jpg"></p>
+<h5 id="指定Intranet-Microsoft更新服务地址，服务器地址就写成上面那台服务的地址，记得一定是http-ip地址-8530这样的写法。"><a href="#指定Intranet-Microsoft更新服务地址，服务器地址就写成上面那台服务的地址，记得一定是http-ip地址-8530这样的写法。" class="headerlink" title="指定Intranet Microsoft更新服务地址，服务器地址就写成上面那台服务的地址，记得一定是http://ip地址:8530这样的写法。"></a>指定Intranet Microsoft更新服务地址，服务器地址就写成上面那台服务的地址，记得一定是<a href="http://ip地址:8530这样的写法。">http://ip地址:8530这样的写法。</a></h5><p><img src="http://host.zealot.top:5680/images/wsus3.jpg"></p>
+<h5 id="对于有已登陆用户的计算机，计划的自动更新安装不执行重新启动。如果不想打完补丁，服务器自动重启。这个选项一定要勾选上。"><a href="#对于有已登陆用户的计算机，计划的自动更新安装不执行重新启动。如果不想打完补丁，服务器自动重启。这个选项一定要勾选上。" class="headerlink" title="对于有已登陆用户的计算机，计划的自动更新安装不执行重新启动。如果不想打完补丁，服务器自动重启。这个选项一定要勾选上。"></a>对于有已登陆用户的计算机，计划的自动更新安装不执行重新启动。如果不想打完补丁，服务器自动重启。这个选项一定要勾选上。</h5><p><img src="http://host.zealot.top:5680/images/wsus4.jpg"></p>
+<h4 id="WSUS问题检查。"><a href="#WSUS问题检查。" class="headerlink" title="WSUS问题检查。"></a>WSUS问题检查。</h4><p>上面那些基本上都是网上直接都可以找得到的。但客户端无法同步服务端的各种问题，怎么排查，都没有人写得清楚明白。下面这些才是本人填坑经验，按照我的方法检查下来，基本可以解决99%的问题。话不多说，还是分二部分。</p>
+<h5 id="WSUS客户端问题"><a href="#WSUS客户端问题" class="headerlink" title="WSUS客户端问题"></a>WSUS客户端问题</h5><p>1.没有足够的时间让客户端检测出来,使用下面的命令强制刷新wsus更新组策略。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gpupdate /force</span><br><span class="line">wuauctl.exe /detectnow</span><br></pre></td></tr></table></figure>
+<p>2.WSUS SID存在相同的客户端ID<br>系统镜像如果是克隆的话，会存在WSUS SID相同的情况。这个时候就需要删除注册表项来解决。在运行里输入<code>regedit</code>,删除下面路径的注册项。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\AccountDomainSid</span><br><span class="line">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\PingID</span><br><span class="line">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\SusClientId</span><br></pre></td></tr></table></figure>
+<p>然后在<code>CMD</code>执行,刷新一遍。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wuauclt /resetauthorization /detectnow</span><br></pre></td></tr></table></figure>
+<p>下面我自己写了一个脚本。同学们可以复制下来，保存成bat批处理文件。跑一遍就可以了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">Echo Save the batch file &quot;AU_Clean_SID.cmd&quot;. This batch file will do the following:</span><br><span class="line">Echo 1.    Stops the wuauserv service</span><br><span class="line">Echo 2.    Deletes the AccountDomainSid registry key (if it exists)</span><br><span class="line">Echo 3.    Deletes the PingID registry key (if it exists)</span><br><span class="line">Echo 4.    Deletes the SusClientId registry key (if it exists)</span><br><span class="line">Echo 5.    Restarts the wuauserv service</span><br><span class="line">Echo 6.    Resets the Authorization Cookie</span><br><span class="line">Pause</span><br><span class="line">@echo on</span><br><span class="line">gpupdate /force</span><br><span class="line">net stop wuauserv</span><br><span class="line">REG DELETE &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate&quot; /v AccountDomainSid /f</span><br><span class="line">REG DELETE &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate&quot; /v PingID /f</span><br><span class="line">REG DELETE &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate&quot; /v SusClientId /f</span><br><span class="line">rd /s /q C:\Windows\SoftwareDistribution</span><br><span class="line">net start wuauserv</span><br><span class="line">wuauclt /resetauthorization /detectnow</span><br><span class="line">Pause</span><br></pre></td></tr></table></figure>
+<p>3.策略里更新服务地址错误。<br>查看：计算机配置-&gt;管理模板-&gt; Windows组件-&gt; Windows Update-&gt;</p>
+<p>通过计算机名称或IP地址将以下两项设置为WSUS服务器</p>
+<p>“设置Intranet更新服务以检测更新”</p>
+<p>“设置Intranet统计服务器”</p>
+<p>4.测试连接wsus服务器是否正常。<br>在客户端浏览器中，访问下面的网址。查看是否为空白页。空白页为正常，不是空白页的话，就需要检查一下网络及防火墙设置了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://WSUS服务器地址:8530/Selfupdate/</span><br></pre></td></tr></table></figure>
+
+<p>5.将当前组策略导出，查看是否配置正确。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpresult /h C:\report.html</span><br></pre></td></tr></table></figure>
+
+<p>6.查看windowsupdate错误日志。</p>
+<p>另外还可以通过查看<code>c:\windows\windowsupdate.logs</code>日志文件来发现所在问题。</p>
+<h5 id="WSUS服务端"><a href="#WSUS服务端" class="headerlink" title="WSUS服务端"></a>WSUS服务端</h5><p>WSUS控制台报错提示连接错误，通过点击重置服务器节点偶尔能恢复正常，重启WSUS Service服务也可立即恢复，但连接故障问题仍频繁出现。如下图：<br><img src="http://host.zealot.top:5680/images/wsus_1.png"><br>故障根源：IIS的应用程序池默认的”专用内存限制”是1.8G内存，且开启了”快速故障防护”，但WSUS更新达到一定规模，默认分配的内存已不满足需要，导致工作进程崩溃，最终触发了WsusPool应用程序池关闭。</p>
+<p>解决：根据实际需求调大内存即可。</p>
+<p>打开IIS管理器-应用程序池，找到WsusPool，右侧点击高级设置，在专用内存限制项中将内存改为合理值如4GB，此操作亦可优化WSUS控制台运行体验。或者将内存项改为0（不限制）、关闭”快速故障防护”。</p>
+<p><img src="http://host.zealot.top:5680/images/wsus_2.png"></p>
+<h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>为了方便配置客户端，自己写了二个配置脚本。如果有需要的同学可以拿去使用。<br>WSUS.reg注册表文件，需把服务器地址修改为自己的服务器地址。</p>
+<p><img src="http://host.zealot.top:5680/images/wsus_3.png"></p>
+<p>链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1RW05r8rqvoFOsHNdtFhTsw">https://pan.baidu.com/s/1RW05r8rqvoFOsHNdtFhTsw</a> 提取码: cxm3</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/update/" rel="tag"># update</a>
+          
+            <a href="/tags/wsus/" rel="tag"># wsus</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/15/%E9%87%8D%E7%BD%AEVCSA-6-5%E7%9A%84SSO-Administrator%E5%AF%86%E7%A0%81/" rel="next" title="重置VCSA 6.5的SSO Administrator密码">
+                <i class="fa fa-chevron-left"></i> 重置VCSA 6.5的SSO Administrator密码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/12/ROS%E5%86%85%E7%BD%91%E5%9B%9E%E6%B5%81%E8%AE%BE%E7%BD%AE%EF%BC%8C%E9%80%9A%E8%BF%87%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1/" rel="prev" title="ROS内网回流设置，通过域名访问内网服务">
+                ROS内网回流设置，通过域名访问内网服务 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xmzcl" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:18976787@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/384272321" target="_blank" title="BiliBili">
+                      
+                        <i class="fa fa-fw fa-globe"></i>BiliBili</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=18976787&site=qq&menu=yes" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐工具网站
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://translate.google.cn/" title="google翻译" target="_blank">google翻译</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mtool.chinaz.com/" title="站长工具" target="_blank">站长工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://phpinfo.me/domain/" title="子域名查询" target="_blank">子域名查询</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://smallpdf.com/cn" title="PDF转换" target="_blank">PDF转换</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tool.oschina.net/codeformat/json" title="代码格式化" target="_blank">代码格式化</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dns.aizhan.com/120.35.84.225/" title="IP反向查询" target="_blank">IP反向查询</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tool.chinaz.com/tools/diff" title="文本对比" target="_blank">文本对比</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.aconvert.com/cn/" title="在线转换" target="_blank">在线转换</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tool.chinaz.com/port/" title="端口扫描" target="_blank">端口扫描</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cowtransfer.com/" title="奶牛快传" target="_blank">奶牛快传</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.speedtest.net/" title="测试网速" target="_blank">测试网速</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.google.cn/maps/" title="google地图" target="_blank">google地图</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#WSUS%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">WSUS服务端搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WSUS%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">WSUS服务端配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%89%93%E5%BC%80WSUS%E5%B0%B1%E5%87%BA%E7%8E%B0%E9%85%8D%E7%BD%AE%E5%90%91%E5%AF%BC%EF%BC%8C%E7%9B%B4%E6%8E%A5%E4%B8%8B%E4%B8%80%E6%AD%A5%E3%80%82"><span class="nav-number">2.1.</span> <span class="nav-text">第一次打开WSUS就出现配置向导，直接下一步。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E2%80%9C%E5%8A%A0%E5%85%A5Mircrosoft-Update%E6%94%B9%E5%96%84%E8%AE%A1%E5%88%92%E2%80%9D%E5%AF%B9%E8%AF%9D%E6%A1%86%EF%BC%8C%E8%BF%99%E9%87%8C%E6%88%91%E6%88%91%E6%B2%A1%E6%9C%89%E9%80%89%E6%8B%A9%E2%80%9C%E6%98%AF%E7%9A%84%EF%BC%8C%E6%88%91%E5%B8%8C%E6%9C%9B%E5%8A%A0%E5%85%A5Mircosoft-Update%E6%94%B9%E5%96%84%E8%AE%A1%E5%88%92%E2%80%9D%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%96%E4%B8%8D%E9%80%89%E6%8B%A9%E6%94%B9%E5%96%84%E8%AE%A1%E5%88%92%E3%80%82%E2%80%9C%E4%B8%8B%E4%B8%80%E6%AD%A5%E2%80%9D%E3%80%82"><span class="nav-number">2.2.</span> <span class="nav-text">进入“加入Mircrosoft Update改善计划”对话框，这里我我没有选择“是的，我希望加入Mircosoft Update改善计划”，可以取不选择改善计划。“下一步”。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E2%80%9C%E9%80%89%E6%8B%A9-lt-%E4%B8%8A%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8-gt-%E2%80%9D%E7%9A%84%E5%AF%B9%E8%AF%9D%E6%A1%86%EF%BC%8C%E8%BF%99%E9%87%8C%E9%80%89%E6%8B%A9%E9%BB%98%E8%AE%A4%E5%8D%B3%E5%8F%AF%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%9A%84%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%AD%E5%B7%B2%E7%BB%8F%E6%9C%89%E5%8F%A6%E4%B8%80%E5%8F%B0Wsus%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AD%98%E5%9C%A8%EF%BC%8C%E9%82%A3%E4%B9%88%E4%B9%9F%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9%E7%AC%AC%E4%BA%8C%E9%A1%B9%EF%BC%8C%E4%BB%8E%E5%90%91%E4%B8%80%E4%B8%AAWsus%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8C%E6%AD%A5%E6%9B%B4%E6%96%B0%E3%80%82%E4%B8%8D%E8%BF%87%E9%9C%80%E8%A6%81%E8%AE%BE%E7%BD%AE%E5%A5%BD%E5%8F%A6%E4%B8%80%E4%B8%AAWsus%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8D%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7%E3%80%82%E8%AE%BE%E7%BD%AE%E5%A5%BD%E5%90%8E%E7%82%B9%E5%87%BB%E2%80%9C%E4%B8%8B%E4%B8%80%E6%AD%A5%E2%80%9D%E3%80%82"><span class="nav-number">2.3.</span> <span class="nav-text">进入“选择&lt;上游服务器&gt;”的对话框，这里选择默认即可，如果你的局域网中已经有另一台Wsus服务器存在，那么也可以选择第二项，从向一个Wsus服务器同步更新。不过需要设置好另一个Wsus服务器的服务器名和端口号。设置好后点击“下一步”。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E2%80%9C%E6%8C%87%E5%AE%9A%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%9D%E5%AF%B9%E8%AF%9D%E6%A1%86%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%9A%84%E8%BF%99%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E9%80%9A%E8%BF%87%E4%BB%A3%E7%90%86%E4%B8%8A%E7%BD%91%E7%9A%84%EF%BC%8C%E8%BF%99%E9%87%8C%E5%B0%B1%E9%9C%80%E8%A6%81%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%E5%8F%82%E6%95%B0%E4%BA%86%E3%80%82%E5%A6%82%E6%9E%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B4%E6%8E%A5%E5%8F%AF%E4%BB%A5%E4%B8%8A%E7%BD%91%EF%BC%8C%E5%B0%B1%E6%97%A0%E9%9C%80%E4%BB%BB%E4%BD%95%E8%AE%BE%E7%BD%AE%EF%BC%8C%E7%9B%B4%E6%8E%A5%E2%80%9C%E4%B8%8B%E4%B8%80%E6%AD%A5%E2%80%9D%E3%80%82"><span class="nav-number">2.4.</span> <span class="nav-text">进入“指定代理服务器”对话框，如果你的这台服务器是通过代理上网的，这里就需要设置代理参数了。如果服务器直接可以上网，就无需任何设置，直接“下一步”。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E2%80%9C%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%B8%8A%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%9D%E7%9A%84%E5%AF%B9%E8%AF%9D%E6%A1%86%EF%BC%8C%E8%BF%99%E9%87%8C%E5%8F%AF%E4%BB%A5%E7%82%B9%E5%87%BB%E2%80%9C%E5%BC%80%E5%A7%8B%E8%BF%9E%E6%8E%A5%E2%80%9D%E6%B5%8B%E8%AF%95%E8%B7%9F%E4%B8%8A%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E5%90%A6%E8%BF%9E%E9%80%9A%EF%BC%8C%E5%B9%B6%E4%B8%8B%E8%BD%BD%E4%B8%80%E4%BA%9B%E4%BF%A1%E6%81%AF%EF%BC%8C%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%97%B6%E9%97%B4%E4%BC%9A%E6%AF%94%E8%BE%83%E9%95%BF%E3%80%82%E7%AD%89%E4%BA%86%E5%87%A0%E5%88%86%E9%92%9F%E7%BB%88%E4%BA%8E%E4%B8%8B%E8%BD%BD%E6%88%90%E5%8A%9F%EF%BC%8C%E2%80%9C%E4%B8%8B%E4%B8%80%E6%AD%A5%E2%80%9D%E3%80%82"><span class="nav-number">2.5.</span> <span class="nav-text">进入“连接到上游服务器”的对话框，这里可以点击“开始连接”测试跟上游服务器是否连通，并下载一些信息，连接的时间会比较长。等了几分钟终于下载成功，“下一步”。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E2%80%9C%E9%80%89%E6%8B%A9%E8%AF%AD%E8%A8%80%E2%80%9D%E5%AF%B9%E8%AF%9D%E6%A1%86%EF%BC%8C%E9%80%89%E6%8B%A9%E6%9B%B4%E6%96%B0%E4%B8%8B%E8%BD%BD%E7%9A%84%E8%AF%AD%E8%A8%80%EF%BC%8C%E8%BF%99%E9%87%8C%E5%8F%AF%E4%BB%A5%E6%A0%B9%E6%8D%AE%E4%BD%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%AE%A2%E6%88%B7%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AF%AD%E8%A8%80%E7%A7%8D%E7%B1%BB%EF%BC%8C%E9%80%89%E6%8B%A9%E6%98%AF%E2%80%9C%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E2%80%9D%E6%88%96%E8%80%85%E2%80%9C%E7%B9%81%E4%BD%93%E4%B8%AD%E6%96%87%E2%80%9D%E3%80%82%E5%B9%B6%E7%82%B9%E5%87%BB%E4%B8%8B%E4%B8%80%E6%AD%A5%E3%80%82"><span class="nav-number">2.6.</span> <span class="nav-text">进入“选择语言”对话框，选择更新下载的语言，这里可以根据你服务器和客户机操作系统的语言种类，选择是“简体中文”或者“繁体中文”。并点击下一步。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E2%80%9C%E9%80%89%E6%8B%A9%E4%BA%A7%E5%93%81%E2%80%9D%E5%AF%B9%E8%AF%9D%E6%A1%86%EF%BC%8C%E9%80%89%E6%8B%A9%E8%A6%81%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E3%80%82"><span class="nav-number">2.7.</span> <span class="nav-text">进入“选择产品”对话框，选择要更新系统。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E2%80%9C%E9%80%89%E6%8B%A9%E5%88%86%E7%B1%BB%E2%80%9D%E5%AF%B9%E8%AF%9D%E6%A1%86%EF%BC%8C%E9%80%89%E6%8B%A9%E8%A6%81%E6%9B%B4%E6%96%B0%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82"><span class="nav-number">2.8.</span> <span class="nav-text">进入“选择分类”对话框，选择要更新的内容。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%8B%E5%90%8C%E5%8A%A8%E6%AD%A5%EF%BC%8C%E7%82%B9%E5%87%BB%E5%B7%A6%E8%BE%B9%E6%A0%91%E5%BD%A2%E8%8F%9C%E5%8D%95%E7%9A%84%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%87%BA%E7%8E%B0%E5%90%8C%E6%AD%A5%E7%95%8C%E9%9D%A2%E5%A6%82%E4%B8%8B%EF%BC%8C%E6%AD%A3%E4%B8%AD%E9%97%B4%E4%B8%8A%E9%9D%A2%E6%98%BE%E7%A4%BA%E7%9A%84%E6%98%AF%E5%8E%86%E5%8F%B2%E5%90%8C%E6%AD%A5%E8%AE%B0%E5%BD%95%EF%BC%8C%E4%B8%8B%E9%9D%A2%E6%98%BE%E7%A4%BA%E7%9A%84%E6%98%AF%E5%90%8C%E6%AD%A5%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF%E3%80%82%E7%82%B9%E5%87%BB%E5%8F%B3%E8%BE%B9%E6%93%8D%E4%BD%9C%E6%A0%8F%E7%9A%84%E2%80%9C%E7%AB%8B%E5%8D%B3%E5%90%8C%E6%AD%A5%E2%80%9D%E5%B0%B1%E5%8F%AF%E4%BB%A5%E9%A9%AC%E4%B8%8A%E4%B8%8E%E4%B8%8A%E6%B8%B8%E6%9B%B4%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8C%E6%AD%A5%E4%B8%8B%E8%BD%BD%E6%9B%B4%E6%96%B0%E4%BA%86"><span class="nav-number">2.9.</span> <span class="nav-text">手同动步，点击左边树形菜单的同步，出现同步界面如下，正中间上面显示的是历史同步记录，下面显示的是同步详细信息。点击右边操作栏的“立即同步”就可以马上与上游更新服务器同步下载更新了.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E5%88%9D%E5%A7%8B%E5%90%8C%E6%AD%A5%EF%BC%8C%E9%80%89%E6%8B%A9%E4%B8%8B%E4%B8%80%E6%AD%A5%E3%80%82"><span class="nav-number">2.10.</span> <span class="nav-text">开始初始同步，选择下一步。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%87%AA%E6%AD%A4%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE%E5%AE%8C%E6%88%90%E3%80%82"><span class="nav-number">2.11.</span> <span class="nav-text">自此服务端配置完成。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WSUS%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">WSUS客户端配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E7%BB%84%E7%AD%96%E7%95%A5"><span class="nav-number">3.1.</span> <span class="nav-text">运行组策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%85%8D%E7%BD%AE-gt-%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF-gt-windows%E7%BB%84%E4%BB%B6-gt-windows-update%E9%87%8C%EF%BC%8C%E9%85%8D%E7%BD%AE4%E4%B8%AA%E7%94%BB%E7%BA%A2%E6%A1%86%E7%9A%84%E9%A1%B9%E7%9B%AE%E3%80%82"><span class="nav-number">3.2.</span> <span class="nav-text">在计算机配置-&gt;管理模板-&gt;windows组件-&gt;windows update里，配置4个画红框的项目。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">3.3.</span> <span class="nav-text">配置自动更新</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%81%E8%AE%B8%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E7%AB%8B%E5%8D%B3%E5%AE%89%E8%A3%85"><span class="nav-number">3.4.</span> <span class="nav-text">允许自动更新立即安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E5%AE%9AIntranet-Microsoft%E6%9B%B4%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%9C%B0%E5%9D%80%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80%E5%B0%B1%E5%86%99%E6%88%90%E4%B8%8A%E9%9D%A2%E9%82%A3%E5%8F%B0%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%9C%B0%E5%9D%80%EF%BC%8C%E8%AE%B0%E5%BE%97%E4%B8%80%E5%AE%9A%E6%98%AFhttp-ip%E5%9C%B0%E5%9D%80-8530%E8%BF%99%E6%A0%B7%E7%9A%84%E5%86%99%E6%B3%95%E3%80%82"><span class="nav-number">3.5.</span> <span class="nav-text">指定Intranet Microsoft更新服务地址，服务器地址就写成上面那台服务的地址，记得一定是http:&#x2F;&#x2F;ip地址:8530这样的写法。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E6%9C%89%E5%B7%B2%E7%99%BB%E9%99%86%E7%94%A8%E6%88%B7%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%EF%BC%8C%E8%AE%A1%E5%88%92%E7%9A%84%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%AE%89%E8%A3%85%E4%B8%8D%E6%89%A7%E8%A1%8C%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8%E3%80%82%E5%A6%82%E6%9E%9C%E4%B8%8D%E6%83%B3%E6%89%93%E5%AE%8C%E8%A1%A5%E4%B8%81%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E3%80%82%E8%BF%99%E4%B8%AA%E9%80%89%E9%A1%B9%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8B%BE%E9%80%89%E4%B8%8A%E3%80%82"><span class="nav-number">3.6.</span> <span class="nav-text">对于有已登陆用户的计算机，计划的自动更新安装不执行重新启动。如果不想打完补丁，服务器自动重启。这个选项一定要勾选上。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WSUS%E9%97%AE%E9%A2%98%E6%A3%80%E6%9F%A5%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">WSUS问题检查。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#WSUS%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">WSUS客户端问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#WSUS%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">4.2.</span> <span class="nav-text">WSUS服务端</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hank ZHU</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '7daBgQlJ2hiRGdVTNxdmeEQO-gzGzoHsz',
+        appKey: 'sNoi3wfXIC4W6K7o3Mw03ITk',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("7daBgQlJ2hiRGdVTNxdmeEQO-gzGzoHsz", "sNoi3wfXIC4W6K7o3Mw03ITk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>

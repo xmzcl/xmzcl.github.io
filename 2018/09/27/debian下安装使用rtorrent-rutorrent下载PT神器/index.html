@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="rtorrent,rutorrent,PT," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="思想就是武器" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Docker安装方法2018-12-05 更新:今天写一下rtorrent+rutorrent用docker的实现方法。首先你的电脑上先得安装好docker。安装方法网上很多，自行百度。装好之后运行下面的命令行就OK了。你没有看错，就是一行代码，就装好了。docker会自动下载容器并运行。 1docker run -dt --name rtorrent-rutorrent --restart&#x3D;al">
+<meta property="og:type" content="article">
+<meta property="og:title" content="debian下安装使用rtorrent+rutorrent下载PT神器">
+<meta property="og:url" content="http://zealot.top/2018/09/27/debian%E4%B8%8B%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8rtorrent-rutorrent%E4%B8%8B%E8%BD%BDPT%E7%A5%9E%E5%99%A8/index.html">
+<meta property="og:site_name" content="思想就是武器">
+<meta property="og:description" content="Docker安装方法2018-12-05 更新:今天写一下rtorrent+rutorrent用docker的实现方法。首先你的电脑上先得安装好docker。安装方法网上很多，自行百度。装好之后运行下面的命令行就OK了。你没有看错，就是一行代码，就装好了。docker会自动下载容器并运行。 1docker run -dt --name rtorrent-rutorrent --restart&#x3D;al">
+<meta property="og:locale">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent13.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent+rutorrent.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent1.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent2.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent5.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent4.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent6.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent7.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent9.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent12.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/rtorrent11.png">
+<meta property="article:published_time" content="2018-09-27T10:16:02.000Z">
+<meta property="article:modified_time" content="2018-12-05T11:08:14.000Z">
+<meta property="article:author" content="Hank ZHU">
+<meta property="article:tag" content="rtorrent">
+<meta property="article:tag" content="rutorrent">
+<meta property="article:tag" content="PT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://host.zealot.top:5680/images/rtorrent13.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"bounceRightIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"bounceLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zealot.top/2018/09/27/debian下安装使用rtorrent-rutorrent下载PT神器/"/>
+
+
+
+
+
+  <title>debian下安装使用rtorrent+rutorrent下载PT神器 | 思想就是武器</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?076026d6d2dac8ed1fb9ea3629feea59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">思想就是武器</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">在记录中不断成长</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zealot.top/2018/09/27/debian%E4%B8%8B%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8rtorrent-rutorrent%E4%B8%8B%E8%BD%BDPT%E7%A5%9E%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="思想就是武器">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">debian下安装使用rtorrent+rutorrent下载PT神器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T18:16:02+08:00">
+                2018-09-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T19:08:14+08:00">
+                2018-12-05
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%8F%E9%AA%8C%E7%A7%AF%E7%B4%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">经验积累</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/27/debian%E4%B8%8B%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8rtorrent-rutorrent%E4%B8%8B%E8%BD%BDPT%E7%A5%9E%E5%99%A8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/27/debian%E4%B8%8B%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8rtorrent-rutorrent%E4%B8%8B%E8%BD%BDPT%E7%A5%9E%E5%99%A8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/27/debian%E4%B8%8B%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8rtorrent-rutorrent%E4%B8%8B%E8%BD%BDPT%E7%A5%9E%E5%99%A8/" class="leancloud_visitors" data-flag-title="debian下安装使用rtorrent+rutorrent下载PT神器">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Docker安装方法"><a href="#Docker安装方法" class="headerlink" title="Docker安装方法"></a>Docker安装方法</h2><p>2018-12-05 更新:<br>今天写一下rtorrent+rutorrent用docker的实现方法。<br>首先你的电脑上先得安装好docker。安装方法网上很多，自行百度。<br>装好之后运行下面的命令行就OK了。你没有看错，就是一行代码，就装好了。docker会自动下载容器并运行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dt --name rtorrent-rutorrent --restart=always -p 8080:80 -p 49160:49160/udp -p 49161:49161 -v /mnt/raye/video:/downloads -e USR_ID=11000 -e GRP_ID=22000 -e PHP_MEM=1024M diameter/rtorrent-rutorrent:latest</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>docker run -dt</code></td>
+<td>运行一个后台容器。</td>
+</tr>
+<tr>
+<td><code>--name rtorrent-rutorrent</code></td>
+<td>运行的容器名。</td>
+</tr>
+<tr>
+<td><code>--restart=always:</code></td>
+<td>重启后容器自动运行。</td>
+</tr>
+<tr>
+<td><code>-p 8080:80 -p 49160:49160/udp -p 49161:49161</code></td>
+<td>映射到容器的端口号及协议。</td>
+</tr>
+<tr>
+<td><code>-v /mnt/raye/video:/downloads</code></td>
+<td>映射到容器里的文件夹。<code>/mnt/raye/video</code>自行修改这部分的内容为自己要下载到的地方。</td>
+</tr>
+<tr>
+<td><code>-e -e USR_ID=11000 -e GRP_ID=22000</code></td>
+<td>设置下载文件的用户ID和组ID。</td>
+</tr>
+<tr>
+<td><code>-e PHP_MEM=1024M</code></td>
+<td>增加PHP使用内容到1024M</td>
+</tr>
+<tr>
+<td><code>diameter/rtorrent-rutorrent:latest</code></td>
+<td>latest代表使用最新的版本。</td>
+</tr>
+</tbody></table>
+<p>通过浏览器访问<code>http://IP:8080</code>，就可以看到rtorrent+rutorrent了。</p>
+<blockquote>
+<p>说明一下：DOCKER装的rtorrent+rutorrent，要通过Transdroid手机APP访问和控制，SCGI的挂载点应该是<code>/RPC</code>。</p>
+</blockquote>
+<hr>
+<h2 id="正常安装方法"><a href="#正常安装方法" class="headerlink" title="正常安装方法"></a>正常安装方法</h2><h3 id="安装所需软件"><a href="#安装所需软件" class="headerlink" title="安装所需软件"></a>安装所需软件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install rtorrent php screen wget unzip ffmpeg mediainfo sox unrar-free apache2</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载rutorrent"><a href="#下载rutorrent" class="headerlink" title="下载rutorrent"></a>下载rutorrent</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www/html</span><br><span class="line">wget https://github.com/Novik/ruTorrent/archive/master.zip</span><br><span class="line">unzip master.zip</span><br><span class="line">mv ruTorrent-master rt</span><br><span class="line">rm -rf master.zip</span><br><span class="line">chmod -R 777 /var/www/html/rt</span><br></pre></td></tr></table></figure>
+
+<h3 id="编辑-rtorrent-rc配置文件"><a href="#编辑-rtorrent-rc配置文件" class="headerlink" title="编辑.rtorrent.rc配置文件"></a>编辑<code>.rtorrent.rc</code>配置文件</h3><p>在<code>root</code>目录下新建一个<code>.rtorrent.rc</code>的文件。内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"># This is an example resource file for rTorrent. Copy to</span><br><span class="line"># ~/.rtorrent.rc and enable/modify the options as needed. Remember to</span><br><span class="line"># uncomment the options you wish to enable.</span><br><span class="line"></span><br><span class="line"># Maximum and minimum number of peers to connect to per torrent.</span><br><span class="line">#</span><br><span class="line">throttle.min_peers.normal.set = 10</span><br><span class="line">throttle.max_peers.normal.set = 512</span><br><span class="line"></span><br><span class="line"># Same as above but for seeding completed torrents (-1 = same as downloading)</span><br><span class="line">#</span><br><span class="line">throttle.min_peers.seed.set = -1</span><br><span class="line">throttle.max_peers.seed.set = -1</span><br><span class="line"></span><br><span class="line">#最大同时下载和上传插槽数(全局插槽！)(`max_downloads_global`，`max_uploads_global`)</span><br><span class="line">#throttle.max_downloads.global.set = 300</span><br><span class="line">#throttle.max_uploads.global.set   = 300</span><br><span class="line"></span><br><span class="line">#每个torrent同时下载和上传插槽的最大数量 </span><br><span class="line">throttle.max_uploads.set = 512</span><br><span class="line">#throttle.max_downloads.set = 512</span><br><span class="line"></span><br><span class="line">#设置发送到跟踪器的numwant字段，指示我们需要多少个对等体。负值禁用此功能。 默认值：`-1`（`tracker_numwant`）</span><br><span class="line">trackers.numwant.set = 100</span><br><span class="line"></span><br><span class="line"># Global upload and download rate in KiB. &quot;0&quot; for unlimited.</span><br><span class="line">#</span><br><span class="line">throttle.global_down.max_rate.set_kb = 0</span><br><span class="line">throttle.global_up.max_rate.set_kb = 0</span><br><span class="line"></span><br><span class="line"># Default directory to save the downloaded torrents.</span><br><span class="line">#</span><br><span class="line">directory.default.set = /mnt/video/download</span><br><span class="line"></span><br><span class="line"># Default session directory. Make sure you don&#x27;t run multiple instance</span><br><span class="line"># of rtorrent using the same session directory. Perhaps using a</span><br><span class="line"># relative path?</span><br><span class="line">#</span><br><span class="line">session.path.set = /mnt/video/.session</span><br><span class="line"></span><br><span class="line"># Watch a directory for new torrents, and stop those that have been</span><br><span class="line"># deleted.</span><br><span class="line">#</span><br><span class="line">schedule2 = watch_directory,5,5,load.start=/mnt/video/.watch/*.torrent</span><br><span class="line">#*/</span><br><span class="line">#schedule2 = untied_directory,5,5,stop_untied=</span><br><span class="line"></span><br><span class="line"># Close torrents when diskspace is low.</span><br><span class="line">#</span><br><span class="line">schedule2 = low_diskspace,5,60,close_low_diskspace=300M</span><br><span class="line"></span><br><span class="line"># The ip address reported to the tracker.</span><br><span class="line">#</span><br><span class="line">#network.local_address.set = 127.0.0.1</span><br><span class="line">#network.local_address.set = rakshasa.no</span><br><span class="line"></span><br><span class="line"># The ip address the listening socket and outgoing connections is</span><br><span class="line"># bound to.</span><br><span class="line">#</span><br><span class="line">#network.bind_address.set = 127.0.0.1</span><br><span class="line">#network.bind_address.set = rakshasa.no</span><br><span class="line"></span><br><span class="line"># Port range to use for listening.</span><br><span class="line">#</span><br><span class="line">network.port_range.set = 49164-49164</span><br><span class="line"></span><br><span class="line"># Start opening ports at a random position within the port range.</span><br><span class="line">#</span><br><span class="line">network.port_random.set = no</span><br><span class="line"></span><br><span class="line"># Check hash for finished torrents. Might be usefull until the bug is</span><br><span class="line"># fixed that causes lack of diskspace not to be properly reported.</span><br><span class="line">#</span><br><span class="line">#pieces.hash.on_completion.set = no</span><br><span class="line"></span><br><span class="line"># Set whether the client should try to connect to UDP trackers.</span><br><span class="line">#</span><br><span class="line">#trackers.use_udp.set = yes</span><br><span class="line"></span><br><span class="line"># Alternative calls to bind and ip that should handle dynamic ip&#x27;s.</span><br><span class="line">#</span><br><span class="line">#schedule2 = ip_tick,0,1800,ip=rakshasa</span><br><span class="line">#schedule2 = bind_tick,0,1800,bind=rakshasa</span><br><span class="line"></span><br><span class="line"># Encryption options, set to none (default) or any combination of the following:</span><br><span class="line"># allow_incoming, try_outgoing, require, require_RC4, enable_retry, prefer_plaintext</span><br><span class="line">#</span><br><span class="line"># The example value allows incoming encrypted connections, starts unencrypted</span><br><span class="line"># outgoing connections but retries with encryption if they fail, preferring</span><br><span class="line"># plaintext to RC4 encryption after the encrypted handshake</span><br><span class="line">#</span><br><span class="line"># protocol.encryption.set = allow_incoming,enable_retry,prefer_plaintext</span><br><span class="line"></span><br><span class="line"># Enable DHT support for trackerless torrents or when all trackers are down.</span><br><span class="line"># May be set to &quot;disable&quot; (completely disable DHT), &quot;off&quot; (do not start DHT),</span><br><span class="line"># &quot;auto&quot; (start and stop DHT as needed), or &quot;on&quot; (start DHT immediately).</span><br><span class="line"># The default is &quot;off&quot;. For DHT to work, a session directory must be defined.</span><br><span class="line"># </span><br><span class="line">dht.mode.set = on</span><br><span class="line"></span><br><span class="line"># UDP port to use for DHT. </span><br><span class="line">#</span><br><span class="line">dht.port.set = 6881</span><br><span class="line"></span><br><span class="line"># Enable peer exchange (for torrents not marked private)</span><br><span class="line">#</span><br><span class="line">#protocol.pex.set = yes</span><br><span class="line"></span><br><span class="line"># Set downlad list layout style. (&quot;full&quot;, &quot;compact&quot;)</span><br><span class="line">#</span><br><span class="line">#ui.torrent_list.layout.set = &quot;full&quot;</span><br><span class="line"></span><br><span class="line"># SCGI Connectivity (for alternative rtorrent interfaces, XMLRPC)</span><br><span class="line">#</span><br><span class="line"># Use a IP socket with scgi_port, or a Unix socket with scgi_local.</span><br><span class="line"># schedule can be used to set permissions on the unix socket.</span><br><span class="line">#</span><br><span class="line">#scgi_port = 127.0.0.1:5000</span><br><span class="line">#scgi_local = /home/user/rtorrent/rpc.socket</span><br><span class="line">#schedule = scgi_permission,0,0,&quot;execute.nothrow=chmod,\&quot;g+w,o=\&quot;,/home/user/rtorrent/rpc.socket&quot;</span><br><span class="line"></span><br><span class="line">peer_exchange = yes</span><br><span class="line">scgi_port = 127.0.0.1:5000</span><br><span class="line"></span><br><span class="line">#xmlrpc的最大包大小。 默认值：`524288`（xmlrpc_size_limit）</span><br><span class="line">network.xmlrpc.size_limit.set = 4M</span><br><span class="line"></span><br><span class="line">#每12小时保存所有会话，而不是默认的20分钟。</span><br><span class="line">#schedule2 = session_save, 1200, 43200, ((session.save))</span><br><span class="line"></span><br><span class="line">#发送和接收套接字的缓冲区大小。默认情况下禁用,增加缓冲区大小可能有助于减少磁盘搜索，连接轮询，因为每次都会缓冲更多数据socket被写入。它将导致更高的内存使用率（在rtorrent进程中不可见！）</span><br><span class="line">network.receive_buffer.size = 4M</span><br><span class="line">network.send_buffer.size = 16M</span><br><span class="line"></span><br><span class="line">#设置用于映射文件块的最大内存地址空间。这指的是内存映射，而不是物理内存分配。默认值：`1GB`</span><br><span class="line">pieces.memory.max.set = 2048M</span><br><span class="line"></span><br><span class="line">#rtrtrent可以接受/生成的最大连接数(`sockets`)</span><br><span class="line">network.max_open_sockets.set = 1024</span><br><span class="line"></span><br><span class="line">#同步HTTP请求的最大数量（由announce或scrape请求使用）默认值：`32`（`set_max_open_http`）</span><br><span class="line">network.http.max_open.set = 128</span><br><span class="line"></span><br><span class="line">#rtrtrent可以保持打开的最大打开文件数</span><br><span class="line">network.max_open_files.set = 1024</span><br><span class="line"></span><br><span class="line">#预加载一个文件。 默认值：`0`可能的值：`0`（关闭），`1`（Madvise），`2`（直接分页）。</span><br><span class="line">pieces.preload.type.set = 1</span><br><span class="line"></span><br><span class="line">#降低DNS超时。 默认值：`60`。</span><br><span class="line">network.http.dns_cache_timeout.set = 25</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="建立下载目录"><a href="#建立下载目录" class="headerlink" title="建立下载目录"></a>建立下载目录</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/video</span><br><span class="line">mkdir /mnt/video/.session</span><br><span class="line">mkdir /mnt/video/.watch</span><br><span class="line">chmod -R 777 /mnt/video</span><br></pre></td></tr></table></figure>
+<p>下载目录可以自己修改：<br>修改第33行,将<code>/mnt/video/download</code>设置成你自己的默认下载目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">directory.default.set = /mnt/video/download </span><br></pre></td></tr></table></figure>
+<p>修改第39行，将<code>/mnt/video/.session</code>设置成你自己保存PT缓存文件的目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.path.set = /mnt/video/.session</span><br></pre></td></tr></table></figure>
+<p>修改第44行，将<code>/mnt/video/.watch/</code>设置成你自己PT存放种子的目录。（将种子存放到这个目录下，会自动下载种子文件）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schedule2 = watch_directory,5,5,load.start=/mnt/video/.watch/*.torrent</span><br></pre></td></tr></table></figure>
+
+<h3 id="建立启动脚本"><a href="#建立启动脚本" class="headerlink" title="建立启动脚本"></a>建立启动脚本</h3><p>在root目录下建立一个文件<code>rt.sh</code>,将下面的代码复制进去，保存退出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">start)</span><br><span class="line">echo -n &quot;Starting rtorrent&quot;</span><br><span class="line">su - root -c &quot;screen -A -m -d -S rtorrent /usr/bin/rtorrent&quot; &amp;</span><br><span class="line">echo &quot;.&quot;</span><br><span class="line">;;</span><br><span class="line">stop)</span><br><span class="line">echo -n &quot;Stopping rtorrent&quot;</span><br><span class="line">ppid=`ps ax | grep &quot;/usr/bin/rtorrent&quot; | grep -v grep | grep -v screen | awk &#x27;&#123; print $1 &#125;&#x27;`</span><br><span class="line">kill $&#123;ppid&#125;</span><br><span class="line">echo &quot;.&quot;</span><br><span class="line">;;</span><br><span class="line">restart)</span><br><span class="line"></span><br><span class="line">echo -n &quot;Restarting rtorrent&quot;</span><br><span class="line">ppid=`ps ax | grep &quot;/usr/bin/rtorrent&quot; | grep -v grep | grep -v screen | awk &#x27;&#123; print $1 &#125;&#x27;`</span><br><span class="line">kill $&#123;ppid&#125;</span><br><span class="line">sleep 1</span><br><span class="line">su - root -c &quot;screen -A -m -d -S rtorrent /usr/bin/rtorrent&quot; &amp;</span><br><span class="line">echo &quot;.&quot;</span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line">echo &quot;Usage: &#123;start|stop|restart&#125;&quot; &gt;&amp;2</span><br><span class="line">exit 1</span><br><span class="line">;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">exit 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后给这个脚本执行权限。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ~/rt.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="最后运行这个脚本"><a href="#最后运行这个脚本" class="headerlink" title="最后运行这个脚本"></a>最后运行这个脚本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~/rt.sh start     #运行</span><br><span class="line">~/rt.sh stop      #停止</span><br><span class="line">~/rt.sh restart   #重新运行</span><br></pre></td></tr></table></figure>
+<p>根据你的需要运行脚本之行之后，就可以在浏览器里输入：<code>ip地址/rt</code>就可以正常访问rutorrent+rtorrent了。</p>
+<h2 id="后话："><a href="#后话：" class="headerlink" title="后话："></a>后话：</h2><h3 id="添加在访问rutorrent时需要输入密码，才可以正常访问。"><a href="#添加在访问rutorrent时需要输入密码，才可以正常访问。" class="headerlink" title="添加在访问rutorrent时需要输入密码，才可以正常访问。"></a>添加在访问rutorrent时需要输入密码，才可以正常访问。</h3><p><img src="http://host.zealot.top:5680/images/rtorrent13.png"></p>
+<h4 id="编辑-etc-apache2-sites-available-000-default-conf文件。在-lt-VirtualHost-gt-前面添加下面这些代码，保存退出。"><a href="#编辑-etc-apache2-sites-available-000-default-conf文件。在-lt-VirtualHost-gt-前面添加下面这些代码，保存退出。" class="headerlink" title="编辑/etc/apache2/sites-available/000-default.conf文件。在&lt;/VirtualHost&gt;前面添加下面这些代码，保存退出。"></a>编辑<code>/etc/apache2/sites-available/000-default.conf</code>文件。在<code>&lt;/VirtualHost&gt;</code>前面添加下面这些代码，保存退出。</h4><p><img src="http://host.zealot.top:5680/images/rtorrent+rutorrent.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /var/www/html/rt&gt;</span><br><span class="line"> #设置密码</span><br><span class="line">   AuthType Basic</span><br><span class="line">   AuthName &quot;Server&quot;</span><br><span class="line">   AuthUserFile /var/www/.passwd</span><br><span class="line">   Require valid-user</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="设置用户名和密码"><a href="#设置用户名和密码" class="headerlink" title="设置用户名和密码"></a>设置用户名和密码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htpasswd -bc /var/www/.passwd 用户名 密码</span><br></pre></td></tr></table></figure>
+<p>上面的用户名和密码替换成自己要设置的用户和密码。</p>
+<h4 id="重启apache2服务"><a href="#重启apache2服务" class="headerlink" title="重启apache2服务"></a>重启apache2服务</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart apache2</span><br></pre></td></tr></table></figure>
+
+<h3 id="手机端用Transdroid访问和控制rtorrent"><a href="#手机端用Transdroid访问和控制rtorrent" class="headerlink" title="手机端用Transdroid访问和控制rtorrent."></a>手机端用Transdroid访问和控制rtorrent.</h3><p>首先要先下载Transdroid这个APP。怎么下载，我就不说了，各大应用商店都有得下。</p>
+<h4 id="添加服务器"><a href="#添加服务器" class="headerlink" title="添加服务器"></a>添加服务器</h4><p><img src="http://host.zealot.top:5680/images/rtorrent1.png"></p>
+<h4 id="选择add-normal-custom-server"><a href="#选择add-normal-custom-server" class="headerlink" title="选择add normal,custom server"></a>选择<code>add normal,custom server</code></h4><p><img src="http://host.zealot.top:5680/images/rtorrent2.png"></p>
+<h4 id="服务器类型选rtorrent，其它根据自己的情况填写。"><a href="#服务器类型选rtorrent，其它根据自己的情况填写。" class="headerlink" title="服务器类型选rtorrent，其它根据自己的情况填写。"></a>服务器类型选<code>rtorrent</code>，其它根据自己的情况填写。</h4><p><img src="http://host.zealot.top:5680/images/rtorrent5.png"></p>
+<h4 id="在高级设置里，SCGI挂载点设置成"><a href="#在高级设置里，SCGI挂载点设置成" class="headerlink" title="在高级设置里，SCGI挂载点设置成"></a>在高级设置里，<code>SCGI挂载点</code>设置成</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/rt/plugins/rpc/rpc.php</span><br></pre></td></tr></table></figure>
+<p><img src="http://host.zealot.top:5680/images/rtorrent4.png"></p>
+<h4 id="添加RSS订阅-订阅的地址需要自己到PT站上去获取。"><a href="#添加RSS订阅-订阅的地址需要自己到PT站上去获取。" class="headerlink" title="添加RSS订阅.订阅的地址需要自己到PT站上去获取。"></a>添加RSS订阅.订阅的地址需要自己到PT站上去获取。</h4><p><img src="http://host.zealot.top:5680/images/rtorrent6.png"></p>
+<h4 id="添加完之后的样子"><a href="#添加完之后的样子" class="headerlink" title="添加完之后的样子"></a>添加完之后的样子</h4><p><img src="http://host.zealot.top:5680/images/rtorrent7.png"></p>
+<h4 id="效果展示，看中哪一个点一下，rtorrent就会自动下载了。"><a href="#效果展示，看中哪一个点一下，rtorrent就会自动下载了。" class="headerlink" title="效果展示，看中哪一个点一下，rtorrent就会自动下载了。"></a>效果展示，看中哪一个点一下，rtorrent就会自动下载了。</h4><p><img src="http://host.zealot.top:5680/images/rtorrent9.png"></p>
+<h3 id="RSS利用正则自动过滤并下载，所需要的影片。"><a href="#RSS利用正则自动过滤并下载，所需要的影片。" class="headerlink" title="RSS利用正则自动过滤并下载，所需要的影片。"></a>RSS利用正则自动过滤并下载，所需要的影片。</h3><p>在订阅里选择RSS管理器<br><img src="http://host.zealot.top:5680/images/rtorrent12.png"><br>在RSS管理器里可以通过正则过滤到自己需要的电影,我设置的是2018年的电影，文件小于30G的就会自动下载。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\[[1-9]&#123;1&#125;\*|\[[3-9]&#123;1&#125;[0-9]\.|\[[1-9]&#123;3&#125;\./</span><br></pre></td></tr></table></figure>
+<p>正则表达内容比较多，我这点东西只当是抛转引玉了。<br><img src="http://host.zealot.top:5680/images/rtorrent11.png"></p>
+<p>
+### 下面还有可以实现的功能！
+由于使用python和shell需要配置的地方太多，已不适合大多数同学使用了。具体的我就不说了。自己有兴趣的同学可以自己去研究。
+1、 下载文件后，自动将文件分类。
+2、 自动下载文件后，微信或邮件通知！
+![](http://host.zealot.top:5680/images/rtorrent10.png)
+3、 硬盘快满时，自动删除已看过的电影。
+4、 微信输入电影名，自动跳出电影百度网盘链接。
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rtorrent/" rel="tag"># rtorrent</a>
+          
+            <a href="/tags/rutorrent/" rel="tag"># rutorrent</a>
+          
+            <a href="/tags/PT/" rel="tag"># PT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/26/debian%E5%AE%89%E8%A3%85vsftpd%E9%81%87%E5%88%B0%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91%EF%BC%81/" rel="next" title="debian安装vsftpd遇到的那些坑！">
+                <i class="fa fa-chevron-left"></i> debian安装vsftpd遇到的那些坑！
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/17/Vim%E9%85%8D%E7%BD%AE%E6%88%90%E8%B6%85%E7%BA%A7%E5%BC%BA%E5%A4%A7%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8/" rel="prev" title="将Vim配置成超级强大的编辑器">
+                将Vim配置成超级强大的编辑器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xmzcl" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:18976787@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/384272321" target="_blank" title="BiliBili">
+                      
+                        <i class="fa fa-fw fa-globe"></i>BiliBili</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=18976787&site=qq&menu=yes" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐工具网站
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://translate.google.cn/" title="google翻译" target="_blank">google翻译</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mtool.chinaz.com/" title="站长工具" target="_blank">站长工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://phpinfo.me/domain/" title="子域名查询" target="_blank">子域名查询</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://smallpdf.com/cn" title="PDF转换" target="_blank">PDF转换</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tool.oschina.net/codeformat/json" title="代码格式化" target="_blank">代码格式化</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dns.aizhan.com/120.35.84.225/" title="IP反向查询" target="_blank">IP反向查询</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tool.chinaz.com/tools/diff" title="文本对比" target="_blank">文本对比</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.aconvert.com/cn/" title="在线转换" target="_blank">在线转换</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tool.chinaz.com/port/" title="端口扫描" target="_blank">端口扫描</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cowtransfer.com/" title="奶牛快传" target="_blank">奶牛快传</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.speedtest.net/" title="测试网速" target="_blank">测试网速</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.google.cn/maps/" title="google地图" target="_blank">google地图</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">Docker安装方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%B8%B8%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">正常安装方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%89%80%E9%9C%80%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">安装所需软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDrutorrent"><span class="nav-number">2.2.</span> <span class="nav-text">下载rutorrent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%BE%91-rtorrent-rc%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">编辑.rtorrent.rc配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E4%B8%8B%E8%BD%BD%E7%9B%AE%E5%BD%95"><span class="nav-number">2.4.</span> <span class="nav-text">建立下载目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC"><span class="nav-number">2.5.</span> <span class="nav-text">建立启动脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E8%BF%90%E8%A1%8C%E8%BF%99%E4%B8%AA%E8%84%9A%E6%9C%AC"><span class="nav-number">2.6.</span> <span class="nav-text">最后运行这个脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AF%9D%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">后话：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%9C%A8%E8%AE%BF%E9%97%AErutorrent%E6%97%B6%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%EF%BC%8C%E6%89%8D%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AE%E3%80%82"><span class="nav-number">3.1.</span> <span class="nav-text">添加在访问rutorrent时需要输入密码，才可以正常访问。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%BE%91-etc-apache2-sites-available-000-default-conf%E6%96%87%E4%BB%B6%E3%80%82%E5%9C%A8-lt-VirtualHost-gt-%E5%89%8D%E9%9D%A2%E6%B7%BB%E5%8A%A0%E4%B8%8B%E9%9D%A2%E8%BF%99%E4%BA%9B%E4%BB%A3%E7%A0%81%EF%BC%8C%E4%BF%9D%E5%AD%98%E9%80%80%E5%87%BA%E3%80%82"><span class="nav-number">3.1.1.</span> <span class="nav-text">编辑&#x2F;etc&#x2F;apache2&#x2F;sites-available&#x2F;000-default.conf文件。在&lt;&#x2F;VirtualHost&gt;前面添加下面这些代码，保存退出。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81"><span class="nav-number">3.1.2.</span> <span class="nav-text">设置用户名和密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%90%AFapache2%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.1.3.</span> <span class="nav-text">重启apache2服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E6%9C%BA%E7%AB%AF%E7%94%A8Transdroid%E8%AE%BF%E9%97%AE%E5%92%8C%E6%8E%A7%E5%88%B6rtorrent"><span class="nav-number">3.2.</span> <span class="nav-text">手机端用Transdroid访问和控制rtorrent.</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">3.2.1.</span> <span class="nav-text">添加服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9add-normal-custom-server"><span class="nav-number">3.2.2.</span> <span class="nav-text">选择add normal,custom server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B1%BB%E5%9E%8B%E9%80%89rtorrent%EF%BC%8C%E5%85%B6%E5%AE%83%E6%A0%B9%E6%8D%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E6%83%85%E5%86%B5%E5%A1%AB%E5%86%99%E3%80%82"><span class="nav-number">3.2.3.</span> <span class="nav-text">服务器类型选rtorrent，其它根据自己的情况填写。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E9%AB%98%E7%BA%A7%E8%AE%BE%E7%BD%AE%E9%87%8C%EF%BC%8CSCGI%E6%8C%82%E8%BD%BD%E7%82%B9%E8%AE%BE%E7%BD%AE%E6%88%90"><span class="nav-number">3.2.4.</span> <span class="nav-text">在高级设置里，SCGI挂载点设置成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85-%E8%AE%A2%E9%98%85%E7%9A%84%E5%9C%B0%E5%9D%80%E9%9C%80%E8%A6%81%E8%87%AA%E5%B7%B1%E5%88%B0PT%E7%AB%99%E4%B8%8A%E5%8E%BB%E8%8E%B7%E5%8F%96%E3%80%82"><span class="nav-number">3.2.5.</span> <span class="nav-text">添加RSS订阅.订阅的地址需要自己到PT站上去获取。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%AE%8C%E4%B9%8B%E5%90%8E%E7%9A%84%E6%A0%B7%E5%AD%90"><span class="nav-number">3.2.6.</span> <span class="nav-text">添加完之后的样子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA%EF%BC%8C%E7%9C%8B%E4%B8%AD%E5%93%AA%E4%B8%80%E4%B8%AA%E7%82%B9%E4%B8%80%E4%B8%8B%EF%BC%8Crtorrent%E5%B0%B1%E4%BC%9A%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E4%BA%86%E3%80%82"><span class="nav-number">3.2.7.</span> <span class="nav-text">效果展示，看中哪一个点一下，rtorrent就会自动下载了。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSS%E5%88%A9%E7%94%A8%E6%AD%A3%E5%88%99%E8%87%AA%E5%8A%A8%E8%BF%87%E6%BB%A4%E5%B9%B6%E4%B8%8B%E8%BD%BD%EF%BC%8C%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84%E5%BD%B1%E7%89%87%E3%80%82"><span class="nav-number">3.3.</span> <span class="nav-text">RSS利用正则自动过滤并下载，所需要的影片。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hank ZHU</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '7daBgQlJ2hiRGdVTNxdmeEQO-gzGzoHsz',
+        appKey: 'sNoi3wfXIC4W6K7o3Mw03ITk',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("7daBgQlJ2hiRGdVTNxdmeEQO-gzGzoHsz", "sNoi3wfXIC4W6K7o3Mw03ITk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
