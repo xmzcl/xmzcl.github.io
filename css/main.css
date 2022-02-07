@@ -2002,7 +2002,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #46ff49;
+  background: #74c1b1;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3313,4 +3313,8 @@ pre .javascript .function {
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: #f79533;
+}
+::selection {
+  background-color: #fff159;
+  color: #555;
 }
