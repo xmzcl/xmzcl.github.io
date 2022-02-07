@@ -1,0 +1,3384 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo,Markdown,语法,大全," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="上篇把hexo的配置讲的差不多了,现在我们讲一下hexo里的内容编辑. 文章抬头设置12345678---tags:- hexo- ccscategories: 技术分享top: truepassword: 123456--- 上面这个抬头就是建立了hexo和ccs标签,技术分享的分类,以及把这篇文章置顶,访问该篇文章需要输入密码123456. 语法分级标题：行首加“#”表示不同级别的标题 (H1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[原创]Hexo+Github搭建自己的博客 --- 心得汇总2018版（内容编辑篇）">
+<meta property="og:url" content="http://zealot.top/Hexo-Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A23.html">
+<meta property="og:site_name" content="思想就是武器">
+<meta property="og:description" content="上篇把hexo的配置讲的差不多了,现在我们讲一下hexo里的内容编辑. 文章抬头设置12345678---tags:- hexo- ccscategories: 技术分享top: truepassword: 123456--- 上面这个抬头就是建立了hexo和ccs标签,技术分享的分类,以及把这篇文章置顶,访问该篇文章需要输入密码123456. 语法分级标题：行首加“#”表示不同级别的标题 (H1">
+<meta property="og:locale">
+<meta property="og:image" content="https://www.baidu.com/img/bd_logo1.png?where=super">
+<meta property="og:image" content="https://www.baidu.com/img/bd_logo1.png?where=super">
+<meta property="article:published_time" content="2018-08-10T04:15:48.000Z">
+<meta property="article:modified_time" content="2020-07-04T09:08:48.000Z">
+<meta property="article:author" content="Hank ZHU">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="语法">
+<meta property="article:tag" content="大全">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.baidu.com/img/bd_logo1.png?where=super">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"bounceRightIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"bounceLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zealot.top/Hexo-Github搭建自己的博客3.html"/>
+
+
+
+
+
+  <title>[原创]Hexo+Github搭建自己的博客 --- 心得汇总2018版（内容编辑篇） | 思想就是武器</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?076026d6d2dac8ed1fb9ea3629feea59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">思想就是武器</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">在记录中不断成长</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zealot.top/Hexo-Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A23.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="思想就是武器">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[原创]Hexo+Github搭建自己的博客 --- 心得汇总2018版（内容编辑篇）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T12:15:48+08:00">
+                2018-08-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-07-04T17:08:48+08:00">
+                2020-07-04
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8E%9F%E5%88%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">原创</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Hexo-Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A23.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Hexo-Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A23.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/Hexo-Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A23.html" class="leancloud_visitors" data-flag-title="[原创]Hexo+Github搭建自己的博客 --- 心得汇总2018版（内容编辑篇）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上篇把hexo的配置讲的差不多了,现在我们讲一下hexo里的内容编辑.</p>
+<h2 id="文章抬头设置"><a href="#文章抬头设置" class="headerlink" title="文章抬头设置"></a>文章抬头设置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">ccs</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">技术分享</span></span><br><span class="line"><span class="attr">top:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>上面这个抬头就是建立了<code>hexo</code>和<code>ccs</code>标签,<code>技术分享</code>的分类,以及把这篇文章置顶,访问该篇文章需要输入密码123456.</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="分级标题："><a href="#分级标题：" class="headerlink" title="分级标题："></a>分级标题：</h3><p>行首加“#”表示不同级别的标题 (H1-H6)。“#”后最好空一格。H1最大，H6最小。# H1## H2### H3#### H4##### H5###### H6</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
+<p>效果展示:</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><hr>
+<h3 id="文字强调："><a href="#文字强调：" class="headerlink" title="文字强调："></a>文字强调：</h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">*斜体文字*</span></span><br><span class="line"><span class="strong">**加粗文字**</span></span><br><span class="line"><span class="strong">***粗斜体文字**</span>*</span><br></pre></td></tr></table></figure>
+<p>效果展示:<br><em>斜体文字</em><br><strong>加粗文字</strong><br><em><strong>粗斜体文字</strong></em></p>
+<hr>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>*+-表示无序列表。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*</span> 测试</span><br><span class="line"><span class="bullet">*</span> 测试1</span><br><span class="line"><span class="bullet">*</span> 测试2</span><br><span class="line"><span class="bullet">+</span> 测试3</span><br><span class="line"><span class="bullet">+</span> 测试4</span><br><span class="line"><span class="bullet">+</span> 测试5</span><br><span class="line"><span class="bullet">-</span> 测试6</span><br><span class="line"><span class="bullet">-</span> 测试7</span><br><span class="line"><span class="bullet">-</span> 测试8</span><br></pre></td></tr></table></figure>
+<p>效果展示:</p>
+<ul>
+<li>测试</li>
+<li>测试1</li>
+<li>测试2</li>
+</ul>
+<ul>
+<li>测试3</li>
+<li>测试4</li>
+<li>测试5</li>
+</ul>
+<ul>
+<li>测试6</li>
+<li>测试7</li>
+<li>测试8</li>
+</ul>
+<p>数字和点1.2.3.表示有序列表。字符后须空一格。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">1</span>. 测试<span class="number">1</span></span><br><span class="line"><span class="attribute">2</span>. 测试<span class="number">2</span></span><br><span class="line"><span class="attribute">3</span>. 测试<span class="number">3</span></span><br><span class="line"><span class="attribute">4</span>. 测试<span class="number">4</span></span><br><span class="line"><span class="attribute">5</span>. 测试<span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>效果展示:</p>
+<ol>
+<li>测试1</li>
+<li>测试2</li>
+<li>测试3</li>
+<li>测试4</li>
+<li>测试5</li>
+</ol>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><figure class="highlight node-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> <span class="language-javascript">引用 &gt;&gt; 引用中的引用</span></span><br></pre></td></tr></table></figure>
+<p>效果展示:</p>
+<blockquote>
+<p>引用 &gt;&gt; 引用中的引用</p>
+</blockquote>
+<h3 id="文本居中的引用"><a href="#文本居中的引用" class="headerlink" title="文本居中的引用"></a>文本居中的引用</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">cq</span> %&#125;</span><span class="language-xml"> 文本居中的引用</span></span><br><span class="line"><span class="language-xml">测试</span></span><br><span class="line"><span class="language-xml">测试2  </span><span class="template-tag">&#123;% <span class="name">endcq</span> %&#125;</span></span><br></pre></td></tr></table></figure>
+<p>效果展示：</p>
+<blockquote class="blockquote-center"><p> 文本居中的引用<br>测试<br>测试2  </p>
+</blockquote>
+
+<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">***</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>效果展示:</p>
+<hr>
+<hr>
+<h3 id="删除线和下划线"><a href="#删除线和下划线" class="headerlink" title="删除线和下划线"></a>删除线和下划线</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~~删除线~~</span><br><span class="line"><span class="tag">&lt;<span class="name">u</span>&gt;</span>下划线<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果展示:<br><del>删除线</del><br><u>下划线</u></p>
+<h3 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h3><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`hello world`</span></span><br></pre></td></tr></table></figure>
+<p>效果展示:<br><code>hell world</code></p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>行首敲四个缩进空格，或者某段文本上下一行均加&#96;&#96;&#96;,或者某段文本上下一行均加&amp;#126;&amp;#126;&amp;#126;</p>
+<p>效果展示:</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码块测试!</span><br></pre></td></tr></table></figure>
+
+<h3 id="外链"><a href="#外链" class="headerlink" title="外链"></a>外链</h3><p>描述即外链的名称，可以随意修改.</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[描述]</span>(<span class="attribute">http</span>:<span class="comment">//www.baidu.com)</span></span><br></pre></td></tr></table></figure>
+<p>效果展示:<br><a target="_blank" rel="noopener" href="http://www.baidu.com/">描述</a></p>
+<h3 id="插入图像"><a href="#插入图像" class="headerlink" title="插入图像"></a>插入图像</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![图像测试](https:<span class="regexp">//</span>www.baidu.com<span class="regexp">/img/</span>bd_logo1.png?where=super)  <span class="comment">#markdown插入的图片，无法设置大小</span></span><br><span class="line">&lt;img src=<span class="string">&quot;&quot;</span>https:<span class="regexp">//</span>www.baidu.com<span class="regexp">/img/</span>bd_logo1.png?where=supe<span class="string">r&quot; width=&quot;</span><span class="number">50</span>%<span class="string">&quot; height=&quot;</span><span class="number">50</span>%<span class="string">&quot; /&gt; #img src插入图片可以设置图片的大小</span></span><br></pre></td></tr></table></figure>
+<p>效果展示:<br><img src="https://www.baidu.com/img/bd_logo1.png?where=super" alt="图像测试"><br><img src="https://www.baidu.com/img/bd_logo1.png?where=super" width="50%" height="50%" /> </p>
+<h3 id="缩进："><a href="#缩进：" class="headerlink" title="缩进："></a>缩进：</h3><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　　输入法中半角改为全角，缩进效果如同<span class="built_in">Word</span>。或段首加几个，即缩进几格。</span><br></pre></td></tr></table></figure>
+<p>效果展示:<br>　　　输入法中半角改为全角，缩进效果如同Word。或段首加几个，即缩进几格。</p>
+<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在行中加<span class="tag">&lt;<span class="name">br</span>&gt;</span>即换行，在行末加<span class="tag">&lt;<span class="name">p</span>&gt;</span>即空行；在行中插入分隔线<span class="tag">&lt;<span class="name">hr</span>/&gt;</span>测试分隔线中。</span><br></pre></td></tr></table></figure>
+<p>效果展示:<br>在行中加<br>即换行，在行末加<p>即空行；在行中插入分隔线<hr/>测试分隔线中。</p>
+<h3 id="转义符"><a href="#转义符" class="headerlink" title="转义符"></a>转义符</h3><p>在特殊字符前面加\可使特殊字符转换为正常字符，而不是被识别为markdown语法符号。如：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">\</span><span class="punctuation">\</span><span class="punctuation">\</span>`\*\_\&#123;\&#125;\[\]\(\)\#\+\-\.\!</span><br></pre></td></tr></table></figure>
+<p>效果展示:<br>\`*_{}[]()#+-.!</p>
+<h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如test<span class="selector-attr">[^1\]</span>,脚注<span class="number">2</span>是<span class="selector-attr">[^2\]</span>是这样的</span><br></pre></td></tr></table></figure>
+
+<p>效果展示:<br>比如test<a href="%E8%84%9A%E6%B3%A8%E5%86%85%E5%AE%B9">^1</a>,脚注2是<a href="%E6%B5%8B%E8%AF%95%E8%84%9A%E6%B3%A8">^2</a>是这样的</p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>使用竖线“|”分割开，表头下面加上横线，如下所示：</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">姓名|<span class="string">性别</span>|<span class="string">年龄</span>|<span class="string">分数</span>|</span><br><span class="line">|<span class="string">---</span>|<span class="string">:---:</span>|<span class="string">:--</span>|<span class="string">---:</span>|<span class="string"> </span></span><br><span class="line"><span class="string"></span>|<span class="string">张三</span>|<span class="string">男</span>|<span class="string">8</span>|<span class="string">60</span>|</span><br><span class="line">|<span class="string">李四</span>|<span class="string">女</span>|<span class="string">20</span>|<span class="string">90</span>|</span><br><span class="line">|<span class="string">默认</span>|<span class="string">居中</span>|<span class="string">左对齐</span>|<span class="string">右对齐</span>|</span><br></pre></td></tr></table></figure>
+<p>效果展示:</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th align="center">性别</th>
+<th align="left">年龄</th>
+<th align="right">分数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>张三</td>
+<td align="center">男</td>
+<td align="left">8</td>
+<td align="right">60</td>
+</tr>
+<tr>
+<td>李四</td>
+<td align="center">女</td>
+<td align="left">20</td>
+<td align="right">90</td>
+</tr>
+<tr>
+<td>默认</td>
+<td align="center">居中</td>
+<td align="left">左对齐</td>
+<td align="right">右对齐</td>
+</tr>
+</tbody></table>
+<h3 id="上标与下标"><a href="#上标与下标" class="headerlink" title="上标与下标"></a>上标与下标</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">测试文字<span class="tag">&lt;<span class="name">sub</span>&gt;</span>这是下标文本<span class="tag">&lt;/<span class="name">sub</span>&gt;</span></span><br><span class="line"></span><br><span class="line">测试文字<span class="tag">&lt;<span class="name">sup</span>&gt;</span>这是上标文本<span class="tag">&lt;/<span class="name">sup</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果展示:<br>测试文字<sub>这是下标文本</sub></p>
+<p>测试文字<sup>这是上标文本</sup></p>
+<h3 id="字体加大和缩小"><a href="#字体加大和缩小" class="headerlink" title="字体加大和缩小"></a>字体加大和缩小</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">small</span>&gt;</span><span class="tag">&lt;<span class="name">small</span>&gt;</span>最小字号<span class="tag">&lt;/<span class="name">small</span>&gt;</span><span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">small</span>&gt;</span>小字号<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">big</span>&gt;</span>大字号<span class="tag">&lt;/<span class="name">big</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">big</span>&gt;</span><span class="tag">&lt;<span class="name">big</span>&gt;</span>大大字号<span class="tag">&lt;/<span class="name">big</span>&gt;</span><span class="tag">&lt;/<span class="name">big</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">big</span>&gt;</span><span class="tag">&lt;<span class="name">big</span>&gt;</span><span class="tag">&lt;<span class="name">big</span>&gt;</span>大大大字号<span class="tag">&lt;/<span class="name">big</span>&gt;</span><span class="tag">&lt;/<span class="name">big</span>&gt;</span><span class="tag">&lt;/<span class="name">big</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">big</span>&gt;</span><span class="tag">&lt;<span class="name">big</span>&gt;</span><span class="tag">&lt;<span class="name">big</span>&gt;</span><span class="tag">&lt;<span class="name">big</span>&gt;</span>继续加可以继续大下去<span class="tag">&lt;/<span class="name">big</span>&gt;</span><span class="tag">&lt;/<span class="name">big</span>&gt;</span><span class="tag">&lt;/<span class="name">big</span>&gt;</span><span class="tag">&lt;/<span class="name">big</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果展示:<br><small><small>最小字号</small></small><br><small>小字号</small><br><big>大字号</big><br><big><big>大大字号</big></big><br><big><big><big>大大大字号</big></big></big><br><big><big><big><big>继续加可以继续大下去</big></big></big></big></p>
+<h3 id="添加ICO图标"><a href="#添加ICO图标" class="headerlink" title="添加ICO图标"></a>添加ICO图标</h3><p>可以在<a target="_blank" rel="noopener" href="https://fontawesome.com/v4.7.0/icons/">Font Awesome</a>官网查找ICO图标，然后通过<code>class</code>方法添加。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-pencil&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 铅笔</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-cloud-upload&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 上传</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-download&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 下载</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-download fa-lg&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 下载变大 33%</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-download fa-2x&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 下载两倍大</span><br></pre></td></tr></table></figure>
+<p>效果展示：<br><i class="fa fa-pencil"></i> 铅笔<br><i class="fa fa-cloud-upload"></i> 上传<br><i class="fa fa-download"></i> 下载<br><i class="fa fa-download fa-lg"></i> 下载变大 33%<br><i class="fa fa-download fa-2x"></i> 下载两倍大</p>
+<h3 id="Bootstrap标注"><a href="#Bootstrap标注" class="headerlink" title="Bootstrap标注"></a>Bootstrap标注</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">note</span> class_name %&#125;</span><span class="language-xml"> 文字内容 (md class_name supported) </span><span class="template-tag">&#123;% <span class="name">endnote</span> %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name">note</span> primary %&#125;</span><span class="language-xml"> 文字内容 (md primary supported) </span><span class="template-tag">&#123;% <span class="name">endnote</span> %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name">note</span> default %&#125;</span><span class="language-xml"> 文字内容 (md default supported) </span><span class="template-tag">&#123;% <span class="name">endnote</span> %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name">note</span> success %&#125;</span><span class="language-xml"> 文字内容 (md success supported) </span><span class="template-tag">&#123;% <span class="name">endnote</span> %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name">note</span> info %&#125;</span><span class="language-xml"> 文字内容 (md info supported) </span><span class="template-tag">&#123;% <span class="name">endnote</span> %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name">note</span> warning %&#125;</span><span class="language-xml"> 文字内容 (md warning supported) </span><span class="template-tag">&#123;% <span class="name">endnote</span> %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name">note</span> danger %&#125;</span><span class="language-xml"> 文字内容 (md danger supported) </span><span class="template-tag">&#123;% <span class="name">endnote</span> %&#125;</span></span><br></pre></td></tr></table></figure>
+<p>效果展示：</p>
+<div class="note class_name"><p>文字内容 (md class_name supported) </p></div>
+<div class="note primary"><p>文字内容 (md primary supported) </p></div>
+<div class="note default"><p>文字内容 (md default supported) </p></div>
+<div class="note success"><p>文字内容 (md success supported) </p></div>
+<div class="note info"><p>文字内容 (md info supported) </p></div>
+<div class="note warning"><p>文字内容 (md warning supported) </p></div>
+<div class="note danger"><p>文字内容 (md danger supported) </p></div>
+
+<h3 id="设置文字颜色"><a href="#设置文字颜色" class="headerlink" title="设置文字颜色"></a>设置文字颜色</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;red&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">big</span>&gt;</span>测试内容<span class="tag">&lt;/<span class="name">big</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;#0000FF&quot;</span>&gt;</span>测试内容<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果展示：<br><font color="red"><big>测试内容</big></font><br><font color="#0000FF">测试内容</font></p>
+<h3 id="待办事宜列表"><a href="#待办事宜列表" class="headerlink" title="待办事宜列表"></a>待办事宜列表</h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>[ ] 支持以 PDF 格式导出文稿</span><br><span class="line"><span class="bullet">- </span>[ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</span><br><span class="line"><span class="bullet">- </span>[x] 新增 Todo 列表功能</span><br><span class="line"><span class="bullet">- </span>[x] 修复 LaTex 公式渲染问题</span><br><span class="line"><span class="bullet">- </span>[x] 新增 LaTex 公式编号功能</span><br></pre></td></tr></table></figure>
+<p>效果展示：</p>
+<ul>
+<li><input disabled="" type="checkbox"> 支持以 PDF 格式导出文稿</li>
+<li><input disabled="" type="checkbox"> 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</li>
+<li><input checked="" disabled="" type="checkbox"> 新增 Todo 列表功能</li>
+<li><input checked="" disabled="" type="checkbox"> 修复 LaTex 公式渲染问题</li>
+<li><input checked="" disabled="" type="checkbox"> 新增 LaTex 公式编号功能</li>
+</ul>
+<h3 id="行内HTML元素"><a href="#行内HTML元素" class="headerlink" title="行内HTML元素"></a>行内HTML元素</h3><p><code>&lt;kbd&gt;</code> 标签定义键盘文本。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">kbd</span>&gt;Ctrl&lt;<span class="selector-tag">kbd</span>&gt;+&lt;<span class="selector-tag">kbd</span>&gt;Alt&lt;<span class="selector-tag">kbd</span>&gt;+&lt;<span class="selector-tag">kbd</span>&gt;<span class="selector-tag">Del</span>&lt;<span class="selector-tag">kbd</span>&gt; 重启电脑</span><br></pre></td></tr></table></figure>
+<p>效果展示：<br><kbd>Ctrl <kbd>+ <kbd>Alt <kbd>+ <kbd>Del <kbd> 重启电脑</p>
+<h3 id="辅助排版符号"><a href="#辅助排版符号" class="headerlink" title="辅助排版符号"></a>辅助排版符号</h3><p>键盘打不出的，复制-粘贴即可</p>
+<p>直角引号比较古典，尤其用在标题中：「」和『』代替“ ”</p>
+<p>▍这个加在分级标题前效果好</p>
+<p>▏这个在段落前等于是空格</p>
+<p>各种三角 ▷ ◁ ▶ ◀ △▽▲▼</p>
+<p>➥ 和 → 还有 ˉˉ↴ 以及 ➨ 起引导视线的作用</p>
+<p>☛ 这个是点击</p>
+<p>☑ 和 ✔ 是已经选择，OK</p>
+<p>✘ 是错误，删除，NO</p>
+<p>✄ 是剪切</p>
+<p>❐ 这个是复制粘贴</p>
+<p>✚ 是添加，补充，选项</p>
+<p>☷ 是列表，调整格式</p>
+<p>① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ 这样的数字是不是很酷</p>
+<p>罗马数字（Ⅰ·Ⅱ·Ⅲ·Ⅳ·Ⅴ·Ⅵ·Ⅶ·Ⅷ·Ⅸ·Ⅹ·Ⅺ·Ⅻ）比较优雅复古</p>
+<h3 id="居中和右对齐"><a href="#居中和右对齐" class="headerlink" title="居中和右对齐"></a>居中和右对齐</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 居中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 右对齐 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align:right&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果展示：</p>
+<!-- 居中 -->
+<center>内容</center>
+<!-- 右对齐 -->
+<div style="text-align:right">内容</div>
+
+<h3 id="选项卡"><a href="#选项卡" class="headerlink" title="选项卡"></a>选项卡</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">tabs</span> 选项卡, 2 %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="language-xml">**这是选项卡 1** 呵呵哈哈哈哈哈哈</span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="language-xml">**这是选项卡 2** 额。。。</span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="language-xml">**这是选项卡 3** 哇，你找到我了！</span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name">endtabs</span> %&#125;</span></span><br></pre></td></tr></table></figure>
+<p>效果展示：</p>
+<div class="tabs" id="选项卡"><ul class="nav-tabs"><li class="tab"><a href="#选项卡-1">选项卡 1</a></li><li class="tab active"><a href="#选项卡-2">选项卡 2</a></li><li class="tab"><a href="#选项卡-3">选项卡 3</a></li></ul><div class="tab-content"><div class="tab-pane" id="选项卡-1"><p><strong>这是选项卡 1</strong> 呵呵哈哈哈哈哈哈</p>
+</div><div class="tab-pane active" id="选项卡-2"><p><strong>这是选项卡 2</strong> 额。。。</p>
+</div><div class="tab-pane" id="选项卡-3"><p><strong>这是选项卡 3</strong> 哇，你找到我了！</p>
+</div></div></div>
+
+<h3 id="按钮样式"><a href="#按钮样式" class="headerlink" title="按钮样式"></a>按钮样式</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% btn https:<span class="regexp">//</span>almostover.ru<span class="regexp">/2016-01/</span>hexo-theme-<span class="keyword">next</span>-test/<span class="comment">#Button-tag-test, 更多关于按钮的使用点这里, download fa-lg fa-fw %&#125;</span></span><br></pre></td></tr></table></figure>
+<p>效果展示：</p>
+<a class="btn" target="_blank" rel="noopener" href="https://almostover.ru/2016-01/hexo-theme-next-test/#Button-tag-test"><i class="fa fa-download fa-lg fa-fw"></i>更多关于按钮的使用点这里</a>
+<hr>
+<h2 id="转义码"><a href="#转义码" class="headerlink" title="转义码"></a>转义码</h2><table>
+<thead>
+<tr>
+<th align="center">字符</th>
+<th align="center">转义码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center"><code>&amp;#09;</code></td>
+<td>制表符Horizontal tab</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"><code>&amp;#10;</code></td>
+<td>换行Line feed</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"><code>&amp;#13;</code></td>
+<td>回车Carriage Return</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"><code>&amp;#32;</code></td>
+<td>Space</td>
+</tr>
+<tr>
+<td align="center">!</td>
+<td align="center"><code>&amp;#33;</code></td>
+<td>惊叹号Exclamation mark</td>
+</tr>
+<tr>
+<td align="center">”</td>
+<td align="center"><code>&amp;#34;</code></td>
+<td>uot; 双引号Quotation mark</td>
+</tr>
+<tr>
+<td align="center">#</td>
+<td align="center"><code>&amp;#35;</code></td>
+<td>数字标志Number sign</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center"><code>&amp;#36;</code></td>
+<td>美元标志Dollar sign</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center"><code>&amp;#37;</code></td>
+<td>百分号Percent sign</td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center"><code>&amp;#38;</code></td>
+<td>mp; Ampersand</td>
+</tr>
+<tr>
+<td align="center">‘</td>
+<td align="center"><code>&amp;#39;</code></td>
+<td>单引号Apostrophe</td>
+</tr>
+<tr>
+<td align="center">(</td>
+<td align="center"><code>&amp;#40;</code></td>
+<td>小括号左边部分Left parenthesi</td>
+</tr>
+<tr>
+<td align="center">)</td>
+<td align="center"><code>&amp;#41;</code></td>
+<td>小括号右边部分Right parenthes</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center"><code>&amp;#42;</code></td>
+<td>星号Asterisk</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center"><code>&amp;#43;</code></td>
+<td>加号Plus sign</td>
+</tr>
+<tr>
+<td align="center">,</td>
+<td align="center"><code>&amp;#44;</code></td>
+<td>逗号Comma</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center"><code>&amp;#45;</code></td>
+<td>连字号Hyphen</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center"><code>&amp;#46;</code></td>
+<td>句号Period (fullstop)</td>
+</tr>
+<tr>
+<td align="center">&#x2F;</td>
+<td align="center"><code>&amp;#47;</code></td>
+<td>斜杠Solidus (slash)</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"><code>&amp;#48;</code></td>
+<td>数字0 Digit 0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center"><code>&amp;#49;</code></td>
+<td>数字1 Digit 1</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><code>&amp;#50;</code></td>
+<td>数字2 Digit 2</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><code>&amp;#51;</code></td>
+<td>数字3 Digit 3</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><code>&amp;#52;</code></td>
+<td>数字4 Digit 4</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><code>&amp;#53;</code></td>
+<td>数字5 Digit 5</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center"><code>&amp;#54;</code></td>
+<td>数字6 Digit 6</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center"><code>&amp;#55;</code></td>
+<td>数字7 Digit 7</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center"><code>&amp;#56;</code></td>
+<td>数字8 Digit 8</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center"><code>&amp;#57;</code></td>
+<td>数字9 Digit 9</td>
+</tr>
+<tr>
+<td align="center">:</td>
+<td align="center"><code>&amp;#58;</code></td>
+<td>冒号Colon</td>
+</tr>
+<tr>
+<td align="center">;</td>
+<td align="center"><code>&amp;#59;</code></td>
+<td>分号Semicolon</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center"><code>&amp;#60;</code></td>
+<td>小于号Less than</td>
+</tr>
+<tr>
+<td align="center">&#x3D;</td>
+<td align="center"><code>&amp;#61;</code></td>
+<td>等于符号Equals sign</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center"><code>&amp;#62;</code></td>
+<td>大于号Greater than</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center"><code>&amp;#63;</code></td>
+<td>问号Question mark</td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td align="center"><code>&amp;#64;</code></td>
+<td>Commercial at</td>
+</tr>
+<tr>
+<td align="center">A</td>
+<td align="center"><code>&amp;#65;</code></td>
+<td>大写A Capital A</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center"><code>&amp;#66;</code></td>
+<td>大写B Capital B</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center"><code>&amp;#67;</code></td>
+<td>大写C Capital C</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center"><code>&amp;#68;</code></td>
+<td>大写D Capital D</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center"><code>&amp;#69;</code></td>
+<td>大写E Capital E</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center"><code>&amp;#70;</code></td>
+<td>大写F Capital F</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center"><code>&amp;#71;</code></td>
+<td>大写G Capital G</td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="center"><code>&amp;#72;</code></td>
+<td>大写H Capital H</td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center"><code>&amp;#73;</code></td>
+<td>大写J Capital I</td>
+</tr>
+<tr>
+<td align="center">J</td>
+<td align="center"><code>&amp;#74;</code></td>
+<td>大写K Capital J</td>
+</tr>
+<tr>
+<td align="center">K</td>
+<td align="center"><code>&amp;#75;</code></td>
+<td>大写L Capital K</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="center"><code>&amp;#76;</code></td>
+<td>大写K Capital L</td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center"><code>&amp;#77;</code></td>
+<td>大写M Capital M</td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td align="center"><code>&amp;#78;</code></td>
+<td>大写N Capital N</td>
+</tr>
+<tr>
+<td align="center">O</td>
+<td align="center"><code>&amp;#79;</code></td>
+<td>大写O Capital O</td>
+</tr>
+<tr>
+<td align="center">P</td>
+<td align="center"><code>&amp;#80;</code></td>
+<td>大写P Capital P</td>
+</tr>
+<tr>
+<td align="center">Q</td>
+<td align="center"><code>&amp;#81;</code></td>
+<td>大写Q Capital Q</td>
+</tr>
+<tr>
+<td align="center">R</td>
+<td align="center"><code>&amp;#82;</code></td>
+<td>大写R Capital R</td>
+</tr>
+<tr>
+<td align="center">S</td>
+<td align="center"><code>&amp;#83;</code></td>
+<td>大写S Capital S</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center"><code>&amp;#84;</code></td>
+<td>大写T Capital T</td>
+</tr>
+<tr>
+<td align="center">U</td>
+<td align="center"><code>&amp;#85;</code></td>
+<td>大写U Capital U</td>
+</tr>
+<tr>
+<td align="center">V</td>
+<td align="center"><code>&amp;#86;</code></td>
+<td>大写V Capital V</td>
+</tr>
+<tr>
+<td align="center">W</td>
+<td align="center"><code>&amp;#87;</code></td>
+<td>大写W Capital W</td>
+</tr>
+<tr>
+<td align="center">X</td>
+<td align="center"><code>&amp;#88;</code></td>
+<td>大写X Capital X</td>
+</tr>
+<tr>
+<td align="center">Y</td>
+<td align="center"><code>&amp;#89;</code></td>
+<td>大写Y Capital Y</td>
+</tr>
+<tr>
+<td align="center">Z</td>
+<td align="center"><code>&amp;#90;</code></td>
+<td>大写Z Capital Z</td>
+</tr>
+<tr>
+<td align="center">[</td>
+<td align="center"><code>&amp;#91;</code></td>
+<td>中括号左边部分Left square b</td>
+</tr>
+<tr>
+<td align="center">|<code>&amp;#92;</code></td>
+<td align="center">反斜杠Reverse solidus (</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">]</td>
+<td align="center"><code>&amp;#93;</code></td>
+<td>中括号右边部分Right square br</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center"><code>&amp;#94;</code></td>
+<td>Caret</td>
+</tr>
+<tr>
+<td align="center">_</td>
+<td align="center"><code>&amp;#95;</code></td>
+<td>下划线Horizontal bar (und</td>
+</tr>
+<tr>
+<td align="center">&#96;</td>
+<td align="center"><code>&amp;#96;</code></td>
+<td>尖重音符Acute accent</td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="center"><code>&amp;#97;</code></td>
+<td>小写a Small a</td>
+</tr>
+<tr>
+<td align="center">b</td>
+<td align="center"><code>&amp;#98;</code></td>
+<td>小写b Small b</td>
+</tr>
+<tr>
+<td align="center">c</td>
+<td align="center"><code>&amp;#99;</code></td>
+<td>小写c Small c</td>
+</tr>
+<tr>
+<td align="center">d</td>
+<td align="center"><code>&amp;#100;</code></td>
+<td>小写d Small d</td>
+</tr>
+<tr>
+<td align="center">e</td>
+<td align="center"><code>&amp;#101;</code></td>
+<td>小写e Small e</td>
+</tr>
+<tr>
+<td align="center">f</td>
+<td align="center"><code>&amp;#102;</code></td>
+<td>小写f Small f</td>
+</tr>
+<tr>
+<td align="center">g</td>
+<td align="center"><code>&amp;#103;</code></td>
+<td>小写g Small g</td>
+</tr>
+<tr>
+<td align="center">h</td>
+<td align="center"><code>&amp;#104;</code></td>
+<td>小写h Small h</td>
+</tr>
+<tr>
+<td align="center">i</td>
+<td align="center"><code>&amp;#105;</code></td>
+<td>小写i Small i</td>
+</tr>
+<tr>
+<td align="center">j</td>
+<td align="center"><code>&amp;#106;</code></td>
+<td>小写j Small j</td>
+</tr>
+<tr>
+<td align="center">k</td>
+<td align="center"><code>&amp;#107;</code></td>
+<td>小写k Small k</td>
+</tr>
+<tr>
+<td align="center">l</td>
+<td align="center"><code>&amp;#108;</code></td>
+<td>小写l Small l</td>
+</tr>
+<tr>
+<td align="center">m</td>
+<td align="center"><code>&amp;#109;</code></td>
+<td>小写m Small m</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="center"><code>&amp;#110;</code></td>
+<td>小写n Small n</td>
+</tr>
+<tr>
+<td align="center">o</td>
+<td align="center"><code>&amp;#111;</code></td>
+<td>小写o Small o</td>
+</tr>
+<tr>
+<td align="center">p</td>
+<td align="center"><code>&amp;#112;</code></td>
+<td>小写p Small p</td>
+</tr>
+<tr>
+<td align="center">q</td>
+<td align="center"><code>&amp;#113;</code></td>
+<td>小写q Small q</td>
+</tr>
+<tr>
+<td align="center">r</td>
+<td align="center"><code>&amp;#114;</code></td>
+<td>小写r Small r</td>
+</tr>
+<tr>
+<td align="center">s</td>
+<td align="center"><code>&amp;#115;</code></td>
+<td>小写s Small s</td>
+</tr>
+<tr>
+<td align="center">t</td>
+<td align="center"><code>&amp;#116;</code></td>
+<td>小写t Small t</td>
+</tr>
+<tr>
+<td align="center">u</td>
+<td align="center"><code>&amp;#117;</code></td>
+<td>小写u Small u</td>
+</tr>
+<tr>
+<td align="center">v</td>
+<td align="center"><code>&amp;#118;</code></td>
+<td>小写v Small v</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="center"><code>&amp;#119;</code></td>
+<td>小写w Small w</td>
+</tr>
+<tr>
+<td align="center">x</td>
+<td align="center"><code>&amp;#120;</code></td>
+<td>小写x Small x</td>
+</tr>
+<tr>
+<td align="center">y</td>
+<td align="center"><code>&amp;#121;</code></td>
+<td>小写y Small y</td>
+</tr>
+<tr>
+<td align="center">z</td>
+<td align="center"><code>&amp;#122;</code></td>
+<td>小写z Small z</td>
+</tr>
+<tr>
+<td align="center">{</td>
+<td align="center"><code>&amp;#123;</code></td>
+<td>大括号左边部分Left curly bra</td>
+</tr>
+<tr>
+<td align="center">|<code>&amp;#124;</code></td>
+<td align="center">竖线Vertical bar</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">}</td>
+<td align="center"><code>&amp;#125;</code></td>
+<td>大括号右边部分Right curly br</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td align="center"><code>&amp;#126;</code></td>
+<td>Tilde</td>
+</tr>
+<tr>
+<td align="center">—</td>
+<td align="center"><code>&amp;#127;</code></td>
+<td>未使用Unused</td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center"><code>&amp;#160;</code></td>
+<td>空格Nonbreaking space</td>
+</tr>
+<tr>
+<td align="center">&amp;#161;</td>
+<td align="center"><code>&amp;#161;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">￠</td>
+<td align="center"><code>&amp;#162;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">￡</td>
+<td align="center"><code>&amp;#163;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">¤</td>
+<td align="center"><code>&amp;#164;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">￥</td>
+<td align="center"><code>&amp;#165;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">|<code>&amp;#166;</code></td>
+<td align="center"></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">§</td>
+<td align="center"><code>&amp;#167;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">¨</td>
+<td align="center"><code>&amp;#168;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#169;</td>
+<td align="center"><code>&amp;#169;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="center"><code>&amp;#170;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#171;</td>
+<td align="center"><code>&amp;#171;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#172;</td>
+<td align="center"><code>&amp;#172;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#173;</td>
+<td align="center"><code>&amp;#173;</code></td>
+<td>&amp;shy; Soft hyphen</td>
+</tr>
+<tr>
+<td align="center">&amp;#174;</td>
+<td align="center"><code>&amp;#174;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ˉ</td>
+<td align="center"><code>&amp;#175;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">°</td>
+<td align="center"><code>&amp;#176;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">±</td>
+<td align="center"><code>&amp;#177;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><code>&amp;#178;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><code>&amp;#179;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">′</td>
+<td align="center"><code>&amp;#180;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">μ</td>
+<td align="center"><code>&amp;#181;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#182;</td>
+<td align="center"><code>&amp;#182;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#183;</td>
+<td align="center"><code>&amp;#183;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#184;</td>
+<td align="center"><code>&amp;#184;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center"><code>&amp;#185;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">o</td>
+<td align="center"><code>&amp;#186;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#187;</td>
+<td align="center"><code>&amp;#187;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#188;</td>
+<td align="center"><code>&amp;#188;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#189;</td>
+<td align="center"><code>&amp;#189;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#190;</td>
+<td align="center"><code>&amp;#190;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#191;</td>
+<td align="center"><code>&amp;#191;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">à</td>
+<td align="center"><code>&amp;#192;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">á</td>
+<td align="center"><code>&amp;#193;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#194;</td>
+<td align="center"><code>&amp;#194;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#195;</td>
+<td align="center"><code>&amp;#195;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#196;</td>
+<td align="center"><code>&amp;#196;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#197;</td>
+<td align="center"><code>&amp;#197;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#198;</td>
+<td align="center"><code>&amp;#198;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#199;</td>
+<td align="center"><code>&amp;#199;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">è</td>
+<td align="center"><code>&amp;#200;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">é</td>
+<td align="center"><code>&amp;#201;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ê</td>
+<td align="center"><code>&amp;#202;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#203;</td>
+<td align="center"><code>&amp;#203;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ì</td>
+<td align="center"><code>&amp;#204;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">í</td>
+<td align="center"><code>&amp;#205;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#206;</td>
+<td align="center"><code>&amp;#206;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#207;</td>
+<td align="center"><code>&amp;#207;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center"><code>&amp;#208;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#209;</td>
+<td align="center"><code>&amp;#209;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ò</td>
+<td align="center"><code>&amp;#210;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ó</td>
+<td align="center"><code>&amp;#211;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#212;</td>
+<td align="center"><code>&amp;#212;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#213;</td>
+<td align="center"><code>&amp;#213;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#214;</td>
+<td align="center"><code>&amp;#214;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">×</td>
+<td align="center"><code>&amp;#215;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#216;</td>
+<td align="center"><code>&amp;#216;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ù</td>
+<td align="center"><code>&amp;#217;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ú</td>
+<td align="center"><code>&amp;#218;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#219;</td>
+<td align="center"><code>&amp;#219;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ü</td>
+<td align="center"><code>&amp;#220;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Y</td>
+<td align="center"><code>&amp;#221;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center"><code>&amp;#222;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#223;</td>
+<td align="center"><code>&amp;#223;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">à</td>
+<td align="center"><code>&amp;#224;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">á</td>
+<td align="center"><code>&amp;#225;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="center"><code>&amp;#226;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#227;</td>
+<td align="center"><code>&amp;#227;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#228;</td>
+<td align="center"><code>&amp;#228;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#229;</td>
+<td align="center"><code>&amp;#229;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#230;</td>
+<td align="center"><code>&amp;#230;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#231;</td>
+<td align="center"><code>&amp;#231;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">è</td>
+<td align="center"><code>&amp;#232;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">é</td>
+<td align="center"><code>&amp;#233;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ê</td>
+<td align="center"><code>&amp;#234;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#235;</td>
+<td align="center"><code>&amp;#235;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ì</td>
+<td align="center"><code>&amp;#236;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">í</td>
+<td align="center"><code>&amp;#237;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#238;</td>
+<td align="center"><code>&amp;#238;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#239;</td>
+<td align="center"><code>&amp;#239;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">e</td>
+<td align="center"><code>&amp;#240;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#241;</td>
+<td align="center"><code>&amp;#241;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ò</td>
+<td align="center"><code>&amp;#242;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ó</td>
+<td align="center"><code>&amp;#243;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#244;</td>
+<td align="center"><code>&amp;#244;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#245;</td>
+<td align="center"><code>&amp;#245;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#246;</td>
+<td align="center"><code>&amp;#246;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">÷</td>
+<td align="center"><code>&amp;#247;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#248;</td>
+<td align="center"><code>&amp;#248;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ù</td>
+<td align="center"><code>&amp;#249;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ú</td>
+<td align="center"><code>&amp;#250;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#251;</td>
+<td align="center"><code>&amp;#251;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ü</td>
+<td align="center"><code>&amp;#252;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">y</td>
+<td align="center"><code>&amp;#253;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">t</td>
+<td align="center"><code>&amp;#254;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;#255;</td>
+<td align="center"><code>&amp;#255;</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;fnof;</td>
+<td align="center"><code>&amp;fnof; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Α</td>
+<td align="center"><code>&amp;Alpha; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Β</td>
+<td align="center"><code>&amp;Beta; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Γ</td>
+<td align="center"><code>&amp;Gamma; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Δ</td>
+<td align="center"><code>&amp;Delta; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Ε</td>
+<td align="center"><code>&amp;Epsilon; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Ζ</td>
+<td align="center"><code>&amp;Zeta; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Η</td>
+<td align="center"><code>&amp;Eta; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Θ</td>
+<td align="center"><code>&amp;Theta; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Ι</td>
+<td align="center"><code>&amp;Iota; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Κ</td>
+<td align="center"><code>&amp;Kappa; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Λ</td>
+<td align="center"><code>&amp;Lambda; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Μ</td>
+<td align="center"><code>&amp;Mu; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Ν</td>
+<td align="center"><code>&amp;Nu; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Ξ</td>
+<td align="center"><code>&amp;Xi; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Ο</td>
+<td align="center"><code>&amp;Omicron; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Π</td>
+<td align="center"><code>&amp;Pi; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Ρ</td>
+<td align="center"><code>&amp;Rho; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Σ</td>
+<td align="center"><code>&amp;Sigma; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Τ</td>
+<td align="center"><code>&amp;Tau; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Υ</td>
+<td align="center"><code>&amp;Upsilon; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Φ</td>
+<td align="center"><code>&amp;Phi; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Χ</td>
+<td align="center"><code>&amp;Chi; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Ψ</td>
+<td align="center"><code>&amp;Psi; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">Ω</td>
+<td align="center"><code>&amp;Omega; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">α</td>
+<td align="center"><code>&amp;alpha; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">β</td>
+<td align="center"><code>&amp;beta; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">γ</td>
+<td align="center"><code>&amp;gamma; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">δ</td>
+<td align="center"><code>&amp;delta; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ε</td>
+<td align="center"><code>&amp;epsilon; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ζ</td>
+<td align="center"><code>&amp;zeta; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">η</td>
+<td align="center"><code>&amp;eta; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">θ</td>
+<td align="center"><code>&amp;theta; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ι</td>
+<td align="center"><code>&amp;iota; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">κ</td>
+<td align="center"><code>&amp;kappa; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">λ</td>
+<td align="center"><code>&amp;lambda; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">μ</td>
+<td align="center"><code>&amp;mu; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ν</td>
+<td align="center"><code>&amp;nu; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ξ</td>
+<td align="center"><code>&amp;xi; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ο</td>
+<td align="center"><code>&amp;omicron; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">π</td>
+<td align="center"><code>&amp;pi; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ρ</td>
+<td align="center"><code>&amp;rho; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;sigmaf;</td>
+<td align="center"><code>&amp;sigmaf; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">σ</td>
+<td align="center"><code>&amp;sigma; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">τ</td>
+<td align="center"><code>&amp;tau; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">υ</td>
+<td align="center"><code>&amp;upsilon; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">φ</td>
+<td align="center"><code>&amp;phi; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">χ</td>
+<td align="center"><code>&amp;chi; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ψ</td>
+<td align="center"><code>&amp;psi; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ω</td>
+<td align="center"><code>&amp;omega; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;thetasym;</td>
+<td align="center"><code>&amp;thetasym; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;upsih;</td>
+<td align="center"><code>&amp;upsih; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;piv;</td>
+<td align="center"><code>&amp;piv; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;bull;</td>
+<td align="center"><code>&amp;bull; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center"><code>&amp;hellip; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">′</td>
+<td align="center"><code>&amp;prime; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">″</td>
+<td align="center"><code>&amp;Prime; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">￣</td>
+<td align="center"><code>&amp;oline; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;frasl;</td>
+<td align="center"><code>&amp;frasl; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;weierp;</td>
+<td align="center"><code>&amp;weierp; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;image;</td>
+<td align="center"><code>&amp;image; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;real;</td>
+<td align="center"><code>&amp;real; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;trade;</td>
+<td align="center"><code>&amp;trade; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;alefsym;</td>
+<td align="center"><code>&amp;alefsym; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">←</td>
+<td align="center"><code>&amp;larr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">↑</td>
+<td align="center"><code>&amp;uarr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">→</td>
+<td align="center"><code>&amp;rarr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">↓</td>
+<td align="center"><code>&amp;darr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;harr;</td>
+<td align="center"><code>&amp;harr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;crarr;</td>
+<td align="center"><code>&amp;crarr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;lArr;</td>
+<td align="center"><code>&amp;lArr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;uArr;</td>
+<td align="center"><code>&amp;uArr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;rArr;</td>
+<td align="center"><code>&amp;rArr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;dArr;</td>
+<td align="center"><code>&amp;dArr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;hArr;</td>
+<td align="center"><code>&amp;hArr; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;forall;</td>
+<td align="center"><code>&amp;forall; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;part;</td>
+<td align="center"><code>&amp;part; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;exist;</td>
+<td align="center"><code>&amp;exist; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;empty;</td>
+<td align="center"><code>&amp;empty; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;nabla;</td>
+<td align="center"><code>&amp;nabla; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∈</td>
+<td align="center"><code>&amp;isin; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;notin;</td>
+<td align="center"><code>&amp;notin; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;ni;</td>
+<td align="center"><code>&amp;ni; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∏</td>
+<td align="center"><code>&amp;prod; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∑</td>
+<td align="center"><code>&amp;sum; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;minus;</td>
+<td align="center"><code>&amp;minus; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;lowast;</td>
+<td align="center"><code>&amp;lowast; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">√</td>
+<td align="center"><code>&amp;radic; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∝</td>
+<td align="center"><code>&amp;prop; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∞</td>
+<td align="center"><code>&amp;infin; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∠</td>
+<td align="center"><code>&amp;ang; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∧</td>
+<td align="center"><code>&amp;and; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∨</td>
+<td align="center"><code>&amp;or; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∩</td>
+<td align="center"><code>&amp;cap; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∪</td>
+<td align="center"><code>&amp;cup; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∫</td>
+<td align="center"><code>&amp;int; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">∴</td>
+<td align="center"><code>&amp;there4; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">～</td>
+<td align="center"><code>&amp;sim; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;cong;</td>
+<td align="center"><code>&amp;cong; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">≈</td>
+<td align="center"><code>&amp;asymp; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">≠</td>
+<td align="center"><code>&amp;ne; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">≡</td>
+<td align="center"><code>&amp;equiv; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">≤</td>
+<td align="center"><code>&amp;le; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">≥</td>
+<td align="center"><code>&amp;ge; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;sub;</td>
+<td align="center"><code>&amp;sub; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;sup;</td>
+<td align="center"><code>&amp;sup; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;nsub;</td>
+<td align="center"><code>&amp;nsub; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;sube;</td>
+<td align="center"><code>&amp;sube; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;supe;</td>
+<td align="center"><code>&amp;supe; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">⊕</td>
+<td align="center"><code>&amp;oplus; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;otimes;</td>
+<td align="center"><code>&amp;otimes; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">⊥</td>
+<td align="center"><code>&amp;perp; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;sdot;</td>
+<td align="center"><code>&amp;sdot; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;lceil;</td>
+<td align="center"><code>&amp;lceil; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;rceil;</td>
+<td align="center"><code>&amp;rceil; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;lfloor;</td>
+<td align="center"><code>&amp;lfloor; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;rfloor;</td>
+<td align="center"><code>&amp;rfloor; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;lang;</td>
+<td align="center"><code>&amp;lang; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;rang;</td>
+<td align="center"><code>&amp;rang; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;loz;</td>
+<td align="center"><code>&amp;loz; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;spades;</td>
+<td align="center"><code>&amp;spades; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;clubs;</td>
+<td align="center"><code>&amp;clubs; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;hearts;</td>
+<td align="center"><code>&amp;hearts; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;diams;</td>
+<td align="center"><code>&amp;diams; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">“</td>
+<td align="center"><code>&amp;quot; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center"><code>&amp;amp; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center"><code>&amp;lt; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center"><code>&amp;gt; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;OElig;</td>
+<td align="center"><code>&amp;OElig; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;oelig;</td>
+<td align="center"><code>&amp;oelig; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;Scaron;</td>
+<td align="center"><code>&amp;Scaron; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;scaron;</td>
+<td align="center"><code>&amp;scaron; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;Yuml;</td>
+<td align="center"><code>&amp;Yuml; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;circ;</td>
+<td align="center"><code>&amp;circ; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;tilde;</td>
+<td align="center"><code>&amp;tilde; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center"><code>nsp; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center"><code>msp; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center"><code>hinsp; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;zwnj;</td>
+<td align="center"><code>&amp;zwnj; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;zwj;</td>
+<td align="center"><code>&amp;zwj; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;lrm;</td>
+<td align="center"><code>&amp;lrm; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;rlm;</td>
+<td align="center"><code>&amp;rlm; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">–</td>
+<td align="center"><code>&amp;ndash; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">—</td>
+<td align="center"><code>&amp;mdash; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">‘</td>
+<td align="center"><code>&amp;lsquo; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">’</td>
+<td align="center"><code>&amp;rsquo; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;sbquo;</td>
+<td align="center"><code>&amp;sbquo; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">“</td>
+<td align="center"><code>&amp;ldquo; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">”</td>
+<td align="center"><code>&amp;rdquo; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;bdquo;</td>
+<td align="center"><code>&amp;bdquo; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;dagger;</td>
+<td align="center"><code>&amp;dagger; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;Dagger;</td>
+<td align="center"><code>&amp;Dagger; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">‰</td>
+<td align="center"><code>&amp;permil; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;lsaquo;</td>
+<td align="center"><code>&amp;lsaquo; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">&amp;rsaquo;</td>
+<td align="center"><code>&amp;rsaquo; </code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">€</td>
+<td align="center"><code>&amp;euro;</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="颜色表"><a href="#颜色表" class="headerlink" title="颜色表"></a><font color=#0000FF>颜色表</font></h2><table><tbody><tr><th>颜色名</th><th>十六进制颜色值</th><th>颜色</th></tr><tr><td><font color="AliceBlue">AliceBlue</font></td><td><font color="#F0F8FF">#F0F8FF</font></td><td bgcolor="#F0F8FF">rgb(240, 248, 255)</td></tr><tr><td><font color="AntiqueWhite">AntiqueWhite</font></td><td><font color="#FAEBD7">#FAEBD7</font></td><td bgcolor="#FAEBD7">rgb(250, 235, 215)</td></tr><tr><td><font color="Aqua">Aqua</font></td><td><font color="#00FFFF">#00FFFF</font></td><td bgcolor="#00FFFF">rgb(0, 255, 255)</td></tr><tr><td><font color="Aquamarine">Aquamarine</font></td><td><font color="#7FFFD4">#7FFFD4</font></td><td bgcolor="#7FFFD4">rgb(127, 255, 212)</td></tr><tr><td><font color="Azure">Azure</font></td><td><font color="#F0FFFF">#F0FFFF</font></td><td bgcolor="#F0FFFF">rgb(240, 255, 255)</td></tr><tr><td><font color="Beige">Beige</font></td><td><font color="#F5F5DC">#F5F5DC</font></td><td bgcolor="#F5F5DC">rgb(245, 245, 220)</td></tr><tr><td><font color="Bisque">Bisque</font></td><td><font color="#FFE4C4">#FFE4C4</font></td><td bgcolor="#FFE4C4">rgb(255, 228, 196)</td></tr><tr><td><font color="Black">Black</font></td><td><font color="#000000">#000000</font></td><td bgcolor="#000000">rgb(0, 0, 0)</td></tr><tr><td><font color="BlanchedAlmond">BlanchedAlmond</font></td><td><font color="#FFEBCD">#FFEBCD</font></td><td bgcolor="#FFEBCD">rgb(255, 235, 205)</td></tr><tr><td><font color="Blue">Blue</font></td><td><font color="#0000FF">#0000FF</font></td><td bgcolor="#0000FF">rgb(0, 0, 255)</td></tr><tr><td><font color="BlueViolet">BlueViolet</font></td><td><font color="#8A2BE2">#8A2BE2</font></td><td bgcolor="#8A2BE2">rgb(138, 43, 226)</td></tr><tr><td><font color="Brown">Brown</font></td><td><font color="#A52A2A">#A52A2A</font></td><td bgcolor="#A52A2A">rgb(165, 42, 42)</td></tr><tr><td><font color="BurlyWood">BurlyWood</font></td><td><font color="#DEB887">#DEB887</font></td><td bgcolor="#DEB887">rgb(222, 184, 135)</td></tr><tr><td><font color="CadetBlue">CadetBlue</font></td><td><font color="#5F9EA0">#5F9EA0</font></td><td bgcolor="#5F9EA0">rgb(95, 158, 160)</td></tr><tr><td><font color="Chartreuse">Chartreuse</font></td><td><font color="#7FFF00">#7FFF00</font></td><td bgcolor="#7FFF00">rgb(127, 255, 0)</td></tr><tr><td><font color="Chocolate">Chocolate</font></td><td><font color="#D2691E">#D2691E</font></td><td bgcolor="#D2691E">rgb(210, 105, 30)</td></tr><tr><td><font color="Coral">Coral</font></td><td><font color="#FF7F50">#FF7F50</font></td><td bgcolor="#FF7F50">rgb(255, 127, 80)</td></tr><tr><td><font color="CornflowerBlue">CornflowerBlue</font></td><td><font color="#6495ED">#6495ED</font></td><td bgcolor="#6495ED">rgb(100, 149, 237)</td></tr><tr><td><font color="Cornsilk">Cornsilk</font></td><td><font color="#FFF8DC">#FFF8DC</font></td><td bgcolor="#FFF8DC">rgb(255, 248, 220)</td></tr><tr><td><font color="Crimson">Crimson</font></td><td><font color="#DC143C">#DC143C</font></td><td bgcolor="#DC143C">rgb(220, 20, 60)</td></tr><tr><td><font color="Cyan">Cyan</font></td><td><font color="#00FFFF">#00FFFF</font></td><td bgcolor="#00FFFF">rgb(0, 255, 255)</td></tr><tr><td><font color="DarkBlue">DarkBlue</font></td><td><font color="#00008B">#00008B</font></td><td bgcolor="#00008B">rgb(0, 0, 139)</td></tr><tr><td><font color="DarkCyan">DarkCyan</font></td><td><font color="#008B8B">#008B8B</font></td><td bgcolor="#008B8B">rgb(0, 139, 139)</td></tr><tr><td><font color="DarkGoldenRod">DarkGoldenRod</font></td><td><font color="#B8860B">#B8860B</font></td><td bgcolor="#B8860B">rgb(184, 134, 11)</td></tr><tr><td><font color="DarkGray">DarkGray</font></td><td><font color="#A9A9A9">#A9A9A9</font></td><td bgcolor="#A9A9A9">rgb(169, 169, 169)</td></tr><tr><td><font color="DarkGreen">DarkGreen</font></td><td><font color="#006400">#006400</font></td><td bgcolor="#006400">rgb(0, 100, 0)</td></tr><tr><td><font color="DarkKhaki">DarkKhaki</font></td><td><font color="#BDB76B">#BDB76B</font></td><td bgcolor="#BDB76B">rgb(189, 183, 107)</td></tr><tr><td><font color="DarkMagenta">DarkMagenta</font></td><td><font color="#8B008B">#8B008B</font></td><td bgcolor="#8B008B">rgb(139, 0, 139)</td></tr><tr><td><font color="DarkOliveGreen">DarkOliveGreen</font></td><td><font color="#556B2F">#556B2F</font></td><td bgcolor="#556B2F">rgb(85, 107, 47)</td></tr><tr><td><font color="Darkorange">Darkorange</font></td><td><font color="#FF8C00">#FF8C00</font></td><td bgcolor="#FF8C00">rgb(255, 140, 0)</td></tr><tr><td><font color="DarkOrchid">DarkOrchid</font></td><td><font color="#9932CC">#9932CC</font></td><td bgcolor="#9932CC">rgb(153, 50, 204)</td></tr><tr><td><font color="DarkRed">DarkRed</font></td><td><font color="#8B0000">#8B0000</font></td><td bgcolor="#8B0000">rgb(139, 0, 0)</td></tr><tr><td><font color="DarkSalmon">DarkSalmon</font></td><td><font color="#E9967A">#E9967A</font></td><td bgcolor="#E9967A">rgb(233, 150, 122)</td></tr><tr><td><font color="DarkSeaGreen">DarkSeaGreen</font></td><td><font color="#8FBC8F">#8FBC8F</font></td><td bgcolor="#8FBC8F">rgb(143, 188, 143)</td></tr><tr><td><font color="DarkSlateBlue">DarkSlateBlue</font></td><td><font color="#483D8B">#483D8B</font></td><td bgcolor="#483D8B">rgb(72, 61, 139)</td></tr><tr><td><font color="DarkSlateGray">DarkSlateGray</font></td><td><font color="#2F4F4F">#2F4F4F</font></td><td bgcolor="#2F4F4F">rgb(47, 79, 79)</td></tr><tr><td><font color="DarkTurquoise">DarkTurquoise</font></td><td><font color="#00CED1">#00CED1</font></td><td bgcolor="#00CED1">rgb(0, 206, 209)</td></tr><tr><td><font color="DarkViolet">DarkViolet</font></td><td><font color="#9400D3">#9400D3</font></td><td bgcolor="#9400D3">rgb(148, 0, 211)</td></tr><tr><td><font color="DeepPink">DeepPink</font></td><td><font color="#FF1493">#FF1493</font></td><td bgcolor="#FF1493">rgb(255, 20, 147)</td></tr><tr><td><font color="DeepSkyBlue">DeepSkyBlue</font></td><td><font color="#00BFFF">#00BFFF</font></td><td bgcolor="#00BFFF">rgb(0, 191, 255)</td></tr><tr><td><font color="DimGray">DimGray</font></td><td><font color="#696969">#696969</font></td><td bgcolor="#696969">rgb(105, 105, 105)</td></tr><tr><td><font color="DodgerBlue">DodgerBlue</font></td><td><font color="#1E90FF">#1E90FF</font></td><td bgcolor="#1E90FF">rgb(30, 144, 255)</td></tr><tr><td><font color="Feldspar">Feldspar</font></td><td><font color="#D19275">#D19275</font></td><td bgcolor="#D19275">rgb(209, 146, 117)</td></tr><tr><td><font color="FireBrick">FireBrick</font></td><td><font color="#B22222">#B22222</font></td><td bgcolor="#B22222">rgb(178, 34, 34)</td></tr><tr><td><font color="FloralWhite">FloralWhite</font></td><td><font color="#FFFAF0">#FFFAF0</font></td><td bgcolor="#FFFAF0">rgb(255, 250, 240)</td></tr><tr><td><font color="ForestGreen">ForestGreen</font></td><td><font color="#228B22">#228B22</font></td><td bgcolor="#228B22">rgb(34, 139, 34)</td></tr><tr><td><font color="Fuchsia">Fuchsia</font></td><td><font color="#FF00FF">#FF00FF</font></td><td bgcolor="#FF00FF">rgb(255, 0, 255)</td></tr><tr><td><font color="Gainsboro">Gainsboro</font></td><td><font color="#DCDCDC">#DCDCDC</font></td><td bgcolor="#DCDCDC">rgb(220, 220, 220)</td></tr><tr><td><font color="GhostWhite">GhostWhite</font></td><td><font color="#F8F8FF">#F8F8FF</font></td><td bgcolor="#F8F8FF">rgb(248, 248, 255)</td></tr><tr><td><font color="Gold">Gold</font></td><td><font color="#FFD700">#FFD700</font></td><td bgcolor="#FFD700">rgb(255, 215, 0)</td></tr><tr><td><font color="GoldenRod">GoldenRod</font></td><td><font color="#DAA520">#DAA520</font></td><td bgcolor="#DAA520">rgb(218, 165, 32)</td></tr><tr><td><font color="Gray">Gray</font></td><td><font color="#808080">#808080</font></td><td bgcolor="#808080">rgb(128, 128, 128)</td></tr><tr><td><font color="Green">Green</font></td><td><font color="#008000">#008000</font></td><td bgcolor="#008000">rgb(0, 128, 0)</td></tr><tr><td><font color="GreenYellow">GreenYellow</font></td><td><font color="#ADFF2F">#ADFF2F</font></td><td bgcolor="#ADFF2F">rgb(173, 255, 47)</td></tr><tr><td><font color="HoneyDew">HoneyDew</font></td><td><font color="#F0FFF0">#F0FFF0</font></td><td bgcolor="#F0FFF0">rgb(240, 255, 240)</td></tr><tr><td><font color="HotPink">HotPink</font></td><td><font color="#FF69B4">#FF69B4</font></td><td bgcolor="#FF69B4">rgb(255, 105, 180)</td></tr><tr><td><font color="IndianRed">IndianRed</font></td><td><font color="#CD5C5C">#CD5C5C</font></td><td bgcolor="#CD5C5C">rgb(205, 92, 92)</td></tr><tr><td><font color="Indigo">Indigo</font></td><td><font color="#4B0082">#4B0082</font></td><td bgcolor="#4B0082">rgb(75, 0, 130)</td></tr><tr><td><font color="Ivory">Ivory</font></td><td><font color="#FFFFF0">#FFFFF0</font></td><td bgcolor="#FFFFF0">rgb(255, 255, 240)</td></tr><tr><td><font color="Khaki">Khaki</font></td><td><font color="#F0E68C">#F0E68C</font></td><td bgcolor="#F0E68C">rgb(240, 230, 140)</td></tr><tr><td><font color="Lavender">Lavender</font></td><td><font color="#E6E6FA">#E6E6FA</font></td><td bgcolor="#E6E6FA">rgb(230, 230, 250)</td></tr><tr><td><font color="LavenderBlush">LavenderBlush</font></td><td><font color="#FFF0F5">#FFF0F5</font></td><td bgcolor="#FFF0F5">rgb(255, 240, 245)</td></tr><tr><td><font color="LawnGreen">LawnGreen</font></td><td><font color="#7CFC00">#7CFC00</font></td><td bgcolor="#7CFC00">rgb(124, 252, 0)</td></tr><tr><td><font color="LemonChiffon">LemonChiffon</font></td><td><font color="#FFFACD">#FFFACD</font></td><td bgcolor="#FFFACD">rgb(255, 250, 205)</td></tr><tr><td><font color="LightBlue">LightBlue</font></td><td><font color="#ADD8E6">#ADD8E6</font></td><td bgcolor="#ADD8E6">rgb(173, 216, 230)</td></tr><tr><td><font color="LightCoral">LightCoral</font></td><td><font color="#F08080">#F08080</font></td><td bgcolor="#F08080">rgb(240, 128, 128)</td></tr><tr><td><font color="LightCyan">LightCyan</font></td><td><font color="#E0FFFF">#E0FFFF</font></td><td bgcolor="#E0FFFF">rgb(224, 255, 255)</td></tr><tr><td><font color="LightGoldenRodYellow">LightGoldenRodYellow</font></td><td><font color="#FAFAD2">#FAFAD2</font></td><td bgcolor="#FAFAD2">rgb(250, 250, 210)</td></tr><tr><td><font color="LightGrey">LightGrey</font></td><td><font color="#D3D3D3">#D3D3D3</font></td><td bgcolor="#D3D3D3">rgb(211, 211, 211)</td></tr><tr><td><font color="LightGreen">LightGreen</font></td><td><font color="#90EE90">#90EE90</font></td><td bgcolor="#90EE90">rgb(144, 238, 144)</td></tr><tr><td><font color="LightPink">LightPink</font></td><td><font color="#FFB6C1">#FFB6C1</font></td><td bgcolor="#FFB6C1">rgb(255, 182, 193)</td></tr><tr><td><font color="LightSalmon">LightSalmon</font></td><td><font color="#FFA07A">#FFA07A</font></td><td bgcolor="#FFA07A">rgb(255, 160, 122)</td></tr><tr><td><font color="LightSeaGreen">LightSeaGreen</font></td><td><font color="#20B2AA">#20B2AA</font></td><td bgcolor="#20B2AA">rgb(32, 178, 170)</td></tr><tr><td><font color="LightSkyBlue">LightSkyBlue</font></td><td><font color="#87CEFA">#87CEFA</font></td><td bgcolor="#87CEFA">rgb(135, 206, 250)</td></tr><tr><td><font color="LightSlateBlue">LightSlateBlue</font></td><td><font color="#8470FF">#8470FF</font></td><td bgcolor="#8470FF">rgb(132, 112, 255)</td></tr><tr><td><font color="LightSlateGray">LightSlateGray</font></td><td><font color="#778899">#778899</font></td><td bgcolor="#778899">rgb(119, 136, 153)</td></tr><tr><td><font color="LightSteelBlue">LightSteelBlue</font></td><td><font color="#B0C4DE">#B0C4DE</font></td><td bgcolor="#B0C4DE">rgb(176, 196, 222)</td></tr><tr><td><font color="LightYellow">LightYellow</font></td><td><font color="#FFFFE0">#FFFFE0</font></td><td bgcolor="#FFFFE0">rgb(255, 255, 224)</td></tr><tr><td><font color="Lime">Lime</font></td><td><font color="#00FF00">#00FF00</font></td><td bgcolor="#00FF00">rgb(0, 255, 0)</td></tr><tr><td><font color="LimeGreen">LimeGreen</font></td><td><font color="#32CD32">#32CD32</font></td><td bgcolor="#32CD32">rgb(50, 205, 50)</td></tr><tr><td><font color="Linen">Linen</font></td><td><font color="#FAF0E6">#FAF0E6</font></td><td bgcolor="#FAF0E6">rgb(250, 240, 230)</td></tr><tr><td><font color="Magenta">Magenta</font></td><td><font color="#FF00FF">#FF00FF</font></td><td bgcolor="#FF00FF">rgb(255, 0, 255)</td></tr><tr><td><font color="Maroon">Maroon</font></td><td><font color="#800000">#800000</font></td><td bgcolor="#800000">rgb(128, 0, 0)</td></tr><tr><td><font color="MediumAquaMarine">MediumAquaMarine</font></td><td><font color="#66CDAA">#66CDAA</font></td><td bgcolor="#66CDAA">rgb(102, 205, 170)</td></tr><tr><td><font color="MediumBlue">MediumBlue</font></td><td><font color="#0000CD">#0000CD</font></td><td bgcolor="#0000CD">rgb(0, 0, 205)</td></tr><tr><td><font color="MediumOrchid">MediumOrchid</font></td><td><font color="#BA55D3">#BA55D3</font></td><td bgcolor="#BA55D3">rgb(186, 85, 211)</td></tr><tr><td><font color="MediumPurple">MediumPurple</font></td><td><font color="#9370D8">#9370D8</font></td><td bgcolor="#9370D8">rgb(147, 112, 216)</td></tr><tr><td><font color="MediumSeaGreen">MediumSeaGreen</font></td><td><font color="#3CB371">#3CB371</font></td><td bgcolor="#3CB371">rgb(60, 179, 113)</td></tr><tr><td><font color="MediumSlateBlue">MediumSlateBlue</font></td><td><font color="#7B68EE">#7B68EE</font></td><td bgcolor="#7B68EE">rgb(123, 104, 238)</td></tr><tr><td><font color="MediumSpringGreen">MediumSpringGreen</font></td><td><font color="#00FA9A">#00FA9A</font></td><td bgcolor="#00FA9A">rgb(0, 250, 154)</td></tr><tr><td><font color="MediumTurquoise">MediumTurquoise</font></td><td><font color="#48D1CC">#48D1CC</font></td><td bgcolor="#48D1CC">rgb(72, 209, 204)</td></tr><tr><td><font color="MediumVioletRed">MediumVioletRed</font></td><td><font color="#C71585">#C71585</font></td><td bgcolor="#C71585">rgb(199, 21, 133)</td></tr><tr><td><font color="MidnightBlue">MidnightBlue</font></td><td><font color="#191970">#191970</font></td><td bgcolor="#191970">rgb(25, 25, 112)</td></tr><tr><td><font color="MintCream">MintCream</font></td><td><font color="#F5FFFA">#F5FFFA</font></td><td bgcolor="#F5FFFA">rgb(245, 255, 250)</td></tr><tr><td><font color="MistyRose">MistyRose</font></td><td><font color="#FFE4E1">#FFE4E1</font></td><td bgcolor="#FFE4E1">rgb(255, 228, 225)</td></tr><tr><td><font color="Moccasin">Moccasin</font></td><td><font color="#FFE4B5">#FFE4B5</font></td><td bgcolor="#FFE4B5">rgb(255, 228, 181)</td></tr><tr><td><font color="NavajoWhite">NavajoWhite</font></td><td><font color="#FFDEAD">#FFDEAD</font></td><td bgcolor="#FFDEAD">rgb(255, 222, 173)</td></tr><tr><td><font color="Navy">Navy</font></td><td><font color="#000080">#000080</font></td><td bgcolor="#000080">rgb(0, 0, 128)</td></tr><tr><td><font color="OldLace">OldLace</font></td><td><font color="#FDF5E6">#FDF5E6</font></td><td bgcolor="#FDF5E6">rgb(253, 245, 230)</td></tr><tr><td><font color="Olive">Olive</font></td><td><font color="#808000">#808000</font></td><td bgcolor="#808000">rgb(128, 128, 0)</td></tr><tr><td><font color="OliveDrab">OliveDrab</font></td><td><font color="#6B8E23">#6B8E23</font></td><td bgcolor="#6B8E23">rgb(107, 142, 35)</td></tr><tr><td><font color="Orange">Orange</font></td><td><font color="#FFA500">#FFA500</font></td><td bgcolor="#FFA500">rgb(255, 165, 0)</td></tr><tr><td><font color="OrangeRed">OrangeRed</font></td><td><font color="#FF4500">#FF4500</font></td><td bgcolor="#FF4500">rgb(255, 69, 0)</td></tr><tr><td><font color="Orchid">Orchid</font></td><td><font color="#DA70D6">#DA70D6</font></td><td bgcolor="#DA70D6">rgb(218, 112, 214)</td></tr><tr><td><font color="PaleGoldenRod">PaleGoldenRod</font></td><td><font color="#EEE8AA">#EEE8AA</font></td><td bgcolor="#EEE8AA">rgb(238, 232, 170)</td></tr><tr><td><font color="PaleGreen">PaleGreen</font></td><td><font color="#98FB98">#98FB98</font></td><td bgcolor="#98FB98">rgb(152, 251, 152)</td></tr><tr><td><font color="PaleTurquoise">PaleTurquoise</font></td><td><font color="#AFEEEE">#AFEEEE</font></td><td bgcolor="#AFEEEE">rgb(175, 238, 238)</td></tr><tr><td><font color="PaleVioletRed">PaleVioletRed</font></td><td><font color="#D87093">#D87093</font></td><td bgcolor="#D87093">rgb(216, 112, 147)</td></tr><tr><td><font color="PapayaWhip">PapayaWhip</font></td><td><font color="#FFEFD5">#FFEFD5</font></td><td bgcolor="#FFEFD5">rgb(255, 239, 213)</td></tr><tr><td><font color="PeachPuff">PeachPuff</font></td><td><font color="#FFDAB9">#FFDAB9</font></td><td bgcolor="#FFDAB9">rgb(255, 218, 185)</td></tr><tr><td><font color="Peru">Peru</font></td><td><font color="#CD853F">#CD853F</font></td><td bgcolor="#CD853F">rgb(205, 133, 63)</td></tr><tr><td><font color="Pink">Pink</font></td><td><font color="#FFC0CB">#FFC0CB</font></td><td bgcolor="#FFC0CB">rgb(255, 192, 203)</td></tr><tr><td><font color="Plum">Plum</font></td><td><font color="#DDA0DD">#DDA0DD</font></td><td bgcolor="#DDA0DD">rgb(221, 160, 221)</td></tr><tr><td><font color="PowderBlue">PowderBlue</font></td><td><font color="#B0E0E6">#B0E0E6</font></td><td bgcolor="#B0E0E6">rgb(176, 224, 230)</td></tr><tr><td><font color="Purple">Purple</font></td><td><font color="#800080">#800080</font></td><td bgcolor="#800080">rgb(128, 0, 128)</td></tr><tr><td><font color="Red">Red</font></td><td><font color="#FF0000">#FF0000</font></td><td bgcolor="#FF0000">rgb(255, 0, 0)</td></tr><tr><td><font color="RosyBrown">RosyBrown</font></td><td><font color="#BC8F8F">#BC8F8F</font></td><td bgcolor="#BC8F8F">rgb(188, 143, 143)</td></tr><tr><td><font color="RoyalBlue">RoyalBlue</font></td><td><font color="#4169E1">#4169E1</font></td><td bgcolor="#4169E1">rgb(65, 105, 225)</td></tr><tr><td><font color="SaddleBrown">SaddleBrown</font></td><td><font color="#8B4513">#8B4513</font></td><td bgcolor="#8B4513">rgb(139, 69, 19)</td></tr><tr><td><font color="Salmon">Salmon</font></td><td><font color="#FA8072">#FA8072</font></td><td bgcolor="#FA8072">rgb(250, 128, 114)</td></tr><tr><td><font color="SandyBrown">SandyBrown</font></td><td><font color="#F4A460">#F4A460</font></td><td bgcolor="#F4A460">rgb(244, 164, 96)</td></tr><tr><td><font color="SeaGreen">SeaGreen</font></td><td><font color="#2E8B57">#2E8B57</font></td><td bgcolor="#2E8B57">rgb(46, 139, 87)</td></tr><tr><td><font color="SeaShell">SeaShell</font></td><td><font color="#FFF5EE">#FFF5EE</font></td><td bgcolor="#FFF5EE">rgb(255, 245, 238)</td></tr><tr><td><font color="Sienna">Sienna</font></td><td><font color="#A0522D">#A0522D</font></td><td bgcolor="#A0522D">rgb(160, 82, 45)</td></tr><tr><td><font color="Silver">Silver</font></td><td><font color="#C0C0C0">#C0C0C0</font></td><td bgcolor="#C0C0C0">rgb(192, 192, 192)</td></tr><tr><td><font color="SkyBlue">SkyBlue</font></td><td><font color="#87CEEB">#87CEEB</font></td><td bgcolor="#87CEEB">rgb(135, 206, 235)</td></tr><tr><td><font color="SlateBlue">SlateBlue</font></td><td><font color="#6A5ACD">#6A5ACD</font></td><td bgcolor="#6A5ACD">rgb(106, 90, 205)</td></tr><tr><td><font color="SlateGray">SlateGray</font></td><td><font color="#708090">#708090</font></td><td bgcolor="#708090">rgb(112, 128, 144)</td></tr><tr><td><font color="Snow">Snow</font></td><td><font color="#FFFAFA">#FFFAFA</font></td><td bgcolor="#FFFAFA">rgb(255, 250, 250)</td></tr><tr><td><font color="SpringGreen">SpringGreen</font></td><td><font color="#00FF7F">#00FF7F</font></td><td bgcolor="#00FF7F">rgb(0, 255, 127)</td></tr><tr><td><font color="SteelBlue">SteelBlue</font></td><td><font color="#4682B4">#4682B4</font></td><td bgcolor="#4682B4">rgb(70, 130, 180)</td></tr><tr><td><font color="Tan">Tan</font></td><td><font color="#D2B48C">#D2B48C</font></td><td bgcolor="#D2B48C">rgb(210, 180, 140)</td></tr><tr><td><font color="Teal">Teal</font></td><td><font color="#008080">#008080</font></td><td bgcolor="#008080">rgb(0, 128, 128)</td></tr><tr><td><font color="Thistle">Thistle</font></td><td><font color="#D8BFD8">#D8BFD8</font></td><td bgcolor="#D8BFD8">rgb(216, 191, 216)</td></tr><tr><td><font color="Tomato">Tomato</font></td><td><font color="#FF6347">#FF6347</font></td><td bgcolor="#FF6347">rgb(255, 99, 71)</td></tr><tr><td><font color="Turquoise">Turquoise</font></td><td><font color="#40E0D0">#40E0D0</font></td><td bgcolor="#40E0D0">rgb(64, 224, 208)</td></tr><tr><td><font color="Violet">Violet</font></td><td><font color="#EE82EE">#EE82EE</font></td><td bgcolor="#EE82EE">rgb(238, 130, 238)</td></tr><tr><td><font color="VioletRed">VioletRed</font></td><td><font color="#D02090">#D02090</font></td><td bgcolor="#D02090">rgb(208, 32, 144)</td></tr><tr><td><font color="Wheat">Wheat</font></td><td><font color="#F5DEB3">#F5DEB3</font></td><td bgcolor="#F5DEB3">rgb(245, 222, 179)</td></tr><tr><td><font color="White">White</font></td><td><font color="#FFFFFF">#FFFFFF</font></td><td bgcolor="#FFFFFF">rgb(255, 255, 255)</td></tr><tr><td><font color="WhiteSmoke">WhiteSmoke</font></td><td><font color="#F5F5F5">#F5F5F5</font></td><td bgcolor="#F5F5F5">rgb(245, 245, 245)</td></tr><tr><td><font color="Yellow">Yellow</font></td><td><font color="#FFFF00">#FFFF00</font></td><td bgcolor="#FFFF00">rgb(255, 255, 0)</td></tr><tr><td><font color="YellowGreen">YellowGreen</font></td><td><font color="#9ACD32">#9ACD32</font></td><td bgcolor="#9ACD32">rgb(154, 205, 50)</td></tr></tbody></table>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+          
+            <a href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag"># 语法</a>
+          
+            <a href="/tags/%E5%A4%A7%E5%85%A8/" rel="tag"># 大全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ESXI%E6%89%93%E9%80%A0%E6%9C%80%E5%BC%BA%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F-ROS-LEDE-%E5%85%A8%E8%83%BDNAS.html" rel="next" title="[原创]ESXI打造最强家庭软路由系统ROS+LEDE+全能NAS方案(2018版)">
+                <i class="fa fa-chevron-left"></i> [原创]ESXI打造最强家庭软路由系统ROS+LEDE+全能NAS方案(2018版)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Linux%E4%B8%8B%E9%85%8D%E7%BD%AELVM-%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86%EF%BC%89.html" rel="prev" title="Linux下配置LVM(逻辑卷管理）">
+                Linux下配置LVM(逻辑卷管理） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xmzcl" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:18976787@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/384272321" target="_blank" title="BiliBili">
+                      
+                        <i class="fa fa-fw fa-globe"></i>BiliBili</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=18976787&site=qq&menu=yes" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐工具网站
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://translate.google.cn/" title="google翻译" target="_blank">google翻译</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mtool.chinaz.com/" title="站长工具" target="_blank">站长工具</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://phpinfo.me/domain/" title="子域名查询" target="_blank">子域名查询</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://smallpdf.com/cn" title="PDF转换" target="_blank">PDF转换</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tool.oschina.net/codeformat/json" title="代码格式化" target="_blank">代码格式化</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dns.aizhan.com/120.35.84.225/" title="IP反向查询" target="_blank">IP反向查询</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tool.chinaz.com/tools/diff" title="文本对比" target="_blank">文本对比</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.aconvert.com/cn/" title="在线转换" target="_blank">在线转换</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tool.chinaz.com/port/" title="端口扫描" target="_blank">端口扫描</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cowtransfer.com/" title="奶牛快传" target="_blank">奶牛快传</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.speedtest.net/" title="测试网速" target="_blank">测试网速</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.google.cn/maps/" title="google地图" target="_blank">google地图</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%8A%AC%E5%A4%B4%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">文章抬头设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BA%A7%E6%A0%87%E9%A2%98%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">分级标题：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number"></span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.1.</span> <span class="nav-text">四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">六级标题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E5%AD%97%E5%BC%BA%E8%B0%83%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">文字强调：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.4.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%B1%85%E4%B8%AD%E7%9A%84%E5%BC%95%E7%94%A8"><span class="nav-number">1.5.</span> <span class="nav-text">文本居中的引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%89%B2%E7%BA%BF"><span class="nav-number">1.6.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E7%BA%BF%E5%92%8C%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="nav-number">1.7.</span> <span class="nav-text">删除线和下划线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="nav-number">1.8.</span> <span class="nav-text">行内代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">1.9.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E9%93%BE"><span class="nav-number">1.10.</span> <span class="nav-text">外链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E5%83%8F"><span class="nav-number">1.11.</span> <span class="nav-text">插入图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B%EF%BC%9A"><span class="nav-number">1.12.</span> <span class="nav-text">缩进：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%A2%E8%A1%8C"><span class="nav-number">1.13.</span> <span class="nav-text">换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E7%AC%A6"><span class="nav-number">1.14.</span> <span class="nav-text">转义符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%B3%A8"><span class="nav-number">1.15.</span> <span class="nav-text">脚注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">1.16.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E6%A0%87%E4%B8%8E%E4%B8%8B%E6%A0%87"><span class="nav-number">1.17.</span> <span class="nav-text">上标与下标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E5%8A%A0%E5%A4%A7%E5%92%8C%E7%BC%A9%E5%B0%8F"><span class="nav-number">1.18.</span> <span class="nav-text">字体加大和缩小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0ICO%E5%9B%BE%E6%A0%87"><span class="nav-number">1.19.</span> <span class="nav-text">添加ICO图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bootstrap%E6%A0%87%E6%B3%A8"><span class="nav-number">1.20.</span> <span class="nav-text">Bootstrap标注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2"><span class="nav-number">1.21.</span> <span class="nav-text">设置文字颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%85%E5%8A%9E%E4%BA%8B%E5%AE%9C%E5%88%97%E8%A1%A8"><span class="nav-number">1.22.</span> <span class="nav-text">待办事宜列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%86%85HTML%E5%85%83%E7%B4%A0"><span class="nav-number">1.23.</span> <span class="nav-text">行内HTML元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%85%E5%8A%A9%E6%8E%92%E7%89%88%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.24.</span> <span class="nav-text">辅助排版符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%85%E4%B8%AD%E5%92%8C%E5%8F%B3%E5%AF%B9%E9%BD%90"><span class="nav-number">1.25.</span> <span class="nav-text">居中和右对齐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E9%A1%B9%E5%8D%A1"><span class="nav-number">1.26.</span> <span class="nav-text">选项卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E9%92%AE%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.27.</span> <span class="nav-text">按钮样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">转义码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%9C%E8%89%B2%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">颜色表</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hank ZHU</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '7daBgQlJ2hiRGdVTNxdmeEQO-gzGzoHsz',
+        appKey: 'sNoi3wfXIC4W6K7o3Mw03ITk',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("7daBgQlJ2hiRGdVTNxdmeEQO-gzGzoHsz", "sNoi3wfXIC4W6K7o3Mw03ITk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
