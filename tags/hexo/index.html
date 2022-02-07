@@ -13,6 +13,24 @@
 <meta name="theme-color" content="#222">
 
 
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+
+
 
   
   
@@ -430,34 +448,6 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/07/25/Hexo-Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A22/" itemprop="url">
-              
-                <span itemprop="name">[原创]Hexo-Github搭建自己的博客 --- 心得汇总2018版（主题配置篇）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-25T12:15:48+08:00"
-              content="2018-07-25" >
-          07-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
             <a class="post-title-link" href="/2018/07/07/hexo%E5%BB%BA%E7%AB%99%E5%BF%83%E5%BE%97/" itemprop="url">
               
                 <span itemprop="name">Hexo+Github搭建自己的博客 --- 心得汇总2018版(安装篇)</span>
@@ -556,7 +546,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">94</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -707,7 +697,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">73.9k</span>
   
 </div>
 
