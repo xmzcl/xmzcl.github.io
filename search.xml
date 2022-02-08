@@ -19,7 +19,7 @@
 </ul>
 <p>
 
-<p>首先，先上我们的主角的照片。<img src="http://host.zealot.top:5680/images/esxiesxi_001.png"><br>主角配置：</p>
+<p>首先，先上我们的主角的照片。<img src="https://host.zealot.top:5683/images/esxiesxi_001.png"><br>主角配置：</p>
 <table>
 <thead>
 <tr>
@@ -44,7 +44,7 @@
 <td>4T 2.5寸 HDD + 128G msata SSD + 1T msata SSD</td>
 </tr>
 </tbody></table>
-<p>接着上图K2P和玩客云：<br><img src="http://host.zealot.top:5680/images/esxiesxi_002.png"><br>上网络拓扑图：<br><img src="http://host.zealot.top:5680/images/ESXI-DSM-Debian.png"></p>
+<p>接着上图K2P和玩客云：<br><img src="https://host.zealot.top:5683/images/esxiesxi_002.png"><br>上网络拓扑图：<br><img src="https://host.zealot.top:5683/images/ESXI-DSM-Debian.png"></p>
 <blockquote>
 <p>Backup-PC上面装了5块硬盘，ROS每天凌晨4点自动网络唤醒Backup-PC,将当天数据做一个本地备份后关机。关键数据有4处备份。本地备份、玩客云、百度云、onedrive、以保证数据安全。这样做第一会比平时硬盘全开省电不少，第二比组RAID1硬盘的空间利用率更高。第三安全总不可能4个地方的数据同时坏吧！</p>
 </blockquote>
@@ -54,45 +54,45 @@
 <hr>
 <h2 id="配置虚拟机"><a href="#配置虚拟机" class="headerlink" title="配置虚拟机"></a>配置虚拟机</h2><h3 id="配置ROS"><a href="#配置ROS" class="headerlink" title="配置ROS"></a>配置ROS</h3><p>先按下面的方法，把ROS配置好，让其可以正常上网。<br><a href="http://zealot.top/tags/ROS/"><i class="fa fa-link">ROS配置步骤点这里</i></a></p>
 <ul>
-<li><h4 id="ROS的DHCP配置"><a href="#ROS的DHCP配置" class="headerlink" title="ROS的DHCP配置"></a>ROS的DHCP配置</h4><img src="http://host.zealot.top:5680/images/ros100.png"></li>
-<li><h4 id="选择LAN网卡"><a href="#选择LAN网卡" class="headerlink" title="选择LAN网卡"></a>选择LAN网卡</h4><img src="http://host.zealot.top:5680/images/ros101.png"></li>
-<li><h4 id="网段设置，我用的31段。这个你可以自由设置。"><a href="#网段设置，我用的31段。这个你可以自由设置。" class="headerlink" title="网段设置，我用的31段。这个你可以自由设置。"></a>网段设置，我用的31段。这个你可以自由设置。</h4><img src="http://host.zealot.top:5680/images/ros102.png"></li>
-<li><h4 id="划重点，这里要设置成下面LEDE的IP地址。"><a href="#划重点，这里要设置成下面LEDE的IP地址。" class="headerlink" title="划重点，这里要设置成下面LEDE的IP地址。"></a>划重点，这里要设置成下面LEDE的IP地址。</h4><img src="http://host.zealot.top:5680/images/ros103.png"></li>
-<li><h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4><img src="http://host.zealot.top:5680/images/ros104.png"></li>
+<li><h4 id="ROS的DHCP配置"><a href="#ROS的DHCP配置" class="headerlink" title="ROS的DHCP配置"></a>ROS的DHCP配置</h4><img src="https://host.zealot.top:5683/images/ros100.png"></li>
+<li><h4 id="选择LAN网卡"><a href="#选择LAN网卡" class="headerlink" title="选择LAN网卡"></a>选择LAN网卡</h4><img src="https://host.zealot.top:5683/images/ros101.png"></li>
+<li><h4 id="网段设置，我用的31段。这个你可以自由设置。"><a href="#网段设置，我用的31段。这个你可以自由设置。" class="headerlink" title="网段设置，我用的31段。这个你可以自由设置。"></a>网段设置，我用的31段。这个你可以自由设置。</h4><img src="https://host.zealot.top:5683/images/ros102.png"></li>
+<li><h4 id="划重点，这里要设置成下面LEDE的IP地址。"><a href="#划重点，这里要设置成下面LEDE的IP地址。" class="headerlink" title="划重点，这里要设置成下面LEDE的IP地址。"></a>划重点，这里要设置成下面LEDE的IP地址。</h4><img src="https://host.zealot.top:5683/images/ros103.png"></li>
+<li><h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4><img src="https://host.zealot.top:5683/images/ros104.png"></li>
 </ul>
 <h3 id="配置LEDE"><a href="#配置LEDE" class="headerlink" title="配置LEDE"></a>配置LEDE</h3><ul>
-<li><h4 id="开启LEDE虚拟机"><a href="#开启LEDE虚拟机" class="headerlink" title="开启LEDE虚拟机"></a>开启LEDE虚拟机</h4><img src="http://host.zealot.top:5680/images/lede13.png"></li>
-<li><h4 id="进入虚拟机LEDE控制台"><a href="#进入虚拟机LEDE控制台" class="headerlink" title="进入虚拟机LEDE控制台"></a>进入虚拟机LEDE控制台</h4><img src="http://host.zealot.top:5680/images/lede14.png"></li>
+<li><h4 id="开启LEDE虚拟机"><a href="#开启LEDE虚拟机" class="headerlink" title="开启LEDE虚拟机"></a>开启LEDE虚拟机</h4><img src="https://host.zealot.top:5683/images/lede13.png"></li>
+<li><h4 id="进入虚拟机LEDE控制台"><a href="#进入虚拟机LEDE控制台" class="headerlink" title="进入虚拟机LEDE控制台"></a>进入虚拟机LEDE控制台</h4><img src="https://host.zealot.top:5683/images/lede14.png"></li>
 <li><h4 id="配置网卡"><a href="#配置网卡" class="headerlink" title="配置网卡"></a>配置网卡</h4>在命令行输入<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nano /etc/config/network</span><br></pre></td></tr></table></figure>
-<img src="http://host.zealot.top:5680/images/lede16.png"><br>将网卡配置更改为下面的内容，然后按<code>Ctrl+X</code>保存退出。注意：IP和网关需要根据自己的网络来修改,<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">config interface &#x27;loopback&#x27;</span><br><span class="line">        option ifname &#x27;lo&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;127.0.0.1&#x27;</span><br><span class="line">        option netmask &#x27;255.0.0.0&#x27;</span><br><span class="line"></span><br><span class="line">config globals &#x27;globals&#x27;</span><br><span class="line">        option ula_prefix &#x27;fdf1:53e1:6bd9::/48&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;lan&#x27;</span><br><span class="line">        option type &#x27;bridge&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;192.168.31.40&#x27;</span><br><span class="line">        option netmask &#x27;255.255.255.0&#x27;</span><br><span class="line">        option ip6assign &#x27;60&#x27;</span><br><span class="line">        option ifname &#x27;eth0&#x27;</span><br><span class="line">        option gateway &#x27;192.168.31.250&#x27;</span><br><span class="line">        option dns &#x27;223.5.5.5&#x27;</span><br></pre></td></tr></table></figure>
+<img src="https://host.zealot.top:5683/images/lede16.png"><br>将网卡配置更改为下面的内容，然后按<code>Ctrl+X</code>保存退出。注意：IP和网关需要根据自己的网络来修改,<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">config interface &#x27;loopback&#x27;</span><br><span class="line">        option ifname &#x27;lo&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;127.0.0.1&#x27;</span><br><span class="line">        option netmask &#x27;255.0.0.0&#x27;</span><br><span class="line"></span><br><span class="line">config globals &#x27;globals&#x27;</span><br><span class="line">        option ula_prefix &#x27;fdf1:53e1:6bd9::/48&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;lan&#x27;</span><br><span class="line">        option type &#x27;bridge&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;192.168.31.40&#x27;</span><br><span class="line">        option netmask &#x27;255.255.255.0&#x27;</span><br><span class="line">        option ip6assign &#x27;60&#x27;</span><br><span class="line">        option ifname &#x27;eth0&#x27;</span><br><span class="line">        option gateway &#x27;192.168.31.250&#x27;</span><br><span class="line">        option dns &#x27;223.5.5.5&#x27;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>IP设置成跟ROS为同一网段，网关设置成ROS的IP地址 <code>option ipaddr</code>代表IP地址。<code>option gateway</code> 代表网关</p>
 </blockquote>
 <p>
-![](http://host.zealot.top:5680/images/lede17.png)
+![](https://host.zealot.top:5683/images/lede17.png)
 输入下面的命令，重启LEDE网络
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/etc/init.d/network restart</span><br></pre></td></tr></table></figure>
-![](http://host.zealot.top:5680/images/lede18.png)
+![](https://host.zealot.top:5683/images/lede18.png)
 浏览器输入IP:192.168.31.40，访问LEDE
 配置LAN
-![](http://host.zealot.top:5680/images/lede19.png)
+![](https://host.zealot.top:5683/images/lede19.png)
 关闭DHCP服务器
-![](http://host.zealot.top:5680/images/lede20.png)
+![](https://host.zealot.top:5683/images/lede20.png)
 更新软件中心及固件。
-![](http://host.zealot.top:5680/images/lede21.png)
-![](http://host.zealot.top:5680/images/lede22.png)
+![](https://host.zealot.top:5683/images/lede21.png)
+![](https://host.zealot.top:5683/images/lede22.png)
 自此LEDE的配置就完成了。</li>
 </ul>
 <h3 id="KMS，广告过滤，美元。"><a href="#KMS，广告过滤，美元。" class="headerlink" title="KMS，广告过滤，美元。"></a>KMS，广告过滤，美元。</h3><ul>
-<li><h4 id="KMS微软激活"><a href="#KMS微软激活" class="headerlink" title="KMS微软激活"></a>KMS微软激活</h4><p><img src="http://host.zealot.top:5680/images/lede23.png"><br><img src="http://host.zealot.top:5680/images/lede24.png"><br>激活WINDOWS,首先安装vol大客户版windows和office，然后以管理员权限运行CMD.运行下面的命令</p>
+<li><h4 id="KMS微软激活"><a href="#KMS微软激活" class="headerlink" title="KMS微软激活"></a>KMS微软激活</h4><p><img src="https://host.zealot.top:5683/images/lede23.png"><br><img src="https://host.zealot.top:5683/images/lede24.png"><br>激活WINDOWS,首先安装vol大客户版windows和office，然后以管理员权限运行CMD.运行下面的命令</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">激活Windows</span><br><span class="line">cd C:\Windows\System32</span><br><span class="line">CSCRIPT /NOLOGO SLMGR.VBS /SKMS 192.168.31.1</span><br><span class="line">CSCRIPT /NOLOGO SLMGR.VBS /ATO</span><br><span class="line">CSCRIPT /NOLOGO SLMGR.VBS /XPR</span><br><span class="line">---------------------------------------------</span><br><span class="line">激活Office2016（以64位为例子）</span><br><span class="line">cd C:\Program Files\Microsoft Office\Office16</span><br><span class="line">CSCRIPT OSPP.VBS /SETHST:192.168.31.1</span><br><span class="line">CSCRIPT OSPP.VBS /ACT</span><br><span class="line">CSCRIPT OSPP.VBS /DSTATUS</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>记住：192.168.31.1这个地址，要改成你自己的LEDE的IP。</p>
 </blockquote>
 </li>
-<li><h4 id="koolproxy广告过滤"><a href="#koolproxy广告过滤" class="headerlink" title="koolproxy广告过滤"></a>koolproxy广告过滤</h4><p><img src="http://host.zealot.top:5680/images/lede25.png"><br><img src="http://host.zealot.top:5680/images/lede26.png"><br>开启第三方规则，我开这三个规则过滤视频广告是最优的。你们也可以自己试试。<br><img src="http://host.zealot.top:5680/images/lede27.png"></p>
+<li><h4 id="koolproxy广告过滤"><a href="#koolproxy广告过滤" class="headerlink" title="koolproxy广告过滤"></a>koolproxy广告过滤</h4><p><img src="https://host.zealot.top:5683/images/lede25.png"><br><img src="https://host.zealot.top:5683/images/lede26.png"><br>开启第三方规则，我开这三个规则过滤视频广告是最优的。你们也可以自己试试。<br><img src="https://host.zealot.top:5683/images/lede27.png"></p>
 </li>
-<li><h4 id="美元服务"><a href="#美元服务" class="headerlink" title="美元服务"></a>美元服务</h4><p><img src="http://host.zealot.top:5680/images/lede28.png"><br>开启美元，输入自己的SS节点，然后添加。<br><img src="http://host.zealot.top:5680/images/lede29.png"><br>选择刚才添加的节点，提交.<br><img src="http://host.zealot.top:5680/images/lede30.png"><br>第一次开启美元，记得要更新一下规则.<br><img src="http://host.zealot.top:5680/images/lede31.png"></p>
+<li><h4 id="美元服务"><a href="#美元服务" class="headerlink" title="美元服务"></a>美元服务</h4><p><img src="https://host.zealot.top:5683/images/lede28.png"><br>开启美元，输入自己的SS节点，然后添加。<br><img src="https://host.zealot.top:5683/images/lede29.png"><br>选择刚才添加的节点，提交.<br><img src="https://host.zealot.top:5683/images/lede30.png"><br>第一次开启美元，记得要更新一下规则.<br><img src="https://host.zealot.top:5683/images/lede31.png"></p>
 </li>
 </ul>
 ]]></content>
@@ -8412,7 +8412,7 @@ width: 170px; }
 
 <p> 如下图所示：</p>
 <p> <img src="http://host.zealot.top:5680/images/VCSA_RESET_5.jpg"></p>
-<p> 在这个菜单里输入“3”，重置Account password，然后输入要重置的帐号”<a href="mailto:&#x61;&#x64;&#109;&#105;&#110;&#105;&#x73;&#116;&#x72;&#x61;&#x74;&#x6f;&#114;&#64;&#118;&#115;&#112;&#x68;&#101;&#x72;&#101;&#x2e;&#x6c;&#111;&#99;&#97;&#x6c;">&#x61;&#x64;&#109;&#105;&#110;&#105;&#x73;&#116;&#x72;&#x61;&#x74;&#x6f;&#114;&#64;&#118;&#115;&#112;&#x68;&#101;&#x72;&#101;&#x2e;&#x6c;&#111;&#99;&#97;&#x6c;</a>“,之后可以看到系统生成了新的密码。记录下这个密码，登陆到web client里修改即可。</p>
+<p> 在这个菜单里输入“3”，重置Account password，然后输入要重置的帐号”<a href="mailto:&#97;&#100;&#x6d;&#x69;&#110;&#x69;&#115;&#x74;&#x72;&#97;&#116;&#x6f;&#114;&#64;&#118;&#x73;&#x70;&#104;&#x65;&#x72;&#x65;&#46;&#x6c;&#x6f;&#99;&#97;&#108;">&#97;&#100;&#x6d;&#x69;&#110;&#x69;&#115;&#x74;&#x72;&#97;&#116;&#x6f;&#114;&#64;&#118;&#x73;&#x70;&#104;&#x65;&#x72;&#x65;&#46;&#x6c;&#x6f;&#99;&#97;&#108;</a>“,之后可以看到系统生成了新的密码。记录下这个密码，登陆到web client里修改即可。</p>
 ]]></content>
   </entry>
   <entry>
@@ -8944,7 +8944,7 @@ width: 170px; }
 </tr>
 <tr>
 <td>SMTP_USER</td>
-<td><a href="mailto:&#120;&#120;&#120;&#120;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#120;&#120;&#120;&#120;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a></td>
+<td><a href="mailto:&#120;&#120;&#x78;&#x78;&#x78;&#x78;&#x40;&#113;&#x71;&#46;&#99;&#111;&#109;">&#120;&#120;&#x78;&#x78;&#x78;&#x78;&#x40;&#113;&#x71;&#46;&#99;&#111;&#109;</a></td>
 <td>[必填]SMTP登录用户</td>
 </tr>
 <tr>
@@ -8959,7 +8959,7 @@ width: 170px; }
 </tr>
 <tr>
 <td>SENDER_EMAIL</td>
-<td><a href="mailto:&#120;&#x78;&#120;&#x78;&#x78;&#x78;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#120;&#x78;&#120;&#x78;&#x78;&#x78;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;</a></td>
+<td><a href="mailto:&#x78;&#x78;&#120;&#x78;&#120;&#120;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#x78;&#x78;&#120;&#x78;&#120;&#120;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a></td>
 <td>[必填]发件邮箱</td>
 </tr>
 <tr>
@@ -8969,7 +8969,7 @@ width: 170px; }
 </tr>
 <tr>
 <td>BLOGGER_EMAIL</td>
-<td><a href="mailto:&#x78;&#x78;&#120;&#120;&#120;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#x78;&#x78;&#120;&#120;&#120;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a></td>
+<td><a href="mailto:&#x78;&#x78;&#x78;&#120;&#x78;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;">&#x78;&#x78;&#x78;&#120;&#x78;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;</a></td>
 <td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
 </tr>
 <tr>
