@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="Centos,防火墙," />
+  <meta name="keywords" content="ROS,ESXI,NAS,LEDE," />
 
 
 
@@ -117,19 +117,42 @@
 
 
 
-<meta name="description" content="今天翻了下有道笔记，发现2-3年以前还记了一些笔记，感觉有时候还用得着。所以整理一下，更新上来。实在是自己好久都没有写博文了。变懒了！！ Centos6 iptables查看已开放端口 1iptables -nL 添加3306端口入口允许 1iptables -I INPUT -p tcp --dport 3306 -j ACCEPT 添加3306端口出口允许 1iptables -I OUTPU">
+<meta name="description" content="玩了大半年的软路由和NAS、给大伙分享一下我用家庭NAS完整解决方案。ROS+LEDE+DSM黑群晖+Debian。我使用的实体机是芯盛美迷你主机。使用这个主机来实现的好处是  一台设备就实现了所有功能，不会占用地方。 省电。主机功耗在18W&#x2F;小时，整体功耗大约在35W&#x2F;小时左右(包含光猫，WIFI，玩客云，小爱同学)。 安静。主机采用铝板被动散热，所以整机非常安静。(夏天">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos防火墙配置">
-<meta property="og:url" content="http://zealot.top/2020/04/15/Centos%E9%98%B2%E7%81%AB%E5%A2%99%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="[原创]ESXI打造最强家庭软路由系统ROS+LEDE+全能NAS方案(2018版)">
+<meta property="og:url" content="http://zealot.top/2018/08/10/ESXI%E6%89%93%E9%80%A0%E6%9C%80%E5%BC%BA%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F-ROS-LEDE-%E5%85%A8%E8%83%BDNAS/index.html">
 <meta property="og:site_name" content="思想就是武器">
-<meta property="og:description" content="今天翻了下有道笔记，发现2-3年以前还记了一些笔记，感觉有时候还用得着。所以整理一下，更新上来。实在是自己好久都没有写博文了。变懒了！！ Centos6 iptables查看已开放端口 1iptables -nL 添加3306端口入口允许 1iptables -I INPUT -p tcp --dport 3306 -j ACCEPT 添加3306端口出口允许 1iptables -I OUTPU">
+<meta property="og:description" content="玩了大半年的软路由和NAS、给大伙分享一下我用家庭NAS完整解决方案。ROS+LEDE+DSM黑群晖+Debian。我使用的实体机是芯盛美迷你主机。使用这个主机来实现的好处是  一台设备就实现了所有功能，不会占用地方。 省电。主机功耗在18W&#x2F;小时，整体功耗大约在35W&#x2F;小时左右(包含光猫，WIFI，玩客云，小爱同学)。 安静。主机采用铝板被动散热，所以整机非常安静。(夏天">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-04-15T12:22:58.000Z">
-<meta property="article:modified_time" content="2020-04-15T13:07:31.000Z">
+<meta property="og:image" content="http://host.zealot.top:5680/images/esxiesxi_001.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/esxiesxi_002.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/ESXI-DSM-Debian.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/ros100.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/ros101.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/ros102.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/ros103.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/ros104.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede13.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede14.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede16.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede23.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede24.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede25.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede26.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede27.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede28.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede29.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede30.png">
+<meta property="og:image" content="http://host.zealot.top:5680/images/lede31.png">
+<meta property="article:published_time" content="2018-08-10T02:59:38.000Z">
+<meta property="article:modified_time" content="2020-11-06T13:32:06.000Z">
 <meta property="article:author" content="Hank ZHU">
-<meta property="article:tag" content="Centos">
-<meta property="article:tag" content="防火墙">
+<meta property="article:tag" content="ROS">
+<meta property="article:tag" content="ESXI">
+<meta property="article:tag" content="NAS">
+<meta property="article:tag" content="LEDE">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://host.zealot.top:5680/images/esxiesxi_001.png">
 
 
 
@@ -159,13 +182,13 @@
 
 
 
-  <link rel="canonical" href="http://zealot.top/2020/04/15/Centos防火墙配置/"/>
+  <link rel="canonical" href="http://zealot.top/2018/08/10/ESXI打造最强家庭软路由系统-ROS-LEDE-全能NAS/"/>
 
 
 
 
 
-  <title>Centos防火墙配置 | 思想就是武器</title>
+  <title>[原创]ESXI打造最强家庭软路由系统ROS+LEDE+全能NAS方案(2018版) | 思想就是武器</title>
   
 
 
@@ -346,7 +369,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zealot.top/2020/04/15/Centos%E9%98%B2%E7%81%AB%E5%A2%99%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="http://zealot.top/2018/08/10/ESXI%E6%89%93%E9%80%A0%E6%9C%80%E5%BC%BA%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F-ROS-LEDE-%E5%85%A8%E8%83%BDNAS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -363,7 +386,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Centos防火墙配置</h1>
+          <h1 class="post-title" itemprop="name headline">[原创]ESXI打造最强家庭软路由系统ROS+LEDE+全能NAS方案(2018版)</h1>
         
 
         <div class="post-meta">
@@ -375,8 +398,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-15T20:22:58+08:00">
-                2020-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T10:59:38+08:00">
+                2018-08-10
               </time>
             
 
@@ -391,12 +414,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-04-15T21:07:31+08:00">
-                2020-04-15
+              <time title="更新于" itemprop="dateModified" datetime="2020-11-06T21:32:06+08:00">
+                2020-11-06
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8E%9F%E5%88%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">原创</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -426,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  952 字
+                  1.1k 字
                 </span>
               
 
@@ -442,7 +487,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -463,61 +508,98 @@
       
 
       
-        <p>今天翻了下有道笔记，发现2-3年以前还记了一些笔记，感觉有时候还用得着。所以整理一下，更新上来。实在是自己好久都没有写博文了。变懒了！！</p>
-<h4 id="Centos6-iptables"><a href="#Centos6-iptables" class="headerlink" title="Centos6 iptables"></a>Centos6 iptables</h4><p>查看已开放端口</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -nL</span><br></pre></td></tr></table></figure>
-<p>添加3306端口入口允许</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 3306 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>添加3306端口出口允许</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I OUTPUT -p tcp  --sport 3306 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>保存</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
+        <p>  玩了大半年的软路由和NAS、给大伙分享一下我用家庭NAS完整解决方案。ROS+LEDE+DSM黑群晖+Debian。我使用的实体机是芯盛美迷你主机。使用这个主机来实现的好处是</p>
+<ol>
+<li>一台设备就实现了所有功能，不会占用地方。</li>
+<li>省电。主机功耗在18W&#x2F;小时，整体功耗大约在35W&#x2F;小时左右(包含光猫，WIFI，玩客云，小爱同学)。</li>
+<li>安静。主机采用铝板被动散热，所以整机非常安静。(夏天还是需要用个USB风扇辅助散热一下的)。</li>
+<li>群晖和Linux上的应用基本都会有手机APP支持，可以在手机APP上操作，非常方便。</li>
+<li>比起windows平台，要实现同样功能，使用Linux平台会在CPU等资源消耗方面低很多。</li>
+</ol>
+<p>  下面简单说下分工</p>
+<ul>
+<li>ROS-主路由的工作：VRRP+PCC多线负载、DHCP、端口映射、VPN服务器、花生壳DDNS。</li>
+<li>LEDE-旁路由的工作：KMS微软激活、koolproxy广告过滤、美元服务、frpc内网穿透、阿里云DDNS等各种路由应用。</li>
+<li>DSM黑群晖+debian的工作：数据存储、文件共享、PT下载、Docker、Emby、SVN版本控制、LNMP、手机终端数据同步等等。</li>
+</ul>
+<p>
 
-<p>查看打开的端口:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables status</span><br></pre></td></tr></table></figure>
-
-<p>重启:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
-
-<p>删除OUTPUT 1的规则</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -D OUTPUT 1</span><br></pre></td></tr></table></figure>
-
-<p>1、关闭所有的 INPUT FORWARD OUTPUT 只对某些端口开放。<br>下面是命令实现：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -P INPUT DROP</span><br><span class="line">iptables -P FORWARD DROP</span><br><span class="line">iptables -P OUTPUT DROP</span><br></pre></td></tr></table></figure>
-
-<p>–dport 就是目标端口 当数据从外部进入服务器为目标端口<br>反之 数据从服务器出去 则为数据源端口 使用 –sport</p>
-<p>-j 就是指定是 <code>ACCEPT</code> 接收 或者 <code>DROP</code> 不接收</p>
-<p>禁止192.168.1.2的IP访问</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp -s 192.168.1.2 -j DROP</span><br></pre></td></tr></table></figure>
-
-
-
-<p>过滤无效的数据包<br>假设有人进入了服务器，或者有病毒木马程序，它可以通过22，80端口像服务器外传送数据。它的这种方式就和正常访问22，80端口区别。它发向外发的数据不是通过访问网页请求而回应的数据包。<br>下面要禁止这些没有通过请求回应的数据包，统统把它们堵住掉。<br>iptables 提供了一个参数 是检查状态的，下面来配置下 22 和 80 端口，防止无效的数据包。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A OUTPUT -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>可以看到和以前使用的：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>多了一个状态判断。</p>
-<p>参数详解<br>-t&lt;表&gt;：指定要操纵的表；<br>-A：向规则链中添加条目；<br>-D：从规则链中删除条目；<br>-i：向规则链中插入条目；<br>-R：替换规则链中的条目；<br>-L：显示规则链中已有的条目；<br>-F：清楚规则链中已有的条目；<br>-Z：清空规则链中的数据包计算器和字节计数器；<br>-N：创建新的用户自定义规则链；<br>-P：定义规则链中的默认目标；<br>-h：显示帮助信息；<br>-p：指定要匹配的数据包协议类型；<br>-s：指定要匹配的数据包源ip地址；<br>-j&lt;目标&gt;：指定要跳转的目标；<br>-i&lt;网络接口&gt;：指定数据包进入本机的网络接口；<br>-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。</p>
+<p>首先，先上我们的主角的照片。<img src="http://host.zealot.top:5680/images/esxiesxi_001.png"><br>主角配置：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPU</td>
+<td>I7-4600U</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>8G DDR3L + 4G DDR3L</td>
+</tr>
+<tr>
+<td>网卡</td>
+<td>Realtek 8168 * 4(自带2个，MiniPCI扩展了2个)</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>4T 2.5寸 HDD + 128G msata SSD + 1T msata SSD</td>
+</tr>
+</tbody></table>
+<p>接着上图K2P和玩客云：<br><img src="http://host.zealot.top:5680/images/esxiesxi_002.png"><br>上网络拓扑图：<br><img src="http://host.zealot.top:5680/images/ESXI-DSM-Debian.png"></p>
+<blockquote>
+<p>Backup-PC上面装了5块硬盘，ROS每天凌晨4点自动网络唤醒Backup-PC,将当天数据做一个本地备份后关机。关键数据有4处备份。本地备份、玩客云、百度云、onedrive、以保证数据安全。这样做第一会比平时硬盘全开省电不少，第二比组RAID1硬盘的空间利用率更高。第三安全总不可能4个地方的数据同时坏吧！</p>
+</blockquote>
+<h2 id="安装需要的虚拟机"><a href="#安装需要的虚拟机" class="headerlink" title="安装需要的虚拟机"></a>安装需要的虚拟机</h2><h3 id="安装ESXI6-5"><a href="#安装ESXI6-5" class="headerlink" title="安装ESXI6.5"></a>安装ESXI6.5</h3><p><a href="https://zealot.top/ESXI6-5-%E5%AE%89%E8%A3%85%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4.html"><i class="fa fa-link">ESXI详细安装步骤点这里</i></a></p>
+<h3 id="安装ROS"><a href="#安装ROS" class="headerlink" title="安装ROS"></a>安装ROS</h3><p><a href="https://zealot.top/ESXI-%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BAROS.html#more"><i class="fa fa-link">ROS详细安装步骤点这里</i></a></p>
+<h3 id="安装LEDE"><a href="#安装LEDE" class="headerlink" title="安装LEDE"></a>安装LEDE</h3><p><a href="https://zealot.top/lede2-6-%E8%AF%A6%E7%BB%86%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4.html"><i class="fa fa-link">LEDE详细安装步骤点这里</i></a></p>
 <hr>
-<h4 id="Centos7-Firewalld"><a href="#Centos7-Firewalld" class="headerlink" title="Centos7 Firewalld"></a>Centos7 Firewalld</h4><p>关闭防火墙</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
-<p>禁止firewall开机启动</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld.service        </span><br></pre></td></tr></table></figure>
-
-<p>开启访问10050</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=10050/tcp --permanent</span><br></pre></td></tr></table></figure>
-
-<p>命令含义：<br>–zone #作用域<br>–add-port&#x3D;10050&#x2F;tcp #添加端口，格式为：端口&#x2F;通讯协议<br>–permanent #永久生效，没有此参数重启后失效</p>
-<p>重启防火墙</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<p>查看端口是否开启</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port=10050/tcp</span><br></pre></td></tr></table></figure>
-
-<p>查看已开启的端口号</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
-
-<p>常用命令介绍<br>firewall-cmd –state                           ##查看防火墙状态，是否是running<br>firewall-cmd –reload                          ##重新载入配置，比如添加规则之后，需要执行此命令<br>firewall-cmd –get-zones                       ##列出支持的zone<br>firewall-cmd –get-services                    ##列出支持的服务，在列表中的服务是放行的<br>firewall-cmd –query-service ftp               ##查看ftp服务是否支持，返回yes或者no<br>firewall-cmd –add-service&#x3D;ftp                 ##临时开放ftp服务<br>firewall-cmd –add-service&#x3D;ftp –permanent     ##永久开放ftp服务<br>firewall-cmd –remove-service&#x3D;ftp –permanent  ##永久移除ftp服务<br>firewall-cmd –remove-port&#x3D;3000&#x2F;tcp        ##临时移除3000端口<br>firewall-cmd –add-port&#x3D;80&#x2F;tcp –permanent     ##永久添加80端口<br>iptables -L -n                                 ##查看规则，这个命令是和iptables的相同的<br>man firewall-cmd                               ##查看帮助</p>
+<h2 id="配置虚拟机"><a href="#配置虚拟机" class="headerlink" title="配置虚拟机"></a>配置虚拟机</h2><h3 id="配置ROS"><a href="#配置ROS" class="headerlink" title="配置ROS"></a>配置ROS</h3><p>先按下面的方法，把ROS配置好，让其可以正常上网。<br><a href="http://zealot.top/tags/ROS/"><i class="fa fa-link">ROS配置步骤点这里</i></a></p>
+<ul>
+<li><h4 id="ROS的DHCP配置"><a href="#ROS的DHCP配置" class="headerlink" title="ROS的DHCP配置"></a>ROS的DHCP配置</h4><img src="http://host.zealot.top:5680/images/ros100.png"></li>
+<li><h4 id="选择LAN网卡"><a href="#选择LAN网卡" class="headerlink" title="选择LAN网卡"></a>选择LAN网卡</h4><img src="http://host.zealot.top:5680/images/ros101.png"></li>
+<li><h4 id="网段设置，我用的31段。这个你可以自由设置。"><a href="#网段设置，我用的31段。这个你可以自由设置。" class="headerlink" title="网段设置，我用的31段。这个你可以自由设置。"></a>网段设置，我用的31段。这个你可以自由设置。</h4><img src="http://host.zealot.top:5680/images/ros102.png"></li>
+<li><h4 id="划重点，这里要设置成下面LEDE的IP地址。"><a href="#划重点，这里要设置成下面LEDE的IP地址。" class="headerlink" title="划重点，这里要设置成下面LEDE的IP地址。"></a>划重点，这里要设置成下面LEDE的IP地址。</h4><img src="http://host.zealot.top:5680/images/ros103.png"></li>
+<li><h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4><img src="http://host.zealot.top:5680/images/ros104.png"></li>
+</ul>
+<h3 id="配置LEDE"><a href="#配置LEDE" class="headerlink" title="配置LEDE"></a>配置LEDE</h3><ul>
+<li><h4 id="开启LEDE虚拟机"><a href="#开启LEDE虚拟机" class="headerlink" title="开启LEDE虚拟机"></a>开启LEDE虚拟机</h4><img src="http://host.zealot.top:5680/images/lede13.png"></li>
+<li><h4 id="进入虚拟机LEDE控制台"><a href="#进入虚拟机LEDE控制台" class="headerlink" title="进入虚拟机LEDE控制台"></a>进入虚拟机LEDE控制台</h4><img src="http://host.zealot.top:5680/images/lede14.png"></li>
+<li><h4 id="配置网卡"><a href="#配置网卡" class="headerlink" title="配置网卡"></a>配置网卡</h4>在命令行输入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/config/network</span><br></pre></td></tr></table></figure>
+<img src="http://host.zealot.top:5680/images/lede16.png"><br>将网卡配置更改为下面的内容，然后按<code>Ctrl+X</code>保存退出。注意：IP和网关需要根据自己的网络来修改,<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">config interface &#x27;loopback&#x27;</span><br><span class="line">        option ifname &#x27;lo&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;127.0.0.1&#x27;</span><br><span class="line">        option netmask &#x27;255.0.0.0&#x27;</span><br><span class="line"></span><br><span class="line">config globals &#x27;globals&#x27;</span><br><span class="line">        option ula_prefix &#x27;fdf1:53e1:6bd9::/48&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;lan&#x27;</span><br><span class="line">        option type &#x27;bridge&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;192.168.31.40&#x27;</span><br><span class="line">        option netmask &#x27;255.255.255.0&#x27;</span><br><span class="line">        option ip6assign &#x27;60&#x27;</span><br><span class="line">        option ifname &#x27;eth0&#x27;</span><br><span class="line">        option gateway &#x27;192.168.31.250&#x27;</span><br><span class="line">        option dns &#x27;223.5.5.5&#x27;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>IP设置成跟ROS为同一网段，网关设置成ROS的IP地址 <code>option ipaddr</code>代表IP地址。<code>option gateway</code> 代表网关</p>
+</blockquote>
+<p>
+![](http://host.zealot.top:5680/images/lede17.png)
+输入下面的命令，重启LEDE网络
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/network restart</span><br></pre></td></tr></table></figure>
+![](http://host.zealot.top:5680/images/lede18.png)
+浏览器输入IP:192.168.31.40，访问LEDE
+配置LAN
+![](http://host.zealot.top:5680/images/lede19.png)
+关闭DHCP服务器
+![](http://host.zealot.top:5680/images/lede20.png)
+更新软件中心及固件。
+![](http://host.zealot.top:5680/images/lede21.png)
+![](http://host.zealot.top:5680/images/lede22.png)
+自此LEDE的配置就完成了。</li>
+</ul>
+<h3 id="KMS，广告过滤，美元。"><a href="#KMS，广告过滤，美元。" class="headerlink" title="KMS，广告过滤，美元。"></a>KMS，广告过滤，美元。</h3><ul>
+<li><h4 id="KMS微软激活"><a href="#KMS微软激活" class="headerlink" title="KMS微软激活"></a>KMS微软激活</h4><p><img src="http://host.zealot.top:5680/images/lede23.png"><br><img src="http://host.zealot.top:5680/images/lede24.png"><br>激活WINDOWS,首先安装vol大客户版windows和office，然后以管理员权限运行CMD.运行下面的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">激活Windows</span><br><span class="line">cd C:\Windows\System32</span><br><span class="line">CSCRIPT /NOLOGO SLMGR.VBS /SKMS 192.168.31.1</span><br><span class="line">CSCRIPT /NOLOGO SLMGR.VBS /ATO</span><br><span class="line">CSCRIPT /NOLOGO SLMGR.VBS /XPR</span><br><span class="line">---------------------------------------------</span><br><span class="line">激活Office2016（以64位为例子）</span><br><span class="line">cd C:\Program Files\Microsoft Office\Office16</span><br><span class="line">CSCRIPT OSPP.VBS /SETHST:192.168.31.1</span><br><span class="line">CSCRIPT OSPP.VBS /ACT</span><br><span class="line">CSCRIPT OSPP.VBS /DSTATUS</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>记住：192.168.31.1这个地址，要改成你自己的LEDE的IP。</p>
+</blockquote>
+</li>
+<li><h4 id="koolproxy广告过滤"><a href="#koolproxy广告过滤" class="headerlink" title="koolproxy广告过滤"></a>koolproxy广告过滤</h4><p><img src="http://host.zealot.top:5680/images/lede25.png"><br><img src="http://host.zealot.top:5680/images/lede26.png"><br>开启第三方规则，我开这三个规则过滤视频广告是最优的。你们也可以自己试试。<br><img src="http://host.zealot.top:5680/images/lede27.png"></p>
+</li>
+<li><h4 id="美元服务"><a href="#美元服务" class="headerlink" title="美元服务"></a>美元服务</h4><p><img src="http://host.zealot.top:5680/images/lede28.png"><br>开启美元，输入自己的SS节点，然后添加。<br><img src="http://host.zealot.top:5680/images/lede29.png"><br>选择刚才添加的节点，提交.<br><img src="http://host.zealot.top:5680/images/lede30.png"><br>第一次开启美元，记得要更新一下规则.<br><img src="http://host.zealot.top:5680/images/lede31.png"></p>
+</li>
+</ul>
 
       
     </div>
@@ -564,9 +646,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Centos/" rel="tag"> <i class="fa fa-tag"></i> Centos</a>
+            <a href="/tags/ROS/" rel="tag"> <i class="fa fa-tag"></i> ROS</a>
           
-            <a href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99/" rel="tag"> <i class="fa fa-tag"></i> 防火墙</a>
+            <a href="/tags/ESXI/" rel="tag"> <i class="fa fa-tag"></i> ESXI</a>
+          
+            <a href="/tags/NAS/" rel="tag"> <i class="fa fa-tag"></i> NAS</a>
+          
+            <a href="/tags/LEDE/" rel="tag"> <i class="fa fa-tag"></i> LEDE</a>
           
         </div>
       
@@ -579,8 +665,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/09/Markdown%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%94%B9%E5%8F%98%E8%A1%A8%E6%A0%BC%E5%AE%BD%E5%BA%A6%EF%BC%88%E5%88%97%E5%AE%BD%EF%BC%89/" rel="next" title="Markdown技巧：改变表格宽度（列宽）">
-                <i class="fa fa-chevron-left"></i> Markdown技巧：改变表格宽度（列宽）
+              <a href="/2018/07/25/Hexo-Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A22/" rel="next" title="[原创]Hexo-Github搭建自己的博客 --- 心得汇总2018版（主题配置篇）">
+                <i class="fa fa-chevron-left"></i> [原创]Hexo-Github搭建自己的博客 --- 心得汇总2018版（主题配置篇）
               </a>
             
           </div>
@@ -589,8 +675,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/15/squid%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86/" rel="prev" title="squid正向代理配置及使用">
-                squid正向代理配置及使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/10/Hexo-Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A23/" rel="prev" title="[原创]Hexo+Github搭建自己的博客 --- 心得汇总2018版（内容编辑篇）">
+                [原创]Hexo+Github搭建自己的博客 --- 心得汇总2018版（内容编辑篇） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -823,7 +909,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Centos6-iptables"><span class="nav-number">1.</span> <span class="nav-text">Centos6 iptables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Centos7-Firewalld"><span class="nav-number">2.</span> <span class="nav-text">Centos7 Firewalld</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%9C%80%E8%A6%81%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">安装需要的虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85ESXI6-5"><span class="nav-number">1.1.</span> <span class="nav-text">安装ESXI6.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85ROS"><span class="nav-number">1.2.</span> <span class="nav-text">安装ROS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85LEDE"><span class="nav-number">1.3.</span> <span class="nav-text">安装LEDE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">配置虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEROS"><span class="nav-number">2.1.</span> <span class="nav-text">配置ROS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ROS%E7%9A%84DHCP%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.1.</span> <span class="nav-text">ROS的DHCP配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9LAN%E7%BD%91%E5%8D%A1"><span class="nav-number">2.1.2.</span> <span class="nav-text">选择LAN网卡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E6%AE%B5%E8%AE%BE%E7%BD%AE%EF%BC%8C%E6%88%91%E7%94%A8%E7%9A%8431%E6%AE%B5%E3%80%82%E8%BF%99%E4%B8%AA%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%87%AA%E7%94%B1%E8%AE%BE%E7%BD%AE%E3%80%82"><span class="nav-number">2.1.3.</span> <span class="nav-text">网段设置，我用的31段。这个你可以自由设置。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%92%E9%87%8D%E7%82%B9%EF%BC%8C%E8%BF%99%E9%87%8C%E8%A6%81%E8%AE%BE%E7%BD%AE%E6%88%90%E4%B8%8B%E9%9D%A2LEDE%E7%9A%84IP%E5%9C%B0%E5%9D%80%E3%80%82"><span class="nav-number">2.1.4.</span> <span class="nav-text">划重点，这里要设置成下面LEDE的IP地址。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9D%9F"><span class="nav-number">2.1.5.</span> <span class="nav-text">结束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AELEDE"><span class="nav-number">2.2.</span> <span class="nav-text">配置LEDE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AFLEDE%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">2.2.1.</span> <span class="nav-text">开启LEDE虚拟机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E8%99%9A%E6%8B%9F%E6%9C%BALEDE%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="nav-number">2.2.2.</span> <span class="nav-text">进入虚拟机LEDE控制台</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1"><span class="nav-number">2.2.3.</span> <span class="nav-text">配置网卡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMS%EF%BC%8C%E5%B9%BF%E5%91%8A%E8%BF%87%E6%BB%A4%EF%BC%8C%E7%BE%8E%E5%85%83%E3%80%82"><span class="nav-number">2.3.</span> <span class="nav-text">KMS，广告过滤，美元。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#KMS%E5%BE%AE%E8%BD%AF%E6%BF%80%E6%B4%BB"><span class="nav-number">2.3.1.</span> <span class="nav-text">KMS微软激活</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#koolproxy%E5%B9%BF%E5%91%8A%E8%BF%87%E6%BB%A4"><span class="nav-number">2.3.2.</span> <span class="nav-text">koolproxy广告过滤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BE%8E%E5%85%83%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.3.3.</span> <span class="nav-text">美元服务</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
