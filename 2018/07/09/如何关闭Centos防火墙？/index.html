@@ -124,14 +124,14 @@
 <meta property="og:site_name" content="思想就是武器">
 <meta property="og:description" content="有很多同学初期玩Centos时发现明明按照步骤一步步完成了，但是就是无法成功完成所要的功能。这其实是Centos自带的防火墙在起作用。下面介绍如何关闭防火墙。">
 <meta property="og:locale">
-<meta property="og:image" content="http://host.zealot.top:5680/images/centos_1.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/centos_1.jpg">
 <meta property="article:published_time" content="2018-07-09T06:51:50.000Z">
-<meta property="article:modified_time" content="2022-02-07T08:09:38.622Z">
+<meta property="article:modified_time" content="2022-02-08T04:33:28.639Z">
 <meta property="article:author" content="Hank ZHU">
 <meta property="article:tag" content="Centos">
 <meta property="article:tag" content="防火墙">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://host.zealot.top:5680/images/centos_1.jpg">
+<meta name="twitter:image" content="https://host.zealot.top:5683/images/centos_1.jpg">
 
 
 
@@ -393,8 +393,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-02-07T16:09:38+08:00">
-                2022-02-07
+              <time title="更新于" itemprop="dateModified" datetime="2022-02-08T12:33:28+08:00">
+                2022-02-08
               </time>
             
           </span>
@@ -491,7 +491,7 @@
 <span id="more"></span>
 <p>首选打开 &#x2F;etc&#x2F;selinux&#x2F;config   这个文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/selinux/config</span><br></pre></td></tr></table></figure>
-<p>将其中的SELINUX&#x3D;enforcing 改成 SELINUX&#x3D;disabled<br><img src="http://host.zealot.top:5680/images/centos_1.jpg"></p>
+<p>将其中的SELINUX&#x3D;enforcing 改成 SELINUX&#x3D;disabled<br><img src="https://host.zealot.top:5683/images/centos_1.jpg"></p>
 <p>保存退出</p>
 <p>然后执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service </span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service </span><br></pre></td></tr></table></figure>

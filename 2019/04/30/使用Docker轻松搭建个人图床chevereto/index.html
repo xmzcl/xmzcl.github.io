@@ -124,17 +124,17 @@
 <meta property="og:site_name" content="思想就是武器">
 <meta property="og:description" content="因为图床，我折腾了几次了。从最开始的七牛，折腾到腾讯云。现在腾讯云又满足不了我的流量需求，被迫又得想办法，刚好自己有个搬瓦工的VPS，这个月把线路换成CN2的，VPS速度方面应该是没问题。所以决定就在这上面自己搭一个图床。整个过整非常简单，下面是自己的搭建步骤： 在搬瓦工VPS上安装Docker这个太初级，就不说了，请自行百度。 安装Docker-composegithub地址：https:&#x2F;&#x2F;g">
 <meta property="og:locale">
-<meta property="og:image" content="http://host.zealot.top:5680/images/phevereto_1.jpg">
-<meta property="og:image" content="http://host.zealot.top:5680/images/phevereto_2.jpg">
-<meta property="og:image" content="http://host.zealot.top:5680/images/phevereto_3.jpg">
-<meta property="og:image" content="http://host.zealot.top:5680/images/phevereto_4.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/phevereto_1.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/phevereto_2.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/phevereto_3.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/phevereto_4.jpg">
 <meta property="article:published_time" content="2019-04-30T10:26:36.000Z">
 <meta property="article:modified_time" content="2019-04-30T11:53:32.000Z">
 <meta property="article:author" content="Hank ZHU">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="Chevereto">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://host.zealot.top:5680/images/phevereto_1.jpg">
+<meta name="twitter:image" content="https://host.zealot.top:5683/images/phevereto_1.jpg">
 
 
 
@@ -496,7 +496,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
 <p>然后执行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose -v</span><br></pre></td></tr></table></figure>
-<p>看看是否可以正确显示版本号！<br><img src="http://host.zealot.top:5680/images/phevereto_1.jpg"></p>
+<p>看看是否可以正确显示版本号！<br><img src="https://host.zealot.top:5683/images/phevereto_1.jpg"></p>
 <h4 id="编辑thevereto的docker配置文件docker-compose-yml"><a href="#编辑thevereto的docker配置文件docker-compose-yml" class="headerlink" title="编辑thevereto的docker配置文件docker-compose.yml"></a>编辑thevereto的docker配置文件<code>docker-compose.yml</code></h4><p>用vim或nano新建一个文件<code>docker-compose.yml</code>,内容如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  db:</span><br><span class="line">    image: mariadb</span><br><span class="line">    volumes:</span><br><span class="line">      - ./database:/var/lib/mysql:rw</span><br><span class="line">    restart: always</span><br><span class="line">    networks:</span><br><span class="line">      - private</span><br><span class="line">    environment:</span><br><span class="line">      MYSQL_ROOT_PASSWORD: chevereto_root</span><br><span class="line">      MYSQL_DATABASE: chevereto</span><br><span class="line">      MYSQL_USER: chevereto</span><br><span class="line">      MYSQL_PASSWORD: chevereto</span><br><span class="line"></span><br><span class="line">  chevereto:</span><br><span class="line">    depends_on:</span><br><span class="line">      - db</span><br><span class="line">    image: nmtan/chevereto</span><br><span class="line">    restart: always</span><br><span class="line">    networks:</span><br><span class="line">      - private</span><br><span class="line">    environment:</span><br><span class="line">      CHEVERETO_DB_HOST: db</span><br><span class="line">      CHEVERETO_DB_USERNAME: chevereto</span><br><span class="line">      CHEVERETO_DB_PASSWORD: chevereto</span><br><span class="line">      CHEVERETO_DB_NAME: chevereto</span><br><span class="line">      CHEVERETO_DB_PREFIX: chv_</span><br><span class="line">    volumes:</span><br><span class="line">      - ./chevereto_images:/var/www/html/images:rw</span><br><span class="line">      - ./conf/php.ini:/usr/local/etc/php/conf.d/php.ini</span><br><span class="line">    ports:</span><br><span class="line">      - 8080:80</span><br><span class="line"></span><br><span class="line">networks:</span><br><span class="line">  private:</span><br></pre></td></tr></table></figure>
 <p>接着再建立三个目录</p>
@@ -507,7 +507,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R www-data:www-data database chevereto_images conf</span><br></pre></td></tr></table></figure>
 <p>启动docker</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-<h4 id="访问thevereto"><a href="#访问thevereto" class="headerlink" title="访问thevereto"></a>访问thevereto</h4><p>通过<code>IP地址:8080</code>就可以访问thevereto了。<br><img src="http://host.zealot.top:5680/images/phevereto_2.jpg"><br>输入自己的帐号和密码后，就可以进入thevereto后台，在设置里把语言设置成<code>简体中文</code><br><img src="http://host.zealot.top:5680/images/phevereto_3.jpg"><br>这样就安装完成了。具体使用方法，都是中文的。看一下就懂得怎么用了。<br><img src="http://host.zealot.top:5680/images/phevereto_4.jpg"></p>
+<h4 id="访问thevereto"><a href="#访问thevereto" class="headerlink" title="访问thevereto"></a>访问thevereto</h4><p>通过<code>IP地址:8080</code>就可以访问thevereto了。<br><img src="https://host.zealot.top:5683/images/phevereto_2.jpg"><br>输入自己的帐号和密码后，就可以进入thevereto后台，在设置里把语言设置成<code>简体中文</code><br><img src="https://host.zealot.top:5683/images/phevereto_3.jpg"><br>这样就安装完成了。具体使用方法，都是中文的。看一下就懂得怎么用了。<br><img src="https://host.zealot.top:5683/images/phevereto_4.jpg"></p>
 
       
     </div>

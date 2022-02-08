@@ -124,8 +124,8 @@
 <meta property="og:site_name" content="思想就是武器">
 <meta property="og:description" content="我经常遇到人在外面，但是需要访问家里的文件的情况。原来搭了一个FTP文件服务器，但是感觉还是不够方便。我这个人比较懒，不方便怎么可以行呢？所以就有了这篇博文。 WEBDAV是什么？自己百度。。。。。 webdav对比ftp有什么好处？webdav通过http工作，所以有ftp无法提供的http的所有好处。例如：强身份验证，加密，代理支持和缓存等。虽然ftp也可以通过SSH获得一些支持，但http基">
 <meta property="og:locale">
-<meta property="og:image" content="http://host.zealot.top:5680/images/webdav.png">
-<meta property="og:image" content="http://host.zealot.top:5680/images/webdav1.png">
+<meta property="og:image" content="https://host.zealot.top:5683/images/webdav.png">
+<meta property="og:image" content="https://host.zealot.top:5683/images/webdav1.png">
 <meta property="article:published_time" content="2019-02-17T02:42:42.000Z">
 <meta property="article:modified_time" content="2021-05-28T06:09:28.000Z">
 <meta property="article:author" content="Hank ZHU">
@@ -133,7 +133,7 @@
 <meta property="article:tag" content="webdav">
 <meta property="article:tag" content="apache2">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://host.zealot.top:5680/images/webdav.png">
+<meta name="twitter:image" content="https://host.zealot.top:5683/images/webdav.png">
 
 
 
@@ -487,7 +487,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart apache2</span><br></pre></td></tr></table></figure>
 <h3 id="访问方法"><a href="#访问方法" class="headerlink" title="访问方法"></a>访问方法</h3><p>在任何浏览器里输入<code>IP地址/webdav</code>就可以访问webdav了。</p>
 <h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><h4 id="映射文件"><a href="#映射文件" class="headerlink" title="映射文件"></a>映射文件</h4><p>webdav可以在windows里做映射，可以达到跟本地盘访问一样的效果。<br>由于WIN7以上版本的操作系统微软禁用了http形式的基本WebDAV验证形式，所以需要我们手工来修改一下。<br>在运行里输入<code>regedit</code>打开注册表。<br>修改<br><code>HKEY_LOCAL_MACHINE</code>&gt;&gt;<code>SYSTEM</code>&gt;&gt;<code>CurrentControlSet</code>&gt;&gt;<code>Services</code>&gt;&gt;<code>WebClient</code>&gt;&gt;<code>Parameters</code>&gt;&gt;<code>BasicAuthLevel</code><br>把这个值从1改为2。然后进控制面板，在<code>服务</code>里，把<code>WebClient</code>服务重启（没有启动的就启动它）.</p>
-<p><img src="http://host.zealot.top:5680/images/webdav.png"><br><img src="http://host.zealot.top:5680/images/webdav1.png"></p>
+<p><img src="https://host.zealot.top:5683/images/webdav.png"><br><img src="https://host.zealot.top:5683/images/webdav1.png"></p>
 <h4 id="下载文件大小的问题"><a href="#下载文件大小的问题" class="headerlink" title="下载文件大小的问题"></a>下载文件大小的问题</h4><p>在某些版本的 Windows 操作系统中，WebDAV 驱动器的最大文件大小被限制为 50MB。如果你试图复制超过 50MB 大小的文件，Windows 就会弹出错误提示框。当然，这个限制是可以通过修改注册表来消除的。将注册表中位于<br><code>HKEY_LOCAL_MACHINE</code>&gt;&gt;<code>SYSTEM</code>&gt;&gt;<code>CurrentControlSet</code>&gt;&gt;<code>Services</code>&gt;&gt;<code>WebClient</code>&gt;&gt;<code>Parameters</code>&gt;&gt;<code>FileSizeLimitInBytes</code><br>处的键值由 50,000,000 (50MB) 修改为更大的数值。最大修改为：4294967295（0xffffffff）字节，即4G。不过我好像没有遇到这个问题，这个方法有没有用就不知道了。</p>
 
       

@@ -124,12 +124,12 @@
 <meta property="og:site_name" content="思想就是武器">
 <meta property="og:description" content="好久没有更新博客了，今天更新一篇如何利用dig命令来测试DNS响应速度。具体代码见下面 123yum install bind-utils  #centos&amp;redhatapt install dnsutils   #debian&amp;unbuntufor ((i&#x3D;1;i&lt;&#x3D;15;i++));do (time dig @223.6.6.6 www.baidu.com) 2&gt;">
 <meta property="og:locale">
-<meta property="og:image" content="http://host.zealot.top:5680/images/DNStest.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/DNStest.jpg">
 <meta property="article:published_time" content="2019-08-23T08:31:52.000Z">
 <meta property="article:modified_time" content="2019-08-23T08:55:27.000Z">
 <meta property="article:author" content="Hank ZHU">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://host.zealot.top:5680/images/DNStest.jpg">
+<meta name="twitter:image" content="https://host.zealot.top:5683/images/DNStest.jpg">
 
 
 
@@ -488,7 +488,7 @@
         <p>好久没有更新博客了，今天更新一篇如何利用dig命令来测试DNS响应速度。具体代码见下面</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-utils  #centos&amp;redhat</span><br><span class="line">apt install dnsutils   #debian&amp;unbuntu</span><br><span class="line">for ((i=1;i&lt;=15;i++));do (time dig @223.6.6.6 www.baidu.com) 2&gt;&amp;1 | grep real | cut  -dm -f 2 | sed s/[s.]//g;done</span><br></pre></td></tr></table></figure>
 <p>将223.6.6.6改为你要测试的DNS，<code>www.baidu.com</code>改为你要测试的网址。响应值越低越好。</p>
-<p><img src="http://host.zealot.top:5680/images/DNStest.jpg"></p>
+<p><img src="https://host.zealot.top:5683/images/DNStest.jpg"></p>
 <p>通过上图明显能看出来，218.85.152.99的DNS，比223.6.6.6的DNS要快！</p>
 
       

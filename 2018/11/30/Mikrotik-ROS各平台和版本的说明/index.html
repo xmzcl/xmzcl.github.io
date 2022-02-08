@@ -124,14 +124,14 @@
 <meta property="og:site_name" content="思想就是武器">
 <meta property="og:description" content="最近想更换虚拟化平台到proxmox VE，牵扯到原来很多虚拟机要转移平台。原来ROS的OVA文件也用不了了，所以只能另外想办法。之后发现原来ROS有专门针对虚拟机的版本CHR版，就去了解了一下。现在把各版本了解的情况做个笔记！先来张图：RouterOS 的硬件平台分为很多种，你要区分自己的硬件是那种RouterOS软件包，官方也会有说明，如果你是RouterOS在线升级就系统会自动识别硬件平台，">
 <meta property="og:locale">
-<meta property="og:image" content="http://host.zealot.top:5680/images/ROSver.jpg">
-<meta property="og:image" content="http://host.zealot.top:5680/images/ROSver1.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/ROSver.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/ROSver1.jpg">
 <meta property="article:published_time" content="2018-11-30T10:43:16.000Z">
 <meta property="article:modified_time" content="2018-12-05T02:41:58.000Z">
 <meta property="article:author" content="Hank ZHU">
 <meta property="article:tag" content="ROS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://host.zealot.top:5680/images/ROSver.jpg">
+<meta name="twitter:image" content="https://host.zealot.top:5683/images/ROSver.jpg">
 
 
 
@@ -487,7 +487,7 @@
       
 
       
-        <p>最近想更换虚拟化平台到proxmox VE，牵扯到原来很多虚拟机要转移平台。原来ROS的OVA文件也用不了了，所以只能另外想办法。之后发现原来ROS有专门针对虚拟机的版本CHR版，就去了解了一下。现在把各版本了解的情况做个笔记！<br>先来张图：<br><img src="http://host.zealot.top:5680/images/ROSver.jpg"><br>RouterOS 的硬件平台分为很多种，你要区分自己的硬件是那种RouterOS软件包，官方也会有说明，如果你是RouterOS在线升级就系统会自动识别硬件平台，</p>
+        <p>最近想更换虚拟化平台到proxmox VE，牵扯到原来很多虚拟机要转移平台。原来ROS的OVA文件也用不了了，所以只能另外想办法。之后发现原来ROS有专门针对虚拟机的版本CHR版，就去了解了一下。现在把各版本了解的情况做个笔记！<br>先来张图：<br><img src="https://host.zealot.top:5683/images/ROSver.jpg"><br>RouterOS 的硬件平台分为很多种，你要区分自己的硬件是那种RouterOS软件包，官方也会有说明，如果你是RouterOS在线升级就系统会自动识别硬件平台，</p>
 <p>灰色条上可以看到硬件平台命名和对应硬件型号，下面特别说明下：</p>
 <ul>
 <li>mipsbe – 对应所有Atheros芯片的RB400、700、900、2011系列产品和RBSXT、OmniTIK、Groov等采用MIPS-BE</li>
@@ -500,7 +500,7 @@
 </ul>
 <p>选择号自己的硬件平台后，就可以选择下载RouterOS的版本，版本一共有3种，而且每种会有两个包Main package和Extra packetages，如何选择？</p>
 <p>Main package和Extra packetages，两种功能个包都可以用于升级RouterOS，他们区别是：</p>
-<p>Main package能用于netinstall的安装，也可以用于升级。<br>Extra packages为zip压缩文件，里面包含基本的系统包和各种功能扩展包，根据功能需要选择上传升级，不能用于netinsatll的安装。<br><img src="http://host.zealot.top:5680/images/ROSver1.jpg"><br>CHR版专门运行在虚拟环境中</p>
+<p>Main package能用于netinstall的安装，也可以用于升级。<br>Extra packages为zip压缩文件，里面包含基本的系统包和各种功能扩展包，根据功能需要选择上传升级，不能用于netinsatll的安装。<br><img src="https://host.zealot.top:5683/images/ROSver1.jpg"><br>CHR版专门运行在虚拟环境中</p>
 <ul>
 <li>VHDX image - 对应VHDX虚拟机文件。</li>
 <li>VMDK image - 对应VMDK虚拟机文件，大多数虚拟机用的这种。</li>

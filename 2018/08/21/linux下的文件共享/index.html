@@ -124,15 +124,15 @@
 <meta property="og:site_name" content="思想就是武器">
 <meta property="og:description" content="LINUX下有好多种共享，分享nfs和samba这二种共享方式。 SAMBA共享Samba最大的功能可用于Linux与Windows系统直接的文件共享和打印共享，Samba既可用于Windows与Linux之间的文件共享，也可用于Linux与Linux之间的资源共享，由于NFS的出现，因而 Samba更多用在Linux与Windows之间的数据共享上面。Samba服务器可实现如下功能：  WINS">
 <meta property="og:locale">
-<meta property="og:image" content="http://host.zealot.top:5680/images/NFS.png">
+<meta property="og:image" content="https://host.zealot.top:5683/images/NFS.png">
 <meta property="article:published_time" content="2018-08-21T08:56:27.000Z">
-<meta property="article:modified_time" content="2022-02-07T08:09:38.626Z">
+<meta property="article:modified_time" content="2022-02-08T04:33:28.643Z">
 <meta property="article:author" content="Hank ZHU">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="NFS">
 <meta property="article:tag" content="SAMBA">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://host.zealot.top:5680/images/NFS.png">
+<meta name="twitter:image" content="https://host.zealot.top:5683/images/NFS.png">
 
 
 
@@ -394,8 +394,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-02-07T16:09:38+08:00">
-                2022-02-07
+              <time title="更新于" itemprop="dateModified" datetime="2022-02-08T12:33:28+08:00">
+                2022-02-08
               </time>
             
           </span>
@@ -536,7 +536,7 @@
 <p>Debian环境下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/nfs-kernel-server restart   #重启samba</span><br><span class="line">/etc/init.d/nfs-kernel-server enable    #重启samba</span><br><span class="line">/etc/init.d/nfs-kernel-server status    #查看samba状态</span><br><span class="line">/etc/init.d/nfs-kernel-server stop      #停止samba</span><br><span class="line">/etc/init.d/nfs-kernel-server desable   #禁用samba</span><br></pre></td></tr></table></figure>
 
-<h3 id="访问NFS共享"><a href="#访问NFS共享" class="headerlink" title="访问NFS共享"></a>访问NFS共享</h3><p>windows环境下，需要先安装NFS支持。<br><img src="http://host.zealot.top:5680/images/NFS.png"><br>安装完成后，按<code>WIN+R</code>键，在运行框内输入<code>cmd</code>回车。</p>
+<h3 id="访问NFS共享"><a href="#访问NFS共享" class="headerlink" title="访问NFS共享"></a>访问NFS共享</h3><p>windows环境下，需要先安装NFS支持。<br><img src="https://host.zealot.top:5683/images/NFS.png"><br>安装完成后，按<code>WIN+R</code>键，在运行框内输入<code>cmd</code>回车。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">showmount    #显示开始NFS服务的主机</span><br><span class="line">showmount -e #显示出可以NFS挂载的目录</span><br><span class="line">showmount -d #显示被挂载的共享目录</span><br><span class="line">showmount -a #显示客户端信息和共享目录</span><br><span class="line">mount 192.168.1.99:/srv/upload X: #挂载到windows的X盘</span><br></pre></td></tr></table></figure>
 
 

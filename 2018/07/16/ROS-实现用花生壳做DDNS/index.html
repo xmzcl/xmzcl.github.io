@@ -124,17 +124,17 @@
 <meta property="og:site_name" content="思想就是武器">
 <meta property="og:description" content="ROS6.X以上版本，动态DDNS绑定方法。本人现在使用的6.46测试正常。 建立脚本用winbox登陆ROS.在system的script下，新建一个脚本。   输入脚本名字ddns，输入下面的代码: 123456789local ipaddrlocal server &quot;http:&#x2F;&#x2F;ddns.oray.com&quot;local domain &quot;输入你的域名&quot;l">
 <meta property="og:locale">
-<meta property="og:image" content="http://host.zealot.top:5680/images/ROSDDNS1.jpg">
-<meta property="og:image" content="http://host.zealot.top:5680/images/ROSDDNS2.jpg">
-<meta property="og:image" content="http://host.zealot.top:5680/images/ROSDDNS3.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/ROSDDNS1.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/ROSDDNS2.jpg">
+<meta property="og:image" content="https://host.zealot.top:5683/images/ROSDDNS3.jpg">
 <meta property="article:published_time" content="2018-07-16T02:50:34.000Z">
-<meta property="article:modified_time" content="2022-02-07T08:09:38.626Z">
+<meta property="article:modified_time" content="2022-02-08T04:33:28.647Z">
 <meta property="article:author" content="Hank ZHU">
 <meta property="article:tag" content="ROS">
 <meta property="article:tag" content="DDNS">
 <meta property="article:tag" content="花生壳">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://host.zealot.top:5680/images/ROSDDNS1.jpg">
+<meta name="twitter:image" content="https://host.zealot.top:5683/images/ROSDDNS1.jpg">
 
 
 
@@ -396,8 +396,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-02-07T16:09:38+08:00">
-                2022-02-07
+              <time title="更新于" itemprop="dateModified" datetime="2022-02-08T12:33:28+08:00">
+                2022-02-08
               </time>
             
           </span>
@@ -492,16 +492,16 @@
       
         <p>ROS6.X以上版本，动态DDNS绑定方法。本人现在使用的6.46测试正常。</p>
 <h1 id="建立脚本"><a href="#建立脚本" class="headerlink" title="建立脚本"></a>建立脚本</h1><p>用winbox登陆ROS.在<code>system</code>的<code>script</code>下，新建一个脚本。</p>
-<p><img src="http://host.zealot.top:5680/images/ROSDDNS1.jpg"> </p>
+<p><img src="https://host.zealot.top:5683/images/ROSDDNS1.jpg"> </p>
 <p>输入脚本名字<code>ddns</code>，输入下面的代码:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">local ipaddr</span><br><span class="line">local server &quot;http://ddns.oray.com&quot;</span><br><span class="line">local domain &quot;输入你的域名&quot;</span><br><span class="line">local par &quot;/ph/update?hostname=$domain&amp;myip=$ipaddr&quot;</span><br><span class="line">local users &quot;花生壳的用户名&quot;</span><br><span class="line">local paswd &quot;花生壳的密码&quot;</span><br><span class="line">:set ipaddr [/ip address get [/ip address find interface=pppoe-out1] address]</span><br><span class="line">:set ipaddr [:pick $ipaddr 0 ([len $ipaddr] -3)]</span><br><span class="line">/tool fetch url=($server . $par) mode=http user=$users password=$paswd</span><br></pre></td></tr></table></figure>
 
 <p>备注：如果是多拔的同学，想要选择是用哪条线路的IP。可以在<code>interface=pppoe-out1</code>这里改成你想要的线路。</p>
-<h1 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h1><h2 id="在script-list中选择要执行的脚本点Run-Script就运行了。"><a href="#在script-list中选择要执行的脚本点Run-Script就运行了。" class="headerlink" title="在script list中选择要执行的脚本点Run Script就运行了。"></a>在script list中选择要执行的脚本点<code>Run Script</code>就运行了。</h2><p><img src="http://host.zealot.top:5680/images/ROSDDNS2.jpg"></p>
+<h1 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h1><h2 id="在script-list中选择要执行的脚本点Run-Script就运行了。"><a href="#在script-list中选择要执行的脚本点Run-Script就运行了。" class="headerlink" title="在script list中选择要执行的脚本点Run Script就运行了。"></a>在script list中选择要执行的脚本点<code>Run Script</code>就运行了。</h2><p><img src="https://host.zealot.top:5683/images/ROSDDNS2.jpg"></p>
 <h2 id="建立定时任务，每15分钟自动刷新DDNS"><a href="#建立定时任务，每15分钟自动刷新DDNS" class="headerlink" title="建立定时任务，每15分钟自动刷新DDNS"></a>建立定时任务，每15分钟自动刷新DDNS</h2><p>在<code>system</code>的<code>Scheduler</code>下，新建一个任务。<br>输入你的任务名，<code>Interval</code>是执行的时间（我设置的是每15分钟执行一次），最后在内容里输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/system script run ddns</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://host.zealot.top:5680/images/ROSDDNS3.jpg"></p>
+<p><img src="https://host.zealot.top:5683/images/ROSDDNS3.jpg"></p>
 <p><font size=5 color=red>大功告成！</font></p>
 
       
